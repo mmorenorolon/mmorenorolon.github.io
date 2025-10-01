@@ -7,10 +7,10 @@ website:
   navbar:
     left:
       - href: index.qmd
-      text: Home
-    - about.qmd
+        text: Home
+      - about.qmd
       - href: resources.qmd
-      text: Resources
+        text: Resources
 
 format:
   html:

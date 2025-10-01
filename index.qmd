@@ -1,21 +1,22 @@
 ---
 title: "Melannie Moreno Rolon"
-image: Melannie Moreno Rolon_MEDS Headshots 2026_0023.jpg
+image: Melannie_Headshot.jpg
+toc: false
 about:
   template: jolla
   image-shape: round
   image-width: 17em
   links: 
     - text: LinkedIn
-    href: https://www.linkedin.com/in/melanniemoreno
+      href: https://www.linkedin.com/in/melanniemoreno
     - text: GitHub
-    href: https://github.com/mmorenorolon
+      href: https://github.com/mmorenorolon
     - text: Email
-    href: mailto:melanniemoreno@gmail.com
+      href: mailto:melanniemoreno@gmail.com
 ---
 
 Using data to protect communities and the resources they rely on.
 
 ## Education
 
-##Professional Experience
+## Professional Experience
