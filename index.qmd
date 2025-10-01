@@ -1,4 +1,17 @@
 ---
-title: "mmorenorolon.github.io"
+title: "Melannie Moreno Rolon"
+image: Melannie Moreno Rolon_MEDS Headshots 2026_0023.jpg
+about:
+  template: jolla
+  image-shape: round
+  image-width: 17em
+  links: 
+    - text: LinkedIn
+    href: https://www.linkedin.com/in/melanniemoreno
+    - text: GitHub
+    href: https://github.com/mmorenorolon
+    - text: Email
+    href: mailto:melanniemoreno@gmail.com
 ---
 
+Using data to protect communities and the resources they rely on.
