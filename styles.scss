@@ -1,0 +1,42 @@
+/*-- scss:defaults --*/
+
+// import google fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Varela&display=swap');
+
+// fonts 
+$linen:Varela
+// colors
+
+$dark-purple: #242038;
+$linen: #F7ECE1;
+$french-gray: #CAC4CE;
+
+
+// define quarto variables
+$body-bg: $dark-purple;
+$nav-bar-bg:$french-gray;
+$color: $linen; 
+
+/*-- scss:rules --*/
+h1, h2, h3{
+  font-family: $josefin:;
+}
+
+
+h1, h2 {
+  letter-spacing: 5px;
+  font-weight: 800;
+}
+
+.title {
+  color: $linen;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.orange-text{
+  color: orange;
+}
+

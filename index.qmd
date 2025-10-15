@@ -8,10 +8,13 @@ about:
   image-width: 17em
   links: 
     - text: LinkedIn
+      icon: linkedin
       href: https://www.linkedin.com/in/melanniemoreno
     - text: GitHub
+      icon: github
       href: https://github.com/mmorenorolon
     - text: Email
+      icon: inbox
       href: mailto:melanniemoreno@gmail.com
 ---
 

@@ -4,22 +4,33 @@ project:
 
 website:
   title: "mmorenorolon.github.io"
-  navbar:
+  favicon: 
+  navbar: Melannie Moreno Logo
+    logo Melannie Moreno Logo.png
+    : false
+    logo-alt: "the name Melannie Moreno"
     left:
       - href: index.qmd
         text: Home
       - about.qmd
       - href: resources.qmd
         text: Resources
+      - icon: github
+      - href: https://github.com/mmorenorolon/mmorenorolon.github.io
+    page-footer:
+      left: Copywright 2025, Melannie Moreno Rolón
+      # right:
+      #   - 
 
 format:
   html:
     theme:
       - cosmo
       - brand
-    css: styles.css
+    css: styles.scss
     toc: true
     page-layout: full
+    mainfont: Nunito
 
 
 

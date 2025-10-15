@@ -4,6 +4,10 @@ title: "About"
 
 About this site
 
-```{r}
-1 + 1
-```
+## What I do for work
+
+Here's where I describe what I do professionally
+
+## What I do for fun
+
+Give the people what they want! Something fun!
