@@ -6,21 +6,20 @@ website:
   title: "mmorenorolon.github.io"
   favicon: 
   navbar: Melannie Moreno Logo
-    logo Melannie Moreno Logo.png
-    : false
-    logo-alt: "the name Melannie Moreno"
+    #logo: Melannie Moreno Logo.png
+    #logo-alt: "the name Melannie Moreno"
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
-      - href: resources.qmd
-        text: Resources
+    - href: index.qmd
+      - text: Home
+    - about.qmd
+    - href: resources.qmd
+      - text: Resources
       - icon: github
       - href: https://github.com/mmorenorolon/mmorenorolon.github.io
     page-footer:
-      left: Copywright 2025, Melannie Moreno Rolón
-      # right:
-      #   - 
+    left: Copywright 2025, Melannie Moreno Rolón
+      right:
+      - posts.qmd
 
 format:
   html:

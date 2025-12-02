@@ -1,0 +1,11 @@
+# any options specified here will apply to all posts 
+
+author:
+  - name: Melannie Moreno Rolón
+  - url: https://mmorenorolon.github.io/
+  - affiliation: The Bren School of Environmental Science & Managment
+  - affiliation-url: https://bren.ucsb.edu/
+  
+title-block-banner: true
+
+freeze: auto 
