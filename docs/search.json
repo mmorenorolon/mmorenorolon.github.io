@@ -1,31 +1,38 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "resources",
     "section": "",
-    "text": "About this site"
+    "text": "this is an h1 element\n\n\nthis is an h1 element with the title class\n\n\nthis parragraoh is orange\n\n\nthis text is both centered and orange\n\n\nHerés where I describe something fun that I enjoy doing.\n\nHere’s one line\nHere’s another line"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Melannie Moreno Rolon",
+    "title": "Melannie Moreno Rolón",
     "section": "",
     "text": "Using data to protect communities and the resources they rely on."
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
-    "title": "Melannie Moreno Rolon",
+    "title": "Melannie Moreno Rolón",
     "section": "Education",
     "text": "Education"
   },
   {
     "objectID": "index.html#professional-experience",
     "href": "index.html#professional-experience",
-    "title": "Melannie Moreno Rolon",
+    "title": "Melannie Moreno Rolón",
     "section": "Professional Experience",
     "text": "Professional Experience"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
   },
   {
     "objectID": "about.html#what-i-do-for-work",
@@ -42,10 +49,17 @@
     "text": "What I do for fun\nGive the people what they want! Something fun!"
   },
   {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "resources",
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "My Blog Listing Page",
     "section": "",
-    "text": "this is an h1 element\n\n\nthis is an h1 element with the title class"
+    "text": "Latest Post\n\nHave Extreme Rainfall Events Increased in San Juan?  A negative binomial model of 50 years of rainfall data in San Juan, Puerto Rico.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHave Extreme Rainfall Events Become More Common in San Juan, Puerto Rico?\n\n\n\nStatistics\n\nClimate\n\nPuerto Rico\n\nNegative Binomial\n\nMEDS\n\n\n\nA Negative Binomial analysis of 50 years of extreme rainfall events using NOAA data.\n\n\n\nMelannie Moreno Rolón\n\n\nDec 2, 2025\n\n\n\n\n\n\n\n\n\n\n\nmy first blog post\n\n\n\nMEDS\n\nR\n\ndata-visualization\n\n\n\nWelcome to my first blog post!\n\n\n\nMelannie Moreno Rolón\n\n\nNov 12, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2025-12-02-climate-variability/index.html",
+    "href": "posts/2025-12-02-climate-variability/index.html",
+    "title": "Have Extreme Rainfall Events Become More Common in San Juan, Puerto Rico?",
+    "section": "",
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.2\n✔ ggplot2   4.0.0     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.1.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(lubridate)\n\n\nIntroduction\nSan Juan, Puerto Rico experiences a tropical climate where most days bring only light or moderate rainfall. However, a growing concern among scientists and residents is whether extreme precipitation events—days with unusually high rainfall totals—have become more frequent in recent decades. These events can trigger flash floods, strain stormwater systems, and disproportionately affect vulnerable communities.\nTo explore this question, I analyzed 50 years of daily precipitation data from NOAA’s weather station at the San Juan International Airport. I calculated the number of extreme precipitation events per year, using a threshold of X mm. Then I used a Negative Binomial model, which is well-suited for count data that show more variation than what a Poisson model can comfortably handle.\nMy goal is simple: Is San Juan experiencing more extreme rainfall events now compared to the 1970s?\nAnd if so, how much of this change can be explained by broader climate patterns like ENSO or changes in sea surface temperature (SST)?\n\n\nData Sources\nThis analysis uses three publicly available NOAA datasets: Daily precipitation from the San Juan International Airport (1975–2024).\nENSO index (Niño 3.4 anomaly), a measure of El Niño / La Niña conditions.\nSea surface temperature (SST) near Puerto Rico, extracted from NOAA’s ERSSTv5 dataset.\nI aggregated the daily rainfall dataset into yearly counts of extreme precipitation events, defined as days where rainfall exceeded the 95th percentile threshold. I then merged these yearly counts with yearly averages of ENSO and SST.\n\n\nWhy a Negative Binomial Model?\nThe response variable in this project is the number of extreme precipitation events per year. This is a form of count data, and the simplest model for counts is the Poisson model. However, the Poisson model assumes that the mean and variance of the data are equal. That is not true for precipitation extremes.\nSome years have many extreme events, while other years have very few, leading to overdispersion—the variance exceeds the mean. The Negative Binomial model adds an extra dispersion parameter that relaxes the strict Poisson assumption, making it a better fit for environmental count data. This is especially important for events like extreme rainfall, which are influenced by seasonal cycles, climate modes, and storm activity.\n\n\nDAG\nTo clarify the relationships among variables, I constructed a directed acyclic graph (DAG). In this framework, Year captures long-term climate trends, ENSO represents natural climate variability, and SST captures local ocean warming. All three variables can influence the number of extreme precipitation events in San Juan.\nIn the DAG, Year and ENSO both influence SST, and SST directly influences the expected number of extreme rainfall events. Year may also have a direct effect on extreme rainfall—for example, due to long-term climate change or changes in storm frequency. This DAG helped guide the specification of the statistical model and ensures that I only include predictors with a plausible physical rationale.\n\n\nStatistical Model\n\\[\nY_t \\sim \\text{NegativeBinomial}(\\mu_t, \\theta)\n\\]\n\\[\n\\log(\\mu_t) =\n\\beta_0\n+ \\beta_1\\,\\text{Year}_t\n+ \\beta_2\\,\\text{ENSO}_t\n+ \\beta_3\\,\\text{SST}_t\n+ \\beta_4\\,\\text{NAO}_t\n\\] Where: \\(Y_t\\) is the expected number of extreme events\n\\(\\beta_0\\) is the dispersion parameter\n\\(\\beta_1\\) captures long-term trends\n\\(\\beta_2\\) captures ENSO-related variability\n\\(\\beta_3\\) captures the role of ocean temperatures in generating moisture for heavy rainfall\n\\(\\beta_4\\) captures NAO-related variability\n\n# read_csv(\"data/sju_ncei_data.csv\") %&gt;%\n#   mutate(date = ymd(date),\n#          year = year(date)) %&gt;%\n#   filter(!is.na(prcp))\n\n\n\n\n\nCitationBibTeX citation:@online{moreno_rolón2025,\n  author = {Moreno Rolón, Melannie and Moreno Rolón, Melannie},\n  title = {Have {Extreme} {Rainfall} {Events} {Become} {More} {Common}\n    in {San} {Juan,} {Puerto} {Rico?}},\n  date = {2025-12-02},\n  url = {https://mmorenorolon.github.io/posts/2025-12-02-climate-variability/},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nMoreno Rolón, Melannie, and Melannie Moreno Rolón. 2025. “Have\nExtreme Rainfall Events Become More Common in San Juan, Puerto\nRico?” December 2, 2025. https://mmorenorolon.github.io/posts/2025-12-02-climate-variability/."
   }
 ]

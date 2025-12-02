@@ -3,7 +3,7 @@ title: "my first blog post"
 description: "Welcome to my first blog post!"
 
 date: 2025-11-12
-categories:[MEDS, R, data-visualization] 
+categories: [MEDS, R, data-visualization] 
 citation:
   url: https://mmorenorolon.github.io/posts/first-blog/
 
