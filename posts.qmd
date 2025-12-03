@@ -6,8 +6,3 @@ listing:
   sort: "date desc" # can also sort on more than one field
   categories: true # allows you to sort posts by assigned categories 
 ---
-
-### Latest Post
-- [Have Extreme Rainfall Events Increased in San Juan?](posts/2025-12-02-climate-variability/index.qmd)
-  <br>
-  *A negative binomial model of 50 years of rainfall data in San Juan, Puerto Rico.*
