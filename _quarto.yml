@@ -5,7 +5,7 @@ project:
 format:
   html:
     theme: [cosmo, brand]
-    css: styles.css
+    css: styles.scss
     toc: true
     page-layout: full
     
