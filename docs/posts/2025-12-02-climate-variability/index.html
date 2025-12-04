@@ -248,11 +248,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
   <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a></li>
   <li><a href="#why-a-negative-binomial-model" id="toc-why-a-negative-binomial-model" class="nav-link" data-scroll-target="#why-a-negative-binomial-model">Why a Negative Binomial Model?</a></li>
   <li><a href="#dag" id="toc-dag" class="nav-link" data-scroll-target="#dag">DAG</a></li>
   <li><a href="#statistical-model" id="toc-statistical-model" class="nav-link" data-scroll-target="#statistical-model">Statistical Model</a></li>
+  <li><a href="#data-simulation" id="toc-data-simulation" class="nav-link" data-scroll-target="#data-simulation">Data Simulation</a></li>
   </ul>
 </nav>
     </div>
@@ -263,13 +264,16 @@ window.Quarto = {
 
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Puerto Rico experiences a tropical climate where most days bring only light or moderate rainfall. However, a growing concern among scientists and residents is whether extreme precipitation events—days with unusually high rainfall totals—have become more frequent in recent decades. These events can trigger flash floods, strain stormwater systems, and disproportionately affect vulnerable communities.</p>
+<section id="background" class="level1">
+<h1>Background</h1>
+<p>Precipitation patterns in Puerto Rico are shaped by a combination of tropical atmospheric processes and topographic influences. As shown in U.S. Geological Survey (USGS) climatological analyses (Figure 1), pronounced orographic effects from the Cordillera Central and Sierra de Cayey create substantial spatial variability in rainfall. Trade winds carrying moisture rise along the northern windward slopes and result in the production of high precipitation totals north of the hydrologic divide, while the southern coastal plain lies within a rain shadow, resulting in considerably lower annual rainfall (USGS, 2016).</p>
+<p>Globally, these local precipitation dynamics occur against the backdrop of broader changes in the hydrological cycle. The Intergovernmental Panel on Climate Change (IPCC, 2023) reports that globally averaged precipitation over land has likely increased since 1950, with the rate of increase accelerating after the 1980s. Human influence has likely contributed to both observed changes in precipitation patterns. The IPCC also notes that mid-latitude storm tracks have likely shifted poleward since the 1980s and affected large-scale circulation patterns that interact with tropical moisture and storm systems.</p>
+<p>Understanding intensity of rainfall events also requires a clear definition of what constitutes an “extreme event.” According to the National Oceanic and Atmospheric Administration (NOAA, 2020), an extreme event occurs when weather or climate conditions fall near the upper or lower ends of the historical range. Although thresholds vary, scientists often classify extremes as events in the top 5–10% of historical measurements. This percentile-based definition allows for meaningful comparisons over time even as climate baselines shift.</p>
+<p>Together, these drivers provide context for evaluating long-term changes in extreme rainfall at the San Juan Airport station. In a humid tropical island setting where orographic lifting, ocean–atmosphere interactions, and global climate variability shape precipitation, it is meaningful for climate resilience planning to assess whether extreme rainfall events have become more frequent. Motivated by these factors, this study investigates the following question: <strong>Have extreme precipitation events increased in Puerto Rico over the past 50 years?</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="C:/Documents/MEDS/Portfolio/mmorenorolon.github.io/posts/2025-12-02-climate-variability/usgs_annual_precip_map.jpg" class="img-fluid figure-img"></p>
-<figcaption>USGS</figcaption>
+<figcaption>Distribution of Mean Annual Precipitation in Puerto Rico</figcaption>
 </figure>
 </div>
 <p>To explore this question, I analyzed 50 years of daily precipitation data from NOAA’s weather station at the San Juan International Airport. I calculated the number of extreme precipitation events per year, using a threshold of X mm. Then I used a Negative Binomial model, which is well-suited for count data that show more variation than what a Poisson model can comfortably handle.</p>
@@ -312,10 +316,56 @@ Y_t \sim \text{NegativeBinomial}(\mu_t, \theta)
 <p><span class="math inline">\(\beta_3\)</span> captures the role of ocean temperatures in generating moisture for heavy rainfall</p>
 <p><span class="math inline">\(\beta_4\)</span> captures NAO-related variability</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read_csv("data/sju_ncei_data.csv") %&gt;%</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(date = ymd(date),</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#          year = year(date)) %&gt;%</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   filter(!is.na(prcp))</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="data-simulation" class="level1">
+<h1>Data Simulation</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create year variable</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="dv">1950</span><span class="sc">:</span><span class="dv">2025</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(years)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>year_centered <span class="ot">&lt;-</span> years <span class="sc">-</span> <span class="fu">mean</span>(years)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># generate predictor's index values</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>nao <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>enso <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>sst <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># true parameter coefficients</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>beta0 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>beta1 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.3</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>beta2 <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>beta3 <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>beta4 <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># create the linear predictor</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>eta <span class="ot">&lt;-</span> beta0 <span class="sc">+</span> beta1<span class="sc">*</span>nao <span class="sc">+</span> beta2<span class="sc">*</span>enso <span class="sc">+</span> beta3<span class="sc">*</span>sst <span class="sc">+</span> beta4<span class="sc">*</span>year_centered</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># mean response</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">exp</span>(eta)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate negative binomial distribution of counts for the response var</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>extreme_events <span class="ot">&lt;-</span> <span class="fu">rnbinom</span>(n, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">mu =</span> mu)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># create the dataframe</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>sim_data <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(extreme_events, </span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>                   nao, </span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>                   enso, </span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>                   sst, </span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>                   <span class="at">year =</span> years,</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>                   year_centered)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 
 

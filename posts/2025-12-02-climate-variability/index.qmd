@@ -11,16 +11,23 @@ categories: [Statistics, Climate Variability & Change, Puerto Rico, Negative Bin
 citation:
   url: https://mmorenorolon.github.io/posts/2025-12-02-climate-variability/
 image: usgs_annual_precip_map.jpg
+code-fold: true
 draft: true
 draft-mode: linked
+
 ---
 
-# Introduction
+# Background
 
+Precipitation patterns in Puerto Rico are shaped by a combination of tropical atmospheric processes and topographic influences. As shown in U.S. Geological Survey (USGS) climatological analyses (Figure 1), pronounced orographic effects from the Cordillera Central and Sierra de Cayey create substantial spatial variability in rainfall. Trade winds carrying moisture rise along the northern windward slopes and result in the production of high precipitation totals north of the hydrologic divide, while the southern coastal plain lies within a rain shadow, resulting in considerably lower annual rainfall (USGS, 2016).
 
-Puerto Rico experiences a tropical climate where most days bring only light or moderate rainfall. However, a growing concern among scientists and residents is whether extreme precipitation events—days with unusually high rainfall totals—have become more frequent in recent decades. These events can trigger flash floods, strain stormwater systems, and disproportionately affect vulnerable communities.
+Globally, these local precipitation dynamics occur against the backdrop of broader changes in the hydrological cycle. The Intergovernmental Panel on Climate Change (IPCC, 2023) reports that globally averaged precipitation over land has likely increased since 1950, with the rate of increase accelerating after the 1980s. Human influence has likely contributed to both observed changes in precipitation patterns. The IPCC also notes that mid-latitude storm tracks have likely shifted poleward since the 1980s and affected large-scale circulation patterns that interact with tropical moisture and storm systems.
 
-![USGS](C:/Documents/MEDS/Portfolio/mmorenorolon.github.io/posts/2025-12-02-climate-variability/usgs_annual_precip_map.jpg)
+Understanding intensity of rainfall events also requires a clear definition of what constitutes an “extreme event.” According to the National Oceanic and Atmospheric Administration (NOAA, 2020), an extreme event occurs when weather or climate conditions fall near the upper or lower ends of the historical range. Although thresholds vary, scientists often classify extremes as events in the top 5–10% of historical measurements. This percentile-based definition allows for meaningful comparisons over time even as climate baselines shift.
+
+Together, these drivers provide context for evaluating long-term changes in extreme rainfall at the San Juan Airport station. In a humid tropical island setting where orographic lifting, ocean–atmosphere interactions, and global climate variability shape precipitation, it is meaningful for climate resilience planning to assess whether extreme rainfall events have become more frequent. Motivated by these factors, this study investigates the following question: **Have extreme precipitation events increased in Puerto Rico over the past 50 years?**
+
+![Distribution of Mean Annual Precipitation in Puerto Rico](C:/Documents/MEDS/Portfolio/mmorenorolon.github.io/posts/2025-12-02-climate-variability/usgs_annual_precip_map.jpg)
 
 To explore this question, I analyzed 50 years of daily precipitation data from NOAA’s weather station at the San Juan International Airport. I calculated the number of extreme precipitation events per year, using a threshold of X mm. Then I used a Negative Binomial model, which is well-suited for count data that show more variation than what a Poisson model can comfortably handle.
 
@@ -90,4 +97,43 @@ $\beta_4$ captures NAO-related variability
 #   filter(!is.na(prcp))
 ```
 
+# Data Simulation
+
+```{r}
+set.seed(123)
+
+# create year variable
+years <- 1950:2025
+n <- length(years)
+year_centered <- years - mean(years)
+
+# generate predictor's index values
+nao <- rnorm(n, 0, 1)
+enso <- rnorm(n, 0, 1)
+sst <- rnorm(n, 0, 1)
+
+# true parameter coefficients
+beta0 <- 2
+beta1 <- -0.3
+beta2 <- 0.2
+beta3 <- 0.1
+beta4 <- 0.01
+
+# create the linear predictor
+eta <- beta0 + beta1*nao + beta2*enso + beta3*sst + beta4*year_centered
+
+# mean response
+mu <- exp(eta)
+
+# simulate negative binomial distribution of counts for the response var
+extreme_events <- rnbinom(n, size = 3, mu = mu)
+
+# create the dataframe
+sim_data <- tibble::tibble(extreme_events, 
+                   nao, 
+                   enso, 
+                   sst, 
+                   year = years,
+                   year_centered)
+```
 
