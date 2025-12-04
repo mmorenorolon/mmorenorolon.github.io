@@ -1,36 +1,33 @@
 ---
-title: "Have Extreme Rainfall Events Become More Common in San Juan, Puerto Rico?"
+title: "Temporal Trends in the Frequency of Extreme Precipitation Events at San Juan Int'l Airport, Puerto Rico"
 description: "A Negative Binomial analysis of 50 years of extreme rainfall events using NOAA data."
 author:
   - name: Melannie Moreno Rolón
     url: https://mmorenorolon.github.io/
-    orcid: 0000-0002-5300-3075
     affiliation: Master of Environmental Data Science Program @ The Bren School (UCSB)
     affiliation-url: https://ucsb-meds.github.io/
 date: last-modified
-categories: [Statistics, Climate, Puerto Rico, Negative Binomial, MEDS]
+categories: [Statistics, Climate Variability & Change, Puerto Rico, Negative Binomial, MEDS]
 citation:
   url: https://mmorenorolon.github.io/posts/2025-12-02-climate-variability/
-#image: rainfall_plot.png
+image: usgs_annual_precip_map.jpg
 draft: true
 draft-mode: linked
 ---
 
-```{r}
-library(tidyverse)
-library(lubridate)
-```
-
 # Introduction
 
-San Juan, Puerto Rico experiences a tropical climate where most days bring only light or moderate rainfall. However, a growing concern among scientists and residents is whether extreme precipitation events—days with unusually high rainfall totals—have become more frequent in recent decades. These events can trigger flash floods, strain stormwater systems, and disproportionately affect vulnerable communities.
+
+Puerto Rico experiences a tropical climate where most days bring only light or moderate rainfall. However, a growing concern among scientists and residents is whether extreme precipitation events—days with unusually high rainfall totals—have become more frequent in recent decades. These events can trigger flash floods, strain stormwater systems, and disproportionately affect vulnerable communities.
+
+![USGS](C:/Documents/MEDS/Portfolio/mmorenorolon.github.io/posts/2025-12-02-climate-variability/usgs_annual_precip_map.jpg)
 
 To explore this question, I analyzed 50 years of daily precipitation data from NOAA’s weather station at the San Juan International Airport. I calculated the number of extreme precipitation events per year, using a threshold of X mm. Then I used a Negative Binomial model, which is well-suited for count data that show more variation than what a Poisson model can comfortably handle.
 
 My goal is simple:
 Is San Juan experiencing more extreme rainfall events now compared to the 1970s?
 
-And if so, how much of this change can be explained by broader climate patterns like ENSO or changes in sea surface temperature (SST)?
+If so, how much of this change can be explained by broader climate patterns like El Niño (ENSO) or changes in sea surface temperature (SST)?
 
 # Data Sources
 
