@@ -19,6 +19,8 @@ draft-mode: linked
 
 # Background
 
+![Figure 1. Distribution of Mean Annual Precipitation in Puerto Rico](usgs_annual_precip_map.jpg)
+
 Precipitation patterns in Puerto Rico are shaped by a combination of tropical atmospheric processes and topographic influences. As shown in U.S. Geological Survey (USGS) climatological analyses (Figure 1), pronounced orographic effects from the Cordillera Central and Sierra de Cayey create substantial spatial variability in rainfall. Trade winds carrying moisture rise along the northern windward slopes and result in the production of high precipitation totals north of the hydrologic divide, while the southern coastal plain lies within a rain shadow, resulting in considerably lower annual rainfall (USGS, 2016).
 
 Globally, these local precipitation dynamics occur against the backdrop of broader changes in the hydrological cycle. The Intergovernmental Panel on Climate Change (IPCC, 2023) reports that globally averaged precipitation over land has likely increased since 1950, with the rate of increase accelerating after the 1980s. Human influence has likely contributed to both observed changes in precipitation patterns. The IPCC also notes that mid-latitude storm tracks have likely shifted poleward since the 1980s and affected large-scale circulation patterns that interact with tropical moisture and storm systems.
@@ -27,37 +29,87 @@ Understanding intensity of rainfall events also requires a clear definition of w
 
 Together, these drivers provide context for evaluating long-term changes in extreme rainfall at the San Juan Airport station. In a humid tropical island setting where orographic lifting, ocean–atmosphere interactions, and global climate variability shape precipitation, it is meaningful for climate resilience planning to assess whether extreme rainfall events have become more frequent. Motivated by these factors, this study investigates the following question: **Have extreme precipitation events increased in Puerto Rico over the past 50 years?**
 
-![Distribution of Mean Annual Precipitation in Puerto Rico](C:/Documents/MEDS/Portfolio/mmorenorolon.github.io/posts/2025-12-02-climate-variability/usgs_annual_precip_map.jpg)
-
 To explore this question, I analyzed 50 years of daily precipitation data from NOAA’s weather station at the San Juan International Airport. I calculated the number of extreme precipitation events per year, using a threshold of X mm. Then I used a Negative Binomial model, which is well-suited for count data that show more variation than what a Poisson model can comfortably handle.
 
 My goal is simple:
 Is San Juan experiencing more extreme rainfall events now compared to the 1970s?
 
-If so, how much of this change can be explained by broader climate patterns like El Niño (ENSO) or changes in sea surface temperature (SST)?
+If so, how much of this change can be explained by broader climate patterns like El Niño Southern Oscillation (ENSO) and the North Atlantic Oscillation (NAO), or changes in sea surface temperature (SST)?
 
-# Data Sources
-
-This analysis uses three publicly available NOAA datasets:
-Daily precipitation from the San Juan International Airport (1975–2024).
-
-ENSO index (Niño 3.4 anomaly), a measure of El Niño / La Niña conditions.
-
-Sea surface temperature (SST) near Puerto Rico, extracted from NOAA’s ERSSTv5 dataset.
-
-I aggregated the daily rainfall dataset into yearly counts of extreme precipitation events, defined as days where rainfall exceeded the 95th percentile threshold. I then merged these yearly counts with yearly averages of ENSO and SST.
 
 # Why a Negative Binomial Model?
 The response variable in this project is the number of extreme precipitation events per year. This is a form of count data, and the simplest model for counts is the Poisson model. However, the Poisson model assumes that the mean and variance of the data are equal. That is not true for precipitation extremes.
 
-Some years have many extreme events, while other years have very few, leading to overdispersion—the variance exceeds the mean. The Negative Binomial model adds an extra dispersion parameter that relaxes the strict Poisson assumption, making it a better fit for environmental count data.
+Some years have many extreme events, while other years have very few, leading to overdispersion, the variance exceeds the mean. The Negative Binomial model adds an extra dispersion parameter that relaxes the strict Poisson assumption, making it a better fit for environmental count data.
 This is especially important for events like extreme rainfall, which are influenced by seasonal cycles, climate modes, and storm activity.
+
+# Data Exploration
+
+This analysis uses three publicly available NOAA datasets such as daily precipitation from the San Juan International Airport (1950*–2025), the ENSO index (Niño 3.4 anomaly), a measure of El Niño/La Niña conditions, and SST near Puerto Rico, extracted from NOAA’s ERSSTv5 dataset.
+
+Before fitting the statistical model, I explored the raw precipitation data to understand its distribution. Daily precipitation values were obtained from NOAA for the San Juan International Airport station from 1950–2025*. Extreme events were defined as daily precipitation totals falling within the top 5% of the historical distribution, following NOAA’s percentile-based definition of climate extremes. I then aggregated the number of extreme events for each year.
+
+```{r}
+# Daily Precipitation (raw data) Figure 2
+# ggplot(precip, aes(x=Date, y=`PRCP (Inches)`)) +
+#   geom_line(alpha=0.6) +
+#   labs(x = "Year", y = "Daily Rainfall", title = "Daily Precipitation (in)") +
+#   theme_classic()
+```
+
+```{r}
+# ggplot(rainy_days, aes(x = prcp_mm)) +
+#   geom_histogram(binwidth = 5, fill = "skyblue") +
+#   geom_vline(xintercept = threshold, color = "red", lwd = 1.2) +
+#   labs(title = "Distribution of Daily Rainfall in San Juan",
+#        subtitle = paste("95th percentile threshold =", round(threshold, 2),
+#                         "mm"),
+#        x = "Daily precipitation (mm)",
+#        y = "Frequency")
+```
+
+
+Figure X shows the distribution of daily precipitation, with the red vertical line marking the 95th percentile threshold (28.* mm). Figure X shows the yearly counts of extreme precipitation events. The mean number of events per year was X, while the variance was Y, indicating overdispersion and motivating the use of a Negative Binomial model.
+
+I also explored climate predictor variables such as ENSO, SST, and NAO (Figure 5). Each index was aggregated to yearly averages to match the temporal scale of the response variable.
+
+```{r,message=FALSE,echo=FALSE}
+library(tidyverse)
+library(tibble)
+library(janitor)
+library(lubridate)
+```
 
 # DAG
 
-To clarify the relationships among variables, I constructed a directed acyclic graph (DAG). In this framework, Year captures long-term climate trends, ENSO represents natural climate variability, and SST captures local ocean warming. All three variables can influence the number of extreme precipitation events in San Juan.
+To clarify the relationships among variables, I constructed a directed acyclic graph (DAG). In this framework, Year captures long-term climate trends, ENSO represents natural climate variability, and Tropical Northern Atlantic (TNA) SST captures local ocean warming. All three variables can influence the number of extreme precipitation events in San Juan.
 
-In the DAG, Year and ENSO both influence SST, and SST directly influences the expected number of extreme rainfall events. Year may also have a direct effect on extreme rainfall—for example, due to long-term climate change or changes in storm frequency. This DAG helped guide the specification of the statistical model and ensures that I only include predictors with a plausible physical rationale.
+```{r,message=FALSE,warning=FALSE}
+library(ggdag)
+library(dagitty)
+
+dag <- dagitty("
+dag {
+  Year
+  ENSO
+  NAO
+  TNA_SST
+  ExtremeEvents
+
+  Year -> ExtremeEvents
+  ENSO -> ExtremeEvents
+  NAO -> ExtremeEvents
+  TNA_SST -> ExtremeEvents
+
+  Year -> TNA_SST
+}
+")
+
+plot(dag)
+```
+
+
+In the DAG, Year and ENSO both influence SST, and SST directly influences the expected number of extreme rainfall events. Year may also have a direct effect on extreme rainfall; for example, due to long-term climate change or changes in storm frequency. This DAG helped guide the specification of the statistical model and make sure that the predictors included have plausible reasoning.
 
 # Statistical Model
 
@@ -73,29 +125,21 @@ $$
 + \beta_3\,\text{SST}_t
 + \beta_4\,\text{NAO}_t
 $$
-Where:
-$Y_t$ is the expected number of extreme events
+- $Y_t$ is the expected number of extreme events
 
 
-$\beta_0$ is the dispersion parameter
+- $\beta_0$ is the dispersion parameter
 
 
-$\beta_1$ captures long-term trends
+- $\beta_1$ captures long-term trends
 
 
-$\beta_2$ captures ENSO-related variability
+- $\beta_2$ captures ENSO-related variability
 
 
-$\beta_3$ captures the role of ocean temperatures in generating moisture for heavy rainfall
+- $\beta_3$ captures the role of ocean temperatures in generating moisture for heavy rainfall
 
-$\beta_4$ captures NAO-related variability
-
-```{r}
-# read_csv("data/sju_ncei_data.csv") %>%
-#   mutate(date = ymd(date),
-#          year = year(date)) %>%
-#   filter(!is.na(prcp))
-```
+- $\beta_4$ captures NAO-related variability
 
 # Data Simulation
 
@@ -137,3 +181,9 @@ sim_data <- tibble::tibble(extreme_events,
                    year_centered)
 ```
 
+# Data Sources
+
+## Monthly NAO Indices
+
+The NAO describes fluctuations in the pressure gradient between the Azores High and Icelandic Low. Positive NAO phases are associated with enhanced westerlies and changes in North Atlantic storm patterns, which can influence large-scale moisture transport. 
+https://ftp.cpc.ncep.noaa.gov/wd52dg/data/indices/nao_index.tim 
