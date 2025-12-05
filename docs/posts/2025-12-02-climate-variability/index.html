@@ -106,7 +106,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<meta name="quarto:status" content="draft">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -144,7 +143,7 @@ window.Quarto = {
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -259,7 +258,10 @@ window.Quarto = {
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a>
   <ul class="collapse">
-  <li><a href="#monthly-nao-indices" id="toc-monthly-nao-indices" class="nav-link" data-scroll-target="#monthly-nao-indices">Monthly NAO Indices</a></li>
+  <li><a href="#daily-precipitation-from-sju" id="toc-daily-precipitation-from-sju" class="nav-link" data-scroll-target="#daily-precipitation-from-sju">Daily Precipitation from SJU</a></li>
+  <li><a href="#atlantic-sea-surface-temperatures" id="toc-atlantic-sea-surface-temperatures" class="nav-link" data-scroll-target="#atlantic-sea-surface-temperatures">Atlantic Sea Surface Temperatures</a></li>
+  <li><a href="#el-niño-southern-oscillation" id="toc-el-niño-southern-oscillation" class="nav-link" data-scroll-target="#el-niño-southern-oscillation">El Niño Southern Oscillation</a></li>
+  <li><a href="#north-atlantic-oscillation" id="toc-north-atlantic-oscillation" class="nav-link" data-scroll-target="#north-atlantic-oscillation">North Atlantic Oscillation</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -290,13 +292,13 @@ window.Quarto = {
 </section>
 <section id="why-a-negative-binomial-model" class="level1">
 <h1>Why a Negative Binomial Model?</h1>
-<p>The response variable in this project is the number of extreme precipitation events per year. This is a form of count data, and the simplest model for counts is the Poisson model. However, the Poisson model assumes that the mean and variance of the data are equal. That is not true for precipitation extremes.</p>
+<p>The response variable in this project is the number of extreme precipitation events per year. Since this is a form of count data and the simplest model for counts is the Poisson model. However, the Poisson model assumes that the mean and variance of the data are equal. That is not true for precipitation extremes.</p>
 <p>Some years have many extreme events, while other years have very few, leading to overdispersion, the variance exceeds the mean. The Negative Binomial model adds an extra dispersion parameter that relaxes the strict Poisson assumption, making it a better fit for environmental count data. This is especially important for events like extreme rainfall, which are influenced by seasonal cycles, climate modes, and storm activity.</p>
 </section>
 <section id="data-exploration" class="level1">
 <h1>Data Exploration</h1>
 <p>This analysis uses three publicly available NOAA datasets such as daily precipitation from the San Juan International Airport (1946–2025), the ENSO index (Niño 3.4 anomaly), a measure of El Niño/La Niña conditions, and SST anomaly in from the Tropical Northern Atlantic, extracted from NOAA’s ERSSTv5 dataset.</p>
-<p>Before fitting the statistical model, I explored the raw precipitation data to understand its distribution. Daily precipitation values were obtained from NOAA for the San Juan International Airport station from 1946–2025. Figure X shows the full record of daily precipitation at the San Juan International Airport from 1975 to the present. Most days receive little to no rainfall, with frequent low–to–moderate precipitation events and occasionally very high-intensity spikes above 5 inches.</p>
+<p>Before fitting the statistical model, I explored the raw precipitation data to understand its distribution. Daily precipitation values were obtained from NOAA for the San Juan International Airport station from 1946–2025. Figure 2 shows the full record of daily precipitation at the San Juan International Airport from 1975 to the present. Most days receive little to no rainfall, with frequent low–to–moderate precipitation events and occasionally very high-intensity spikes above 5 inches.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -315,14 +317,14 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Daily precipitation amounts from 1975–2025 exhibit a strongly right-skewed distribution, with most days receiving little to no rainfall and a long tail marked by the high-intensity events. Following NOAA’s percentile-based definition of extremes, I classified the highest 5% of daily precipitation values as extreme events. Figure X shows the distribution of daily rainfall with the 95th percentile threshold marked in red.</p>
+<p>Daily precipitation amounts from 1975–2025 exhibit a strongly right-skewed distribution, with most days receiving little to no rainfall and a long tail marked by the high-intensity events. Following NOAA’s percentile-based definition of extremes, I classified the highest 5% of daily precipitation values as extreme events. Figure 3 shows the distribution of daily rainfall with the 95th percentile threshold marked in red.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|fig-cap: "Distribution of Daily Rainfall (SJU)"</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rainy_days, <span class="fu">aes</span>(<span class="at">x =</span> prcp_mm)) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> threshold, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"#3a7585"</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> threshold, <span class="at">color =</span> <span class="st">"#6f1631"</span>, <span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"95th percentile threshold ="</span>, </span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">round</span>(threshold, <span class="dv">2</span>),</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"mm"</span>),</span>
@@ -360,7 +362,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>I also explored our predictors (ENSO, SST, and NAO) (Figure X). Each index was aggregated to yearly averages to match the temporal scale of the response variable. The figures below demonstrate variability over time in ENSO, NAO, and Tropical North Atlantic SST over the study period.</p>
+<p>I also explored our predictors (ENSO, SST, and NAO) (Figure 4). Each index was aggregated to yearly averages to match the temporal scale of the response variable. The figures below demonstrate variability over time in ENSO, NAO, and Tropical North Atlantic SST over the study period.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -450,7 +452,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>In the DAG, Year and ENSO both influence SST, and SST directly influences the expected number of extreme rainfall events. Year may also have a direct effect on extreme rainfall; for example, due to the long-term climate change or changes in storm frequency. All three variables can influence the number of extreme precipitation events in San Juan.</p>
+<p>In the DAG (Figure 5), Year and ENSO both influence SST, and SST directly influences the expected number of extreme rainfall events. Year may also have a direct effect on extreme rainfall; for example, due to the long-term climate change or changes in storm frequency. All three variables can influence the number of extreme precipitation events in San Juan.</p>
 </section>
 <section id="statistical-model" class="level1">
 <h1>Statistical Model</h1>
@@ -536,7 +538,7 @@ Y_t \sim \text{NegativeBinomial}(\mu_t, \theta)
 </div>
 </div>
 </div>
-<p>Figure X presents the simulated yearly counts of extreme precipitation events generated under the Negative Binomial distribution. The series shows strong year-to-year variability, with sharp fluctuations that are expected when modeling annual extreme events. Even with these swings, the simulated values stay within a realistic range for a tropical station. The variability reflects both the randomness built into the Negative Binomial distribution and the influence of the predictor variables included in the linear predictor.</p>
+<p>Figure 6 presents the simulated yearly counts of extreme precipitation events generated under the Negative Binomial distribution. The series shows strong year-to-year variability, with sharp fluctuations that are expected when modeling annual extreme events. Even with these swings, the simulated values stay within a realistic range for a tropical station. The variability reflects both the randomness built into the Negative Binomial distribution and the influence of the predictor variables included in the linear predictor.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -667,7 +669,7 @@ Y_t \sim \text{NegativeBinomial}(\mu_t, \theta)
 </div>
 </div>
 </div>
-<p>Figure X illustrates how the predicted number of simulated extreme precipitation events changes across the range of NAO values while the other predictors are held at their average levels. The background points show the raw simulated data, which vary widely from year to year, while the solid line represents the model’s expected relationship. Because NAO was assigned a negative coefficient in the simulation, the predicted number of extreme events decreases as NAO increases. The shaded band shows the 95% confidence interval around the prediction, which widens toward the edges of the NAO range where fewer observations occur. Overall, this figure demonstrates that the fitted Negative Binomial model captures the general downward trend that was built into the simulated data and behaves in line with the model assumptions.</p>
+<p>Figure 7 illustrates how the predicted number of simulated extreme precipitation events changes across the range of NAO values while the other predictors are held at their average levels. The background points show the raw simulated data, which vary widely from year to year, while the solid line represents the model’s expected relationship. Because NAO was assigned a negative coefficient in the simulation, the predicted number of extreme events decreases as NAO increases. The shaded band shows the 95% confidence interval around the prediction, which widens toward the edges of the NAO range where fewer observations occur. Overall, this figure demonstrates that the fitted Negative Binomial model captures the general downward trend that was built into the simulated data and behaves in line with the model assumptions.</p>
 </section>
 <section id="results-from-the-real-data-extreme-precipitation-patterns-at-san-juan-international-airport" class="level1">
 <h1>Results from the Real Data: Extreme Precipitation Patterns at San Juan International Airport</h1>
@@ -677,7 +679,7 @@ Y_t \sim \text{NegativeBinomial}(\mu_t, \theta)
 <p><span class="math display">\[
 H_0: \beta_{\text{year}} = 0,\quad
 H_1: \beta_{\text{year}} &gt; 0
-\]</span> ## Fit Model</p>
+\]</span> # Fit Model</p>
 <p>Using the processed yearly counts of extreme events and the annual values of the NAO, ENSO, and TNA SST indices, I fit the same Negative Binomial model structure used in the simulation.</p>
 <div class="cell">
 <details class="code-fold">
@@ -793,7 +795,7 @@ H_1: \beta_{\text{year}} &gt; 0
 </div>
 </div>
 </div>
-<p>Figure X shows the modeled relationship between year and the expected number of extreme precipitation events in San Juan, with ENSO, NAO, and SST held at their average values. The predicted line slopes slightly downward, indicating a small decrease in extreme event frequency over the 50-year period. The confidence interval widens toward the earlier years, reflecting greater uncertainty at the edges of the dataset. Overall, the effect of year is relatively weak compared to the climate indices included in the model, and this visualization supports the conclusion that time alone does not explain changes in extreme precipitation. Instead, the variability in extremes appears to be more strongly associated with climate conditions such as ENSO and Atlantic SST rather than a simple linear trend over time.</p>
+<p>Figure 8 shows the modeled relationship between year and the expected number of extreme precipitation events in San Juan, with ENSO, NAO, and SST held at their average values. The predicted line slopes slightly downward, indicating a small decrease in extreme event frequency over the 50-year period. The confidence interval widens toward the earlier years, reflecting greater uncertainty at the edges of the dataset. Overall, the effect of year is relatively weak compared to the climate indices included in the model, and this visualization supports the conclusion that time alone does not explain changes in extreme precipitation. Instead, the variability in extremes appears to be more strongly associated with climate conditions such as ENSO and Atlantic SST rather than a simple linear trend over time.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -844,7 +846,7 @@ H_1: \beta_{\text{year}} &gt; 0
 </div>
 </div>
 </div>
-<p>Figure Y illustrates the modeled relationship between Tropical Atlantic sea surface temperature (SST) anomalies and the expected number of extreme precipitation events in San Juan. As SST increases, the predicted count of extreme events rises sharply and the uncertainty band widens at higher temperatures. This pattern suggests that warmer Atlantic conditions are associated with a greater likelihood of extreme rainfall.</p>
+<p>Figure 9 illustrates the modeled relationship between Tropical Atlantic sea surface temperature (SST) anomalies and the expected number of extreme precipitation events in San Juan. As SST increases, the predicted count of extreme events rises sharply and the uncertainty band widens at higher temperatures. This pattern suggests that warmer Atlantic conditions are associated with a greater likelihood of extreme rainfall.</p>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
@@ -867,13 +869,28 @@ H_1: \beta_{\text{year}} &gt; 0
 </section>
 <section id="data-sources" class="level1">
 <h1>Data Sources</h1>
-<section id="monthly-nao-indices" class="level2">
-<h2 class="anchored" data-anchor-id="monthly-nao-indices">Monthly NAO Indices</h2>
-<p>The NAO describes fluctuations in the pressure gradient between the Azores High and Icelandic Low. Positive NAO phases are associated with enhanced westerlies and changes in North Atlantic storm patterns, which can influence large-scale moisture transport. https://ftp.cpc.ncep.noaa.gov/wd52dg/data/indices/nao_index.tim</p>
+<section id="daily-precipitation-from-sju" class="level2">
+<h2 class="anchored" data-anchor-id="daily-precipitation-from-sju">Daily Precipitation from SJU</h2>
+<p>Daily precipitation data for San Juan, Puerto Rico, were obtained from the NOAA National Centers for Environmental Information through the GHCN‑Daily archive for the <a href="https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND:RQW00011641/detail">San Juan International Airport station</a>.</p>
+</section>
+<section id="atlantic-sea-surface-temperatures" class="level2">
+<h2 class="anchored" data-anchor-id="atlantic-sea-surface-temperatures">Atlantic Sea Surface Temperatures</h2>
+<p>Large‑scale climate variability was represented using three NOAA climate indices. Atlantic sea‑surface temperature anomalies were taken from the Tropical North Atlantic (TNA) index provided by the <a href="https://psl.noaa.gov/data/correlation/tna.data">NOAA Physical Sciences Laboratory</a>.</p>
+</section>
+<section id="el-niño-southern-oscillation" class="level2">
+<h2 class="anchored" data-anchor-id="el-niño-southern-oscillation">El Niño Southern Oscillation</h2>
+<p>ENSO conditions were characterized using the Oceanic Niño Index (ONI) from the <a href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_change.shtml">NOAA Climate Prediction Center</a>.</p>
+</section>
+<section id="north-atlantic-oscillation" class="level2">
+<h2 class="anchored" data-anchor-id="north-atlantic-oscillation">North Atlantic Oscillation</h2>
+<p>North Atlantic atmospheric variability was captured using the CPC’s monthly <a href="https://www.cpc.ncep.noaa.gov/data/teledoc/nao.shtml">NAO index</a></p>
 </section>
 </section>
 <section id="references" class="level1">
 <h1>References</h1>
+<p>Calvin, K., Dasgupta, D., Krinner, G., Mukherji, A., Thorne, P. W., Trisos, C., … &amp; Orendain, D. J. (2023). IPCC, 2023: <em>Climate Change 2023: Synthesis Report. Contribution of Working Groups I, II and III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change</em> [Core Writing Team, H. Lee and J. Romero (eds.)]. IPCC, Geneva, Switzerland.</p>
+<p>Caribbean-Florida Water Science Center (CFWSC). <em>Climate of Puerto Rico</em>.* U.S. Geological Survey. (2016). Retrieved from www.usgs.gov website: https://www.usgs.gov/centers/cfwsc/science/climate-puerto-rico</p>
+<p>Herring, D. (2020, October 29). <em>What is an “extreme event”? Is there evidence that global warming has caused or contributed to any particular extreme event?</em> | NOAA Climate.gov. Retrieved from www.climate.gov website: https://www.climate.gov/news-features/climate-qa/what-extreme-event-there-evidence-global-warming-has-caused-or-contributed</p>
 
 
 </section>
