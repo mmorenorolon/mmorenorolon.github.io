@@ -13,7 +13,6 @@ citation:
 image: precip_banner.png
 code-fold: true
 draft: true
-draft-mode: linked
 editor_options: 
   chunk_output_type: console
 ---
@@ -542,5 +541,9 @@ North Atlantic atmospheric variability was captured using the CPC’s monthly [N
 
 # References
 
-Climate of Puerto Rico | U.S. Geological Survey. (n.d.). Retrieved from www.usgs.gov website: https://www.usgs.gov/centers/cfwsc/science/climate-puerto-rico
+Calvin, K., Dasgupta, D., Krinner, G., Mukherji, A., Thorne, P. W., Trisos, C., ... & Orendain, D. J. (2023). IPCC, 2023: *Climate Change 2023: Synthesis Report. Contribution of Working Groups I, II and III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change* [Core Writing Team, H. Lee and J. Romero (eds.)]. IPCC, Geneva, Switzerland.
+
+Caribbean-Florida Water Science Center (CFWSC). *Climate of Puerto Rico*.* U.S. Geological Survey. (2016). Retrieved from www.usgs.gov website: https://www.usgs.gov/centers/cfwsc/science/climate-puerto-rico
+
+Herring, D. (2020, October 29). *What is an “extreme event”? Is there evidence that global warming has caused or contributed to any particular extreme event?* | NOAA Climate.gov. Retrieved from www.climate.gov website: https://www.climate.gov/news-features/climate-qa/what-extreme-event-there-evidence-global-warming-has-caused-or-contributed
 
