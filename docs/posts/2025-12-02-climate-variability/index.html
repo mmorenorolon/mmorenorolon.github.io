@@ -254,10 +254,14 @@ window.Quarto = {
   <li><a href="#dag" id="toc-dag" class="nav-link" data-scroll-target="#dag">DAG</a></li>
   <li><a href="#statistical-model" id="toc-statistical-model" class="nav-link" data-scroll-target="#statistical-model">Statistical Model</a></li>
   <li><a href="#data-simulation" id="toc-data-simulation" class="nav-link" data-scroll-target="#data-simulation">Data Simulation</a></li>
+  <li><a href="#results-from-the-real-data-extreme-precipitation-patterns-at-san-juan-international-airport" id="toc-results-from-the-real-data-extreme-precipitation-patterns-at-san-juan-international-airport" class="nav-link" data-scroll-target="#results-from-the-real-data-extreme-precipitation-patterns-at-san-juan-international-airport">Results from the Real Data: Extreme Precipitation Patterns at San Juan International Airport</a></li>
+  <li><a href="#effect-of-year-on-extreme-precipitation-events" id="toc-effect-of-year-on-extreme-precipitation-events" class="nav-link" data-scroll-target="#effect-of-year-on-extreme-precipitation-events">Effect of Year on Extreme Precipitation Events</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a>
   <ul class="collapse">
   <li><a href="#monthly-nao-indices" id="toc-monthly-nao-indices" class="nav-link" data-scroll-target="#monthly-nao-indices">Monthly NAO Indices</a></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -291,61 +295,62 @@ window.Quarto = {
 </section>
 <section id="data-exploration" class="level1">
 <h1>Data Exploration</h1>
-<p>This analysis uses three publicly available NOAA datasets such as daily precipitation from the San Juan International Airport (1950*–2025), the ENSO index (Niño 3.4 anomaly), a measure of El Niño/La Niña conditions, and SST near Puerto Rico, extracted from NOAA’s ERSSTv5 dataset.</p>
-<p>Before fitting the statistical model, I explored the raw precipitation data to understand its distribution. Daily precipitation values were obtained from NOAA for the San Juan International Airport station from 1950–2025*. Extreme events were defined as daily precipitation totals falling within the top 5% of the historical distribution, following NOAA’s percentile-based definition of climate extremes. I then aggregated the number of extreme events for each year.</p>
+<p>This analysis uses three publicly available NOAA datasets such as daily precipitation from the San Juan International Airport (1946–2025), the ENSO index (Niño 3.4 anomaly), a measure of El Niño/La Niña conditions, and SST anomaly in from the Tropical Northern Atlantic, extracted from NOAA’s ERSSTv5 dataset.</p>
+<p>Before fitting the statistical model, I explored the raw precipitation data to understand its distribution. Daily precipitation values were obtained from NOAA for the San Juan International Airport station from 1946–2025. Figure X shows the full record of daily precipitation at the San Juan International Airport from 1975 to the present. Most days receive little to no rainfall, with frequent low–to–moderate precipitation events and occasionally very high-intensity spikes above 5 inches.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Daily Precipitation (raw data) Figure 2</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(precip, aes(x=Date, y=`PRCP (Inches)`)) +</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_line(alpha=0.6) +</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   labs(x = "Year", y = "Daily Rainfall", title = "Daily Precipitation (in)") +</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   theme_classic()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|fig-cap: "Daily Rainfall-San Juan Int'l Airport Station (1975-2025)"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Daily Precipitation (raw data)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(precip_daily, <span class="fu">aes</span>(<span class="at">x=</span>Date, <span class="at">y=</span><span class="st">`</span><span class="at">PRCP (Inches)</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha=</span>.<span class="dv">6</span>, <span class="at">colour =</span> <span class="st">"#2d8cbd"</span>) <span class="sc">+</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Daily Rainfall (in)"</span>) <span class="sc">+</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
+</div>
+</div>
+<p>Daily precipitation amounts from 1975–2025 exhibit a strongly right-skewed distribution, with most days receiving little to no rainfall and a long tail marked by the high-intensity events. Following NOAA’s percentile-based definition of extremes, I classified the highest 5% of daily precipitation values as extreme events. Figure X shows the distribution of daily rainfall with the 95th percentile threshold marked in red.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(rainy_days, aes(x = prcp_mm)) +</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_histogram(binwidth = 5, fill = "skyblue") +</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_vline(xintercept = threshold, color = "red", lwd = 1.2) +</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   labs(title = "Distribution of Daily Rainfall in San Juan",</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#        subtitle = paste("95th percentile threshold =", round(threshold, 2),</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                         "mm"),</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#        x = "Daily precipitation (mm)",</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#        y = "Frequency")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|fig-cap: "Distribution of Daily Rainfall (SJU)"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rainy_days, <span class="fu">aes</span>(<span class="at">x =</span> prcp_mm)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> threshold, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"95th percentile threshold ="</span>, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">round</span>(threshold, <span class="dv">2</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"mm"</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Daily precipitation (mm)"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<p>Figure X shows the distribution of daily precipitation, with the red vertical line marking the 95th percentile threshold (28.* mm). Figure X shows the yearly counts of extreme precipitation events. The mean number of events per year was X, while the variance was Y, indicating overdispersion and motivating the use of a Negative Binomial model.</p>
-<p>I also explored climate predictor variables such as ENSO, SST, and NAO (Figure 5). Each index was aggregated to yearly averages to match the temporal scale of the response variable.</p>
-</section>
-<section id="dag" class="level1">
-<h1>DAG</h1>
-<p>To clarify the relationships among variables, I constructed a directed acyclic graph (DAG). In this framework, Year captures long-term climate trends, ENSO represents natural climate variability, and Tropical Northern Atlantic (TNA) SST captures local ocean warming. All three variables can influence the number of extreme precipitation events in San Juan.</p>
+</div>
+</div>
+<p>Aggregating all the days above the 95th percentile threshold yielded the annual number of extreme precipitation events. Annual extremes vary substantially over time. The variance of yearly counts (20.05) exceeds the mean (10). This difference indicates overdispersion and further motivates the use of a Negative Binomial model for our analysis.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdag)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>dag <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">"</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">dag {</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">  Year</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="st">  ENSO</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">  NAO</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="st">  TNA_SST</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="st">  ExtremeEvents</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="st">  Year -&gt; ExtremeEvents</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="st">  ENSO -&gt; ExtremeEvents</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="st">  NAO -&gt; ExtremeEvents</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="st">  TNA_SST -&gt; ExtremeEvents</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="st">  Year -&gt; TNA_SST</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dag)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|fig-cap: "Extreme Precipitation Events per Year"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mean_events <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(extreme_events<span class="sc">$</span>extreme_events),<span class="dv">2</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>var_events <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">var</span>(extreme_events<span class="sc">$</span>extreme_events),<span class="dv">2</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(extreme_events, <span class="fu">aes</span>(year, extreme_events)) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#2d8cbd"</span>, <span class="at">linewidth =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#2d8cbd"</span>) <span class="sc">+</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Number of Extreme Events"</span>, <span class="at">x =</span> <span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -355,7 +360,97 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>In the DAG, Year and ENSO both influence SST, and SST directly influences the expected number of extreme rainfall events. Year may also have a direct effect on extreme rainfall; for example, due to long-term climate change or changes in storm frequency. This DAG helped guide the specification of the statistical model and make sure that the predictors included have plausible reasoning.</p>
+<p>I also explored our predictors (ENSO, SST, and NAO) (Figure X). Each index was aggregated to yearly averages to match the temporal scale of the response variable. The figures below demonstrate variability over time in ENSO, NAO, and Tropical North Atlantic SST over the study period.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|fig-cap: "El Niño Southern Oscillation (Yearly Average)"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clim_data, <span class="fu">aes</span>(year, avg_enso_anom)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#2d8cbd"</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"ENSO Index"</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|fig-cap: "North Atlantic Oscillation (Yearly Average)"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clim_data, <span class="fu">aes</span>(year, avg_enso_anom)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#7b1c37"</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"NAO Index"</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|fig-cap: "Tropical North Atlantic SST (Yearly Average)"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clim_data, <span class="fu">aes</span>(year, avg_sst)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#b8834f"</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"SST Anomaly (Celsius)"</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="dag" class="level1">
+<h1>DAG</h1>
+<p>To clarify the relationships among variables, I constructed a directed acyclic graph (DAG). In this framework, <code>Year</code> captures long-term climate trends, <code>ENSO</code> represents natural climate variability, and Tropical Northern Atlantic SST, <code>TNA_SST</code>, captures local ocean warming. All three variables can influence the number of extreme precipitation events in San Juan.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|fig-cap: "DAG: Connections to Climate Variability"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dag <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="st">dag {</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="st">  Year</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="st">  ENSO</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="st">  NAO</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="st">  TNA_SST</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="st">  ExtremeEvents</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="st">  Year -&gt; ExtremeEvents</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="st">  ENSO -&gt; ExtremeEvents</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="st">  NAO -&gt; ExtremeEvents</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="st">  TNA_SST -&gt; ExtremeEvents</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="st">  Year -&gt; TNA_SST</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dag)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In the DAG, Year and ENSO both influence SST, and SST directly influences the expected number of extreme rainfall events. Year may also have a direct effect on extreme rainfall; for example, due to the long-term climate change or changes in storm frequency. All three variables can influence the number of extreme precipitation events in San Juan.</p>
 </section>
 <section id="statistical-model" class="level1">
 <h1>Statistical Model</h1>
@@ -380,45 +475,394 @@ Y_t \sim \text{NegativeBinomial}(\mu_t, \theta)
 </section>
 <section id="data-simulation" class="level1">
 <h1>Data Simulation</h1>
+<p>I simulated annual extreme precipitation counts using a Negative Binomial Generalized Linear Model (GLM) with known coefficients for ENSO, NAO, SST, and an averaged year predictor to later compare the true parameter values with the estimates obtained by fitting the model back to the simulated data.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create year variable</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="dv">1950</span><span class="sc">:</span><span class="dv">2025</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(years)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>year_centered <span class="ot">&lt;-</span> years <span class="sc">-</span> <span class="fu">mean</span>(years)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># generate predictor's index values</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>nao <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>enso <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>sst <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># true parameter coefficients</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>beta0 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>beta1 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.3</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>beta2 <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>beta3 <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>beta4 <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># create the linear predictor</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>eta <span class="ot">&lt;-</span> beta0 <span class="sc">+</span> beta1<span class="sc">*</span>nao <span class="sc">+</span> beta2<span class="sc">*</span>enso <span class="sc">+</span> beta3<span class="sc">*</span>sst <span class="sc">+</span> beta4<span class="sc">*</span>year_centered</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># mean response</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">exp</span>(eta)</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate negative binomial distribution of counts for the response var</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>extreme_events <span class="ot">&lt;-</span> <span class="fu">rnbinom</span>(n, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">mu =</span> mu)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co"># create the dataframe</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>sim_data <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(extreme_events, </span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>                   nao, </span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>                   enso, </span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>                   sst, </span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>                   <span class="at">year =</span> years,</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>                   year_centered)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|code-fold: false</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------ Data Simulation -------------------------------</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create the year variable</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="dv">1975</span><span class="sc">:</span><span class="dv">2025</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(years)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>year_ref <span class="ot">&lt;-</span> years <span class="sc">-</span> <span class="fu">mean</span>(years)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># generate predictor's index values </span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>nao <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>enso <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>sst <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co"># true parameter coefficients</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>beta0 <span class="ot">&lt;-</span> <span class="fl">2.5</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>beta1 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.6</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>beta2 <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>beta3 <span class="ot">&lt;-</span> <span class="fl">0.3</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>beta4 <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co"># create the linear predictor</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>log_mean <span class="ot">&lt;-</span> beta0 <span class="sc">+</span> beta1<span class="sc">*</span>nao <span class="sc">+</span> beta2<span class="sc">*</span>enso <span class="sc">+</span> beta3<span class="sc">*</span>sst <span class="sc">+</span> beta4<span class="sc">*</span>year_ref</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co"># mean response</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">exp</span>(log_mean)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate negative binomial distribution of counts for the response var</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>extreme_events <span class="ot">&lt;-</span> <span class="fu">rnbinom</span>(n, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">mu =</span> mu)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co"># create the dataframe</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>sim_data <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(extreme_events, </span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>                   nao, </span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>                   enso, </span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>                   sst, </span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>                   <span class="at">year =</span> years,</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>                   year_ref)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+</div>
+<p>To avoid extremely large values in the linear predictor, the year variable was expressed as the subtraction of its average. This transformation leaves the interpretation of the yearly trend unchanged while maintaining the numerical values in a stable range for the Negative Binomial model. I used this operation to maintain numerical stability.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|fig-cap: "Simulated Extreme Event Counts"</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim_data, <span class="fu">aes</span>(year, extreme_events)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"darkred"</span>) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Simulated Extreme Events"</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Figure X presents the simulated yearly counts of extreme precipitation events generated under the Negative Binomial distribution. The series shows strong year-to-year variability, with sharp fluctuations that are expected when modeling annual extreme events. Even with these swings, the simulated values stay within a realistic range for a tropical station. The variability reflects both the randomness built into the Negative Binomial distribution and the influence of the predictor variables included in the linear predictor.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|code-fold: true</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------- Model Simulation ---------------------------------</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>sim_nb_model <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(<span class="at">formula =</span> extreme_events <span class="sc">~</span> year_ref <span class="sc">+</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                   enso <span class="sc">+</span> nao <span class="sc">+</span> sst,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> sim_data)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(sim_nb_model) <span class="sc">%&gt;%</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>, <span class="at">caption =</span> <span class="st">"Coefficient Estimates"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Coefficient Estimates</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">2.403</td>
+<td style="text-align: right;">0.093</td>
+<td style="text-align: right;">25.978</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">year_ref</td>
+<td style="text-align: right;">0.011</td>
+<td style="text-align: right;">0.006</td>
+<td style="text-align: right;">1.759</td>
+<td style="text-align: right;">0.078</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">enso</td>
+<td style="text-align: right;">-0.039</td>
+<td style="text-align: right;">0.102</td>
+<td style="text-align: right;">-0.380</td>
+<td style="text-align: right;">0.704</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">nao</td>
+<td style="text-align: right;">-0.690</td>
+<td style="text-align: right;">0.105</td>
+<td style="text-align: right;">-6.602</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sst</td>
+<td style="text-align: right;">0.108</td>
+<td style="text-align: right;">0.092</td>
+<td style="text-align: right;">1.178</td>
+<td style="text-align: right;">0.239</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Fitting the Negative Binomial model to the simulated dataset recovered the true parameters. From our simulated data, we expected to obtain coefficient values of 2.5, -0.6, 0.05, 0.3, and 0.01 for <span class="math inline">\(\beta_0\)</span> through <span class="math inline">\(\beta_4\)</span>, respectively. The model estimates closely aligned with these values. The fitted effects for the year (0.011), ENSO (–0.039), NAO (–0.690), and TNA SST (0.108) reflect both the direction and approximate magnitude of the true coefficients. Minor deviations are expected due to random variation in the simulated counts, but overall, the fitted model successfully recovers the structure of the simulation.</p>
+<p>One possible reason for this outcome is that small slopes are harder to recover unless the sample size is very large. That being said, the model NAO displayed a strong negative; SST, a light positive, ENSO, a small effect; and year, a small positive trend. Therefore, the general pattern was captured by the model.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|code-fold: true</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|fig-cap: "Effect of NAO on Simulated Extreme Precipitation Counts"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a prediction grid for NAO</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>pred_sim_nao <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(<span class="at">nao =</span> <span class="fu">seq</span>(<span class="fu">min</span>(sim_data<span class="sc">$</span>nao),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                                      <span class="fu">max</span>(sim_data<span class="sc">$</span>nao), </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">length.out =</span> <span class="dv">100</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">enso =</span> <span class="fu">mean</span>(sim_data<span class="sc">$</span>enso), </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">sst  =</span> <span class="fu">mean</span>(sim_data<span class="sc">$</span>sst),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">year_ref =</span> <span class="fu">mean</span>(sim_data<span class="sc">$</span>year_ref))</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>pred_sim_nao_se <span class="ot">&lt;-</span> <span class="fu">predict</span>(sim_nb_model,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>                           <span class="at">newdata =</span> pred_sim_nao,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>                           <span class="at">type =</span> <span class="st">"link"</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>                           <span class="at">se.fit =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert link scale predictions to response scale</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>pred_sim_nb <span class="ot">&lt;-</span> pred_sim_nao <span class="sc">%&gt;%</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># linear predictor (log-scale)</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_pred =</span> pred_sim_nao_se<span class="sc">$</span>fit,</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 95% CI on the link (log) scale using qnorm</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_lwr =</span> <span class="fu">qnorm</span>(<span class="fl">0.025</span>, log_pred, pred_sim_nao_se<span class="sc">$</span>se.fit),</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_upr =</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>, log_pred, pred_sim_nao_se<span class="sc">$</span>se.fit),</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convert to response scale</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">pred =</span> <span class="fu">exp</span>(log_pred),</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">pred_lwr =</span> <span class="fu">exp</span>(log_lwr),</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">pred_upr =</span> <span class="fu">exp</span>(log_upr))</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot </span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Raw data points</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> sim_data,</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> nao, <span class="at">y =</span> extreme_events),</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"#528084"</span>,</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Confidence interval ribbon</span></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> pred_sim_nb,</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">x =</span> nao, <span class="at">ymin =</span> pred_lwr, <span class="at">ymax =</span> pred_upr),</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="st">"#a39f79"</span>,</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Prediction line</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> pred_sim_nb,</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> nao, <span class="at">y =</span> pred),</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"#7d1c3b"</span>,</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> .<span class="dv">9</span>) <span class="sc">+</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"NAO (simulated)"</span>,</span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Predicted count"</span>) <span class="sc">+</span></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Figure X illustrates how the predicted number of simulated extreme precipitation events changes across the range of NAO values while the other predictors are held at their average levels. The background points show the raw simulated data, which vary widely from year to year, while the solid line represents the model’s expected relationship. Because NAO was assigned a negative coefficient in the simulation, the predicted number of extreme events decreases as NAO increases. The shaded band shows the 95% confidence interval around the prediction, which widens toward the edges of the NAO range where fewer observations occur. Overall, this figure demonstrates that the fitted Negative Binomial model captures the general downward trend that was built into the simulated data and behaves in line with the model assumptions.</p>
+</section>
+<section id="results-from-the-real-data-extreme-precipitation-patterns-at-san-juan-international-airport" class="level1">
+<h1>Results from the Real Data: Extreme Precipitation Patterns at San Juan International Airport</h1>
+<p>For our inferential analysis of our collected data, we have established a null and alternative hypothesis. That is:</p>
+<p><span class="math inline">\(H_0\)</span>: The frequency of extreme precipitation events has not changed over time. <span class="math inline">\(H_1\)</span>: Extreme precipitation events have increased over time.</p>
+<p>or</p>
+<p><span class="math display">\[
+H_0: \beta_{\text{year}} = 0,\quad
+H_1: \beta_{\text{year}} &gt; 0
+\]</span> ## Fit Model</p>
+<p>Using the processed yearly counts of extreme events and the annual values of the NAO, ENSO, and TNA SST indices, I fit the same Negative Binomial model structure used in the simulation.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|code-fold: true</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>clim_model <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(extreme_events <span class="sc">~</span> year_ref <span class="sc">+</span> avg_enso_anom <span class="sc">+</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                   avg_nao_index <span class="sc">+</span> avg_sst,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> clim_data)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(clim_model) <span class="sc">%&gt;%</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>, <span class="at">caption =</span> <span class="st">"Coefficient Estimates"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Coefficient Estimates</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">2.122</td>
+<td style="text-align: right;">0.069</td>
+<td style="text-align: right;">30.867</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">year_ref</td>
+<td style="text-align: right;">-0.009</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: right;">-2.052</td>
+<td style="text-align: right;">0.040</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">avg_enso_anom</td>
+<td style="text-align: right;">-0.208</td>
+<td style="text-align: right;">0.079</td>
+<td style="text-align: right;">-2.648</td>
+<td style="text-align: right;">0.008</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">avg_nao_index</td>
+<td style="text-align: right;">0.101</td>
+<td style="text-align: right;">0.137</td>
+<td style="text-align: right;">0.738</td>
+<td style="text-align: right;">0.461</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">avg_sst</td>
+<td style="text-align: right;">0.922</td>
+<td style="text-align: right;">0.206</td>
+<td style="text-align: right;">4.487</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>After fitting the Negative Binomial model, I found that the estimated coefficient for year was –0.009 (p = 0.04), indicating only a very small decrease in the expected number of extreme events after accounting for the other predictors. The ENSO coefficient was –0.208 (p = 0.008), meaning that ENSO phases are associated with meaningful changes in extreme rainfall frequency, with El Niño–like conditions generally linked to fewer extreme events. The SST effect (0.922; p = 7.22e–6) showed the strongest relationship, supporting the idea that warmer Atlantic temperatures are associated with more extreme rainfall events in San Juan. NAO had an estimated coefficient of 0.101 (p = 0.461). The intercept (2.122; p = 2e-16) represents the expected log count of extreme precipitation events when all predictors are at their reference values. This corresponds to roughly eight extreme events per year when ENSO, NAO, and SST anomalies are zero and the year is at its mean value.</p>
+</section>
+<section id="effect-of-year-on-extreme-precipitation-events" class="level1">
+<h1>Effect of Year on Extreme Precipitation Events</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|code-fold: true</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|fig-cap: "Predicted Effect of Year on Extreme Precipitation Events"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Prediction grid for Year</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>pred_year <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">year_ref =</span> <span class="fu">seq</span>(<span class="fu">min</span>(clim_data<span class="sc">$</span>year_ref),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">max</span>(clim_data<span class="sc">$</span>year_ref),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">length.out =</span> <span class="dv">100</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">avg_enso_anom =</span> <span class="fu">mean</span>(clim_data<span class="sc">$</span>avg_enso_anom, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">avg_nao_index =</span> <span class="fu">mean</span>(clim_data<span class="sc">$</span>avg_nao_index, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">avg_sst =</span> <span class="fu">mean</span>(clim_data<span class="sc">$</span>avg_sst, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions on link scale</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>pred_year_se <span class="ot">&lt;-</span> <span class="fu">predict</span>(clim_model,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>                        <span class="at">newdata =</span> pred_year,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                        <span class="at">type =</span> <span class="st">"link"</span>,</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>                        <span class="at">se.fit =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>pred_year_nb <span class="ot">&lt;-</span> pred_year <span class="sc">%&gt;%</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_pred =</span> pred_year_se<span class="sc">$</span>fit,</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">log_lwr =</span> <span class="fu">qnorm</span>(<span class="fl">0.025</span>, log_pred, pred_year_se<span class="sc">$</span>se.fit),</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">log_upr =</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>, log_pred, pred_year_se<span class="sc">$</span>se.fit),</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">pred =</span> <span class="fu">exp</span>(log_pred),</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">pred_lwr =</span> <span class="fu">exp</span>(log_lwr),</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">pred_upr =</span> <span class="fu">exp</span>(log_upr))</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pred_year_nb, <span class="fu">aes</span>(<span class="at">x =</span> year_ref, <span class="at">y =</span> pred)) <span class="sc">+</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> pred_lwr, <span class="at">ymax =</span> pred_upr),</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="st">"#5b8484"</span>, <span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"firebrick"</span>) <span class="sc">+</span></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year (centered)"</span>,</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Predicted Number of Extreme Events"</span>) <span class="sc">+</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Figure X shows the modeled relationship between year and the expected number of extreme precipitation events in San Juan, with ENSO, NAO, and SST held at their average values. The predicted line slopes slightly downward, indicating a small decrease in extreme event frequency over the 50-year period. The confidence interval widens toward the earlier years, reflecting greater uncertainty at the edges of the dataset. Overall, the effect of year is relatively weak compared to the climate indices included in the model, and this visualization supports the conclusion that time alone does not explain changes in extreme precipitation. Instead, the variability in extremes appears to be more strongly associated with climate conditions such as ENSO and Atlantic SST rather than a simple linear trend over time.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|code-fold: true</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|fig-cap: "Effect of Tropical Northern Atlantic SST on Extreme Precipitation Events"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Prediction grid for TNA SST</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>pred_sst <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">avg_sst =</span> <span class="fu">seq</span>(<span class="fu">min</span>(clim_data<span class="sc">$</span>avg_sst),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">max</span>(clim_data<span class="sc">$</span>avg_sst),</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">length.out =</span> <span class="dv">100</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">avg_enso_anom =</span> <span class="fu">mean</span>(clim_data<span class="sc">$</span>avg_enso_anom, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">avg_nao_index =</span> <span class="fu">mean</span>(clim_data<span class="sc">$</span>avg_nao_index, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">year_ref =</span> <span class="fu">mean</span>(clim_data<span class="sc">$</span>year_ref, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions on link scale</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>pred_sst_se <span class="ot">&lt;-</span> <span class="fu">predict</span>(clim_model,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>                        <span class="at">newdata =</span> pred_sst,</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>                        <span class="at">type =</span> <span class="st">"link"</span>,</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>                        <span class="at">se.fit =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>pred_sst_nb <span class="ot">&lt;-</span> pred_sst <span class="sc">%&gt;%</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_pred =</span> pred_sst_se<span class="sc">$</span>fit,</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>         </span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">log_lwr =</span> <span class="fu">qnorm</span>(<span class="fl">0.025</span>, log_pred, pred_sst_se<span class="sc">$</span>se.fit),</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">log_upr =</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>, log_pred, pred_sst_se<span class="sc">$</span>se.fit),</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>         </span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>         <span class="at">pred =</span> <span class="fu">exp</span>(log_pred),</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">pred_lwr =</span> <span class="fu">exp</span>(log_lwr),</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>         <span class="at">pred_upr =</span> <span class="fu">exp</span>(log_upr))</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pred_sst_nb, <span class="fu">aes</span>(<span class="at">x =</span> avg_sst, <span class="at">y =</span> pred)) <span class="sc">+</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> pred_lwr, <span class="at">ymax =</span> pred_upr),</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="st">"#5b8484"</span>, <span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"firebrick"</span>) <span class="sc">+</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Tropical Atlantic Sea Surface Temperature (Celsius)"</span>,</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Predicted Number of Extreme Events"</span>) <span class="sc">+</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Figure Y illustrates the modeled relationship between Tropical Atlantic sea surface temperature (SST) anomalies and the expected number of extreme precipitation events in San Juan. As SST increases, the predicted count of extreme events rises sharply and the uncertainty band widens at higher temperatures. This pattern suggests that warmer Atlantic conditions are associated with a greater likelihood of extreme rainfall.</p>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>Although the year variable itself did not show a positive linear trend, the model results point to a more nuanced picture. ENSO anomalies and Atlantic SSTs were both significant predictors of extreme precipitation frequency, indicating that large-scale climate variability plays a key role in shaping extreme rainfall in San Juan. This suggests that changes in extreme precipitation cannot be attributed to time alone, but instead emerge from the combined influence of warming Atlantic waters and shifts in El Niño/La Niña conditions. The model therefore highlights that the frequency of extremes is tied to climate dynamics rather than a simple linear trend over the past 50 years.</p>
+<p>Several limitations should be considered when interpreting these findings. Extreme precipitation in the Caribbean is strongly influenced by tropical cyclone activity, yet hurricane frequency and intensity were not included in the model and could confound the observed associations. Other large-scale climate modes, such as the Atlantic Multidecadal Oscillation (AMO) or the Madden–Julian Oscillation (MJO) may also shape rainfall extremes and interact with ENSO and SST in ways not captured here. Additionally, the negative coefficient for year may reflect the model’s inability to capture nonlinear or regime-based changes in precipitation patterns. Finally, the definition of extreme events is dependent on a threshold. Different thresholds could yield different trends.</p>
+<p>Future work could expand this analysis by incorporating storm-specific data, including annual tropical cyclone counts to better capture the influence of hurricane activity on extreme precipitation. The model does not incorporate lagged climate effects, even though variables like ENSO and SST often influence precipitation with delays of several months, so a model that incorporates that factor may likely gain even more insights in the temporal dynamics that shape extreme rainfall in Puerto Rico. Finally, a spatial extension of this analysis using additional weather stations across the island would also help assess whether the patterns observed at the San Juan International Airport station are consistent regionally.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Note:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>As a graduate student in Environmental Data Science, my goal in this analysis is not to produce a full atmospheric attribution study, but to demonstrate how statistical tools can be applied to explore relationships between climate indices and extreme precipitation. ENSO, NAO, and Tropical North Atlantic SSTs were selected because they are widely used indicators of large-scale climate variability, and their definitions are well documented in NOAA datasets. While I am not an atmospheric scientist, the purpose of this model is to illustrate how these indices can be incorporated into a statistical framework, interpreted, and contextualized within broader climate processes. The results therefore reflect an introductory, data-driven perspective rather than a definitive climatological explanation.</em></p>
+</div>
 </div>
 </section>
 <section id="data-sources" class="level1">
@@ -426,9 +870,12 @@ Y_t \sim \text{NegativeBinomial}(\mu_t, \theta)
 <section id="monthly-nao-indices" class="level2">
 <h2 class="anchored" data-anchor-id="monthly-nao-indices">Monthly NAO Indices</h2>
 <p>The NAO describes fluctuations in the pressure gradient between the Azores High and Icelandic Low. Positive NAO phases are associated with enhanced westerlies and changes in North Atlantic storm patterns, which can influence large-scale moisture transport. https://ftp.cpc.ncep.noaa.gov/wd52dg/data/indices/nao_index.tim</p>
-
-
 </section>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+
+
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{moreno_rolón2025,
