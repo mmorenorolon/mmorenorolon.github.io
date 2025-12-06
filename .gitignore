@@ -8,3 +8,6 @@
 /.quarto/
 
 **/*.quarto_ipynb
+
+#Ignore data from the data/ directory
+data/*

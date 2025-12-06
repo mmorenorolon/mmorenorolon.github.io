@@ -1,18 +1,17 @@
 ---
 title: "Temporal Trends in the Frequency of Extreme Precipitation Events at San Juan Int'l Airport, Puerto Rico"
 description: "A Negative Binomial analysis of 50 years of extreme rainfall events using NOAA data."
-format: html
 author:
   - name: Melannie Moreno Rolón
     url: https://mmorenorolon.github.io/
     affiliation: Master of Environmental Data Science Program @ The Bren School (UCSB)
     affiliation-url: https://ucsb-meds.github.io/
 date: last-modified
-categories: [Statistics, Climate Variability & Change, Puerto Rico, Negative Binomial, MEDS]
+categories: [R, Statistics, Climate Variability & Change, Puerto Rico, MEDS]
 citation:
   url: https://mmorenorolon.github.io/posts/2025-12-02-climate-variability/
 image: precip_banner.png
-code-fold: true
+code-fold: false
 editor_options: 
   chunk_output_type: console
 ---
