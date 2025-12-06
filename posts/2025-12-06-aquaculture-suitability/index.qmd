@@ -8,6 +8,8 @@ author:
     affiliation-url: https://ucsb-meds.github.io/
 date: last-modified
 categories: [MEDS, R, Geospatial Analysis]
+banner:
+  image: "https://cf-images.us-east-1.prod.boltdns.net/v1/static/659677166001/7d188fff-3e5e-4059-b7ef-ffd4be742900/fef50dd1-d58f-4a03-84f7-579058fa9fd7/1280x720/match/image.jpg"
 execute:
   message: false
   warnings: false
