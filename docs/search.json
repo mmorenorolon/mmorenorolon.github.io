@@ -11,7 +11,7 @@
     "href": "posts/2025-12-06-aquaculture-suitability/index.html",
     "title": "Evaluating Species-Specific Environmental Suitability for Marine Aquaculture Development Along the U.S. West Coast",
     "section": "",
-    "text": "Aquaculture Image Sourced from NOAA Fisheries\n#|label: import-libraries\n#|code-fold: true\n# Import libraries\nlibrary(terra)\nlibrary(sf)\nlibrary(here)\nlibrary(testthat)\nlibrary(tmap)\nlibrary(kableExtra)\nlibrary(tidyverse)\nlibrary(dplyr)"
+    "text": "Aquaculture Image Sourced from NOAA Fisheries\nCode\n#|label: import-libraries\n#|code-fold: true\n# Import libraries\nlibrary(terra)\nlibrary(sf)\nlibrary(here)\nlibrary(testthat)\nlibrary(tmap)\nlibrary(kableExtra)\nlibrary(tidyverse)\nlibrary(dplyr)"
   },
   {
     "objectID": "posts/2025-12-06-aquaculture-suitability/index.html#sea-surface-temperature-processing",
@@ -144,6 +144,6 @@
     "href": "posts.html",
     "title": "My Blog Listing Page",
     "section": "",
-    "text": "A Geospatial Assessment of Burn Severity and Social Vulnerability in the 2025 LA Wildfires\n\n\n\n\n\n\nundefined Moreno Rolón\n\n\n\n\n\n\n\n\n\n\n\nEvaluating Species-Specific Environmental Suitability for Marine Aquaculture Development Along the U.S. West Coast\n\n\n\nMEDS\n\nR\n\nGeospatial Analysis\n\n\n\nAnalysis of U.S. West Coast Exclusive Economic Zones to identify suitable marine aquaculture areas based on species-specific sea surface temperature and depth ranges.\n\n\n\nundefined Moreno Rolón, Melannie Moreno Rolón\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trends in the Frequency of Extreme Precipitation Events at San Juan Int’l Airport, Puerto Rico\n\n\n\nR\n\nStatistics\n\nClimate Variability & Change\n\nPuerto Rico\n\nMEDS\n\n\n\nA Negative Binomial analysis of 50 years of extreme rainfall events using NOAA data.\n\n\n\nundefined Moreno Rolón, Melannie Moreno Rolón\n\n\nDec 5, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "A Geospatial Assessment of Burn Severity and Social Vulnerability in the 2025 LA Wildfires\n\n\n\n\n\n\nundefined Moreno Rolón\n\n\n\n\n\n\n\n\n\n\n\n\n\nEvaluating Species-Specific Environmental Suitability for Marine Aquaculture Development Along the U.S. West Coast\n\n\n\nMEDS\n\nR\n\nGeospatial Analysis\n\n\n\nAnalysis of U.S. West Coast Exclusive Economic Zones to identify suitable marine aquaculture areas based on species-specific sea surface temperature and depth ranges.\n\n\n\nundefined Moreno Rolón, Melannie Moreno Rolón\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trends in the Frequency of Extreme Precipitation Events at San Juan Int’l Airport, Puerto Rico\n\n\n\nR\n\nStatistics\n\nClimate Variability & Change\n\nPuerto Rico\n\nMEDS\n\n\n\nA Negative Binomial analysis of 50 years of extreme rainfall events using NOAA data.\n\n\n\nundefined Moreno Rolón, Melannie Moreno Rolón\n\n\nDec 5, 2025\n\n\n\n\n\n\nNo matching items"
   }
 ]
