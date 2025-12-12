@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Melannie Moreno Rolón">
-<meta name="dcterms.date" content="2025-12-11">
+<meta name="dcterms.date" content="2025-12-12">
 <meta name="description" content="A Negative Binomial analysis of 50 years of extreme rainfall events using NOAA data.">
 
 <title>Temporal Trends in the Frequency of Extreme Precipitation Events at San Juan Int’l Airport, Puerto Rico – Melannie Moreno Rolón</title>
@@ -235,7 +235,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 11, 2025</p>
+        <p class="date">December 12, 2025</p>
       </div>
     </div>
     
@@ -615,12 +615,12 @@ Y_t \sim \text{NegativeBinomial}(\mu_t, \theta)
 </div>
 <section id="parameter-recovery-in-the-simulated-model" class="level2">
 <h2 class="anchored" data-anchor-id="parameter-recovery-in-the-simulated-model">Parameter Recovery in the Simulated Model</h2>
-<p>In the simulation, I assigned the following true parameter values based on the model structure <span class="math display">\[\log(\mu_t) =
+<p>In the simulation, I assigned the following true parameter values based on the model structure: <span class="math display">\[\log(\mu_t) =
 \beta_0
 + \beta_1\,\text{Year}_t
 + \beta_2\,\text{ENSO}_t
 + \beta_3\,\text{SST}_t
-+ \beta_4\,\text{NAO}_t \]</span>:</p>
++ \beta_4\,\text{NAO}_t \]</span></p>
 <ul>
 <li><span class="math inline">\(\beta_0\)</span> (intercept) = 2.5</li>
 <li><span class="math inline">\(\beta_1\)</span> (year_ref) = -0.6</li>
@@ -883,7 +883,7 @@ Y_t \sim \text{NegativeBinomial}(\mu_t, \theta)
 </table>
 </div>
 </div>
-<p>After fitting the Negative Binomial model, I found that the estimated coefficient for year was –0.009 (p = 0.04), indicating only a very small decrease in the expected number of extreme events after accounting for the other predictors. The ENSO coefficient was –0.208 (p = 0.008), meaning that ENSO phases are associated with meaningful changes in extreme rainfall frequency, with El Niño–like conditions generally linked to fewer extreme events. The SST effect (0.922; p = 7.22e–6) showed the strongest relationship, supporting the idea that warmer Atlantic temperatures are associated with more extreme rainfall events in San Juan. NAO had an estimated coefficient of 0.101 (p = 0.461). The intercept (2.122; p = 2e-16) represents the expected log count of extreme precipitation events when all predictors are at their reference values. This corresponds to roughly eight extreme events per year when ENSO, NAO, and SST anomalies are zero and the year is at its mean value.</p>
+<p>After fitting the Negative Binomial model, I found that the estimated coefficient for year was –0.009 (p = 0.04), indicating only a very small decrease in the expected number of extreme events after accounting for the other predictors. Although the estimate of the year effect was negative, its magnitude was marginal relative to ENSO and SST. This finding suggests that long-term temporal trends alone do not meaningfully explain changes in extreme precipitation frequency. The ENSO coefficient was –0.208 (p = 0.008), meaning that ENSO phases are associated with meaningful changes in extreme rainfall frequency, with El Niño–like conditions generally linked to fewer extreme events. The SST effect (0.922; p = 7.22e–6) showed the strongest relationship, supporting the idea that warmer Atlantic temperatures are associated with more extreme rainfall events in San Juan. NAO had an estimated coefficient of 0.101 (p = 0.461). The intercept (2.122; p = 2e-16) represents the expected log count of extreme precipitation events when all predictors are at their reference values. This corresponds to roughly eight extreme events per year when ENSO, NAO, and SST anomalies are zero and the year is at its mean value.</p>
 </section>
 <section id="effect-of-year-on-extreme-precipitation-events" class="level1">
 <h1>Effect of Year on Extreme Precipitation Events</h1>
@@ -1041,14 +1041,14 @@ Y_t \sim \text{NegativeBinomial}(\mu_t, \theta)
   title = {Temporal {Trends} in the {Frequency} of {Extreme}
     {Precipitation} {Events} at {San} {Juan} {Int’l} {Airport,} {Puerto}
     {Rico}},
-  date = {2025-12-11},
+  date = {2025-12-12},
   url = {https://mmorenorolon.github.io/posts/2025-12-02-climate-variability/},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-moreno_rolón2025" class="csl-entry quarto-appendix-citeas" role="listitem">
 Moreno Rolón, and Melannie Moreno Rolón. 2025. <span>“Temporal Trends in
 the Frequency of Extreme Precipitation Events at San Juan Int’l Airport,
-Puerto Rico.”</span> December 11, 2025. <a href="https://mmorenorolon.github.io/posts/2025-12-02-climate-variability/">https://mmorenorolon.github.io/posts/2025-12-02-climate-variability/</a>.
+Puerto Rico.”</span> December 12, 2025. <a href="https://mmorenorolon.github.io/posts/2025-12-02-climate-variability/">https://mmorenorolon.github.io/posts/2025-12-02-climate-variability/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1847,12 +1847,12 @@ Puerto Rico.”</span> December 11, 2025. <a href="https://mmorenorolon.github.i
 <span id="cb16-348"><a href="#cb16-348" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-349"><a href="#cb16-349" aria-hidden="true" tabindex="-1"></a><span class="fu">## Parameter Recovery in the Simulated Model</span></span>
 <span id="cb16-350"><a href="#cb16-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-351"><a href="#cb16-351" aria-hidden="true" tabindex="-1"></a>In the simulation, I assigned the following true parameter values based on the model structure $$\log(\mu_t) = </span>
+<span id="cb16-351"><a href="#cb16-351" aria-hidden="true" tabindex="-1"></a>In the simulation, I assigned the following true parameter values based on the model structure: $$\log(\mu_t) = </span>
 <span id="cb16-352"><a href="#cb16-352" aria-hidden="true" tabindex="-1"></a>\beta_0 </span>
 <span id="cb16-353"><a href="#cb16-353" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>\beta_1\,\text{Year}_t</span>
 <span id="cb16-354"><a href="#cb16-354" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>\beta_2\,\text{ENSO}_t</span>
 <span id="cb16-355"><a href="#cb16-355" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>\beta_3\,\text{SST}_t</span>
-<span id="cb16-356"><a href="#cb16-356" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>\beta_4\,\text{NAO}_t $$:</span>
+<span id="cb16-356"><a href="#cb16-356" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>\beta_4\,\text{NAO}_t $$</span>
 <span id="cb16-357"><a href="#cb16-357" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-358"><a href="#cb16-358" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\beta_0$ (intercept) = 2.5</span>
 <span id="cb16-359"><a href="#cb16-359" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\beta_1$ (year_ref) = -0.6</span>
@@ -2012,7 +2012,7 @@ Puerto Rico.”</span> December 11, 2025. <a href="https://mmorenorolon.github.i
 <span id="cb16-519"><a href="#cb16-519" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-520"><a href="#cb16-520" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-521"><a href="#cb16-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-522"><a href="#cb16-522" aria-hidden="true" tabindex="-1"></a>After fitting the Negative Binomial model, I found that the estimated coefficient for year was –0.009 (p = 0.04), indicating only a very small decrease in the expected number of extreme events after accounting for the other predictors. The ENSO coefficient was –0.208 (p = 0.008), meaning that ENSO phases are associated with meaningful changes in extreme rainfall frequency, with El Niño–like conditions generally linked to fewer extreme events. The SST effect (0.922; p = 7.22e–6) showed the strongest relationship, supporting the idea that warmer Atlantic temperatures are associated with more extreme rainfall events in San Juan. NAO had an estimated coefficient of 0.101 (p = 0.461). The intercept (2.122; p = 2e-16) represents the expected log count of extreme precipitation events when all predictors are at their reference values. This corresponds to roughly eight extreme events per year when ENSO, NAO, and SST anomalies are zero and the year is at its mean value.</span>
+<span id="cb16-522"><a href="#cb16-522" aria-hidden="true" tabindex="-1"></a>After fitting the Negative Binomial model, I found that the estimated coefficient for year was –0.009 (p = 0.04), indicating only a very small decrease in the expected number of extreme events after accounting for the other predictors. Although the estimate of the year effect was negative, its magnitude was marginal relative to ENSO and SST. This finding suggests that long-term temporal trends alone do not meaningfully explain changes in extreme precipitation frequency. The ENSO coefficient was –0.208 (p = 0.008), meaning that ENSO phases are associated with meaningful changes in extreme rainfall frequency, with El Niño–like conditions generally linked to fewer extreme events. The SST effect (0.922; p = 7.22e–6) showed the strongest relationship, supporting the idea that warmer Atlantic temperatures are associated with more extreme rainfall events in San Juan. NAO had an estimated coefficient of 0.101 (p = 0.461). The intercept (2.122; p = 2e-16) represents the expected log count of extreme precipitation events when all predictors are at their reference values. This corresponds to roughly eight extreme events per year when ENSO, NAO, and SST anomalies are zero and the year is at its mean value.</span>
 <span id="cb16-523"><a href="#cb16-523" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-524"><a href="#cb16-524" aria-hidden="true" tabindex="-1"></a><span class="fu"># Effect of Year on Extreme Precipitation Events</span></span>
 <span id="cb16-527"><a href="#cb16-527" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
