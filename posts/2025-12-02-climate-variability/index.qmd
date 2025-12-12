@@ -11,7 +11,9 @@ categories: [R, Statistics, Climate Variability & Change, Puerto Rico, MEDS]
 citation:
   url: https://mmorenorolon.github.io/posts/2025-12-02-climate-variability/
 image: precip_banner.png
-code-fold: false
+code-fold: show
+code-tools: true
+format: html
 editor_options: 
   chunk_output_type: console
 ---
@@ -28,16 +30,16 @@ library(kableExtra)
 library(MASS)
 
 # Import data
-precip_daily <- read_csv("../../data/sju_ncei_data.csv",
+precip_daily <- read_csv("data/sju_ncei_data.csv",
                          show_col_types = F)
-enso_monthly <- read_csv("../../data/MONTHLY_ENSO_INDEX.csv",
+enso_monthly <- read_csv("data/MONTHLY_ENSO_INDEX.csv",
                          show_col_types = F)
-nao_monthly  <- read_csv("../../data/NAO_INDEX.csv",
+nao_monthly  <- read_csv("data/NAO_INDEX.csv",
                          show_col_types = F)
-tna_monthly  <- read_csv("../../data/TNA_SST.csv",
+tna_monthly  <- read_csv("data/TNA_SST.csv",
                          col_names = F,
                          show_col_types = F,
-                         na = c("-99.99"))
+                         na = c("-99.99", ""))
 
 #Data processing
 precip_daily <- precip_daily %>%
@@ -121,7 +123,7 @@ Understanding intensity of rainfall events also requires a clear definition of w
 
 Together, these drivers provide context for evaluating long-term changes in extreme rainfall at the San Juan Airport station. In a humid tropical island setting where orographic lifting, ocean–atmosphere interactions, and global climate variability shape precipitation, it is meaningful for climate resilience planning to assess whether extreme rainfall events have become more frequent. Motivated by these factors, this study investigates the following question: **Have extreme precipitation events increased in Puerto Rico over the past 50 years?**
 
-To explore this question, I analyzed 50 years of daily precipitation data from NOAA’s weather station at the San Juan International Airport. I calculated the number of extreme precipitation events per year, using a threshold of X mm. Then I used a Negative Binomial model, which is well-suited for count data that show more variation than what a Poisson model can comfortably handle.
+To explore this question, I analyzed 50 years of daily precipitation data from NOAA’s weather station at the San Juan International Airport. I calculated the number of extreme precipitation events per year, using a threshold of 28.45 mm. I used a Negative Binomial model, which is well-suited for count data that show more variation than what a Poisson model can handle.
 
 My goal is simple:
 Is San Juan experiencing more extreme rainfall events now compared to the 1970s?
@@ -130,10 +132,11 @@ If so, how much of this change can be explained by broader climate patterns like
 
 
 # Why a Negative Binomial Model?
-The response variable in this project is the number of extreme precipitation events per year. Since this is a form of count data and the simplest model for counts is the Poisson model. However, the Poisson model assumes that the mean and variance of the data are equal. That is not true for precipitation extremes.
 
-Some years have many extreme events, while other years have very few, leading to overdispersion, the variance exceeds the mean. The Negative Binomial model adds an extra dispersion parameter that relaxes the strict Poisson assumption, making it a better fit for environmental count data.
-This is especially important for events like extreme rainfall, which are influenced by seasonal cycles, climate modes, and storm activity.
+The response variable in this analysis is the number of extreme precipitation events per year. This is a form of count data, and the simplest model for counts is the Poisson model. However, the Poisson model assumes that the mean and variance of the data are equal. That is not true for precipitation extremes.
+
+Some years have many extreme events, while other years have very few. This leads to overdispersion, where the variance exceeds the mean. The Negative Binomial model adds an extra dispersion parameter that relaxes the strict Poisson assumption, making it a better fit for environmental count data.
+This model is especially important for events like extreme rainfall, which are influenced by seasonal cycles, climate modes, and storm activity.
 
 # Data Exploration
 
@@ -142,7 +145,7 @@ This analysis uses three publicly available NOAA datasets such as daily precipit
 Before fitting the statistical model, I explored the raw precipitation data to understand its distribution. Daily precipitation values were obtained from NOAA for the San Juan International Airport station from 1946–2025. Figure 2 shows the full record of daily precipitation at the San Juan International Airport from 1975 to the present. Most days receive little to no rainfall, with frequent low–to–moderate precipitation events and occasionally very high-intensity spikes above 5 inches.
 
 ```{r,echo=TRUE}
-#|fig-cap: "Daily Rainfall-San Juan Int'l Airport Station (1975-2025)"
+#| fig-cap: "Daily Rainfall-San Juan Int'l Airport Station (1975-2025)"
 # Daily Precipitation (raw data)
 ggplot(precip_daily, aes(x=Date, y=`PRCP (Inches)`)) +
   geom_line(alpha=.6, colour = "#2d8cbd") +
@@ -151,8 +154,9 @@ ggplot(precip_daily, aes(x=Date, y=`PRCP (Inches)`)) +
 ```
   
 Daily precipitation amounts from 1975–2025 exhibit a strongly right-skewed distribution, with most days receiving little to no rainfall and a long tail marked by the high-intensity events. Following NOAA’s percentile-based definition of extremes, I classified the highest 5% of daily precipitation values as extreme events. Figure 3 shows the distribution of daily rainfall with the 95th percentile threshold marked in red.
+
 ```{r,echo=TRUE}
-#|fig-cap: "Distribution of Daily Rainfall (SJU)"
+#| fig-cap: "Distribution of Daily Rainfall (SJU)"
 ggplot(rainy_days, aes(x = prcp_mm)) +
   geom_histogram(binwidth = 5, fill = "#3a7585") +
   geom_vline(xintercept = threshold, color = "#6f1631", lwd = 1.2) +
@@ -167,7 +171,7 @@ ggplot(rainy_days, aes(x = prcp_mm)) +
 Aggregating all the days above the 95th percentile threshold yielded the annual number of extreme precipitation events. Annual extremes vary substantially over time. The variance of yearly counts (`r round(var(extreme_events$extreme_events),2)`) exceeds the mean (`r round(mean(extreme_events$extreme_events))`). This difference indicates overdispersion and further motivates the use of a Negative Binomial model for our analysis.
 
 ```{r,echo=TRUE}
-#|fig-cap: "Extreme Precipitation Events per Year"
+#| fig-cap: "Extreme Precipitation Events per Year"
 mean_events <- round(mean(extreme_events$extreme_events),2)
 var_events <- round(var(extreme_events$extreme_events),2)
 
@@ -178,11 +182,10 @@ ggplot(extreme_events, aes(year, extreme_events)) +
   theme_classic()
 ```
 
-
 I also explored our predictors (ENSO, SST, and NAO) (Figure 4). Each index was aggregated to yearly averages to match the temporal scale of the response variable. The figures below demonstrate variability over time in ENSO, NAO, and Tropical North Atlantic SST over the study period.
 
 ```{r,echo=TRUE}
-#|fig-cap: "El Niño Southern Oscillation (Yearly Average)"
+#| fig-cap: "El Niño Southern Oscillation (Yearly Average)"
 ggplot(clim_data, aes(year, avg_enso_anom)) +
   geom_line(color = "#2d8cbd") +
   geom_hline(yintercept = 0, color = "black", linewidth = .6) +
@@ -191,8 +194,8 @@ ggplot(clim_data, aes(year, avg_enso_anom)) +
 ```
 
 ```{r,echo=TRUE}
-#|fig-cap: "North Atlantic Oscillation (Yearly Average)"
-ggplot(clim_data, aes(year, avg_enso_anom)) +
+#| fig-cap: "North Atlantic Oscillation (Yearly Average)"
+ggplot(clim_data, aes(year, avg_nao_index)) +
   geom_line(color = "#7b1c37") +
   geom_hline(yintercept = 0, color = "black", linewidth = .6) +
   labs(x = "Year", y = "NAO Index") +
@@ -200,7 +203,7 @@ ggplot(clim_data, aes(year, avg_enso_anom)) +
 ```
 
 ```{r,echo=TRUE}
-#|fig-cap: "Tropical North Atlantic SST (Yearly Average)"
+#| fig-cap: "Tropical North Atlantic SST (Yearly Average)"
 ggplot(clim_data, aes(year, avg_sst)) +
   geom_line(color = "#b8834f") +
   geom_hline(yintercept = 0, color = "black", linewidth = .6) +
@@ -208,12 +211,11 @@ ggplot(clim_data, aes(year, avg_sst)) +
   theme_classic()
 ```
 
-# DAG
 
-To clarify the relationships among variables, I constructed a directed acyclic graph (DAG). In this framework, `Year` captures long-term climate trends, `ENSO` represents natural climate variability, and Tropical Northern Atlantic SST, `TNA_SST`, captures local ocean warming. All three variables can influence the number of extreme precipitation events in San Juan.
+# Directed Acyclic Graph (DAG)
 
 ```{r,message=FALSE,warning=FALSE}
-#|fig-cap: "DAG: Connections to Climate Variability"
+#| fig-cap: "DAG: Connections to Climate Variability"
 dag <- dagitty("
 dag {
   Year
@@ -224,7 +226,9 @@ dag {
 
   Year -> ExtremeEvents
   ENSO -> ExtremeEvents
+  ENSO -> TNA_SST
   NAO -> ExtremeEvents
+  NAO -> TNA_SST
   TNA_SST -> ExtremeEvents
 
   Year -> TNA_SST
@@ -234,7 +238,10 @@ dag {
 plot(dag)
 ```
 
-In the DAG (Figure 5), Year and ENSO both influence SST, and SST directly influences the expected number of extreme rainfall events. Year may also have a direct effect on extreme rainfall; for example, due to the long-term climate change or changes in storm frequency. All three variables can influence the number of extreme precipitation events in San Juan. 
+The DAG (Figure 5) illustrates the hypothesized relationships among large-scale climate modes. Both `ENSO` and `NAO` are shown influencing `TNA_SST` to reflect their known, although variable,  ability to modulate Atlantic oceanic conditions. Warmer SSTs can enhance availability of moisture in the atmosphere and convective potential, which makes SST a plausible intermediary pathway through which these climate modes affect extreme rainfall. Each of the climate drivers (`ENSO`, `NAO`, `TNA_SST`) in this model is allowed to independently influence precipitation extremes, which is why they were drawn with direct arrows pointing to `ExtremeEvents`. 
+The arrow from `Year` to `TNA_SST` and `ExtremeEvents` captures the long-term climatic changes, such as anthropogenic warming, that may alter SST conditions and the frequency of heavy rainfall. No arrows connect ENSO and NAO to each other, namely to reflect the decision that these variables are treated as independent modes of climate variability in this analysis. 
+
+Simply put, this DAG describes a structural dynamic in which ENSO and NAO may affect precipitation extremes both directly and indirectly through their influence on Atlantic SST, while long-term temporal trends (`Year`) act as an overarching driver.
 
 # Statistical Model
 
@@ -242,14 +249,14 @@ $$
 Y_t \sim \text{NegativeBinomial}(\mu_t, \theta)
 $$
 
-$$
+$$\begin{align}
 \log(\mu_t) = 
 \beta_0 
 + \beta_1\,\text{Year}_t
 + \beta_2\,\text{ENSO}_t
 + \beta_3\,\text{SST}_t
 + \beta_4\,\text{NAO}_t
-$$
+\end{align}$$
 - $Y_t$ is the expected number of extreme events
 
 
@@ -265,6 +272,7 @@ $$
 - $\beta_3$ captures the role of ocean temperatures in generating moisture for heavy rainfall
 
 - $\beta_4$ captures NAO-related variability
+
 
 # Data Simulation
 
@@ -287,18 +295,18 @@ sst <- rnorm(n, 0, 1)
 
 # true parameter coefficients
 beta0 <- 2.5
-beta1 <- -0.6
+beta1 <- 0.01
 beta2 <- 0.05
 beta3 <- 0.3
-beta4 <- 0.01
+beta4 <- -0.6
 
 # create the linear predictor
-log_mean <- beta0 + beta1*nao + beta2*enso + beta3*sst + beta4*year_ref
+log_mean <- beta0 + beta1*year_ref + beta2*enso + beta3*sst + beta4*nao
 
 # mean response
 mu <- exp(log_mean)
 
-# simulate negative binomial distribution of counts for the response var
+# simulate negative binomial distribution of counts for the response variable
 extreme_events <- rnbinom(n, size = 3, mu = mu)
 
 # create the dataframe
@@ -313,7 +321,7 @@ sim_data <- tibble::tibble(extreme_events,
 To avoid extremely large values in the linear predictor, the year variable was expressed as the subtraction of its average. This transformation leaves the interpretation of the yearly trend unchanged while maintaining the numerical values in a stable range for the Negative Binomial model. I used this operation to maintain numerical stability.
 
 ```{r,echo=TRUE}
-#|fig-cap: "Simulated Extreme Event Counts"
+#| fig-cap: "Simulated Extreme Event Counts"
 ggplot(sim_data, aes(year, extreme_events)) +
   geom_line(color = "darkred") +
   labs(x = "Year", y = "Simulated Extreme Events") +
@@ -334,13 +342,89 @@ broom::tidy(sim_nb_model) %>%
   kable(digits = 3, caption = "Coefficient Estimates")
 ```
 
-Fitting the Negative Binomial model to the simulated dataset recovered the true parameters. From our simulated data, we expected to obtain coefficient values of `r beta0`, `r beta1`, `r beta2`, `r beta3`, and `r beta4` for $\beta_0$ through $\beta_4$, respectively. The model estimates closely aligned with these values. The fitted effects for the year (0.011), ENSO (–0.039), NAO (–0.690), and TNA SST (0.108) reflect both the direction and approximate magnitude of the true coefficients. Minor deviations are expected due to random variation in the simulated counts, but overall, the fitted model successfully recovers the structure of the simulation.
+## Parameter Recovery in the Simulated Model
 
-One possible reason for this outcome is that small slopes are harder to recover unless the sample size is very large. That being said, the model NAO displayed a strong negative; SST, a light positive, ENSO, a small effect; and year, a small positive trend. Therefore, the general pattern was captured by the model.
+In the simulation, I assigned the following true parameter values based on the model structure $$\log(\mu_t) = 
+\beta_0 
++ \beta_1\,\text{Year}_t
++ \beta_2\,\text{ENSO}_t
++ \beta_3\,\text{SST}_t
++ \beta_4\,\text{NAO}_t $$:
+
+- $\beta_0$ (intercept) = 2.5
+- $\beta_1$ (year_ref) = -0.6
+- $\beta_2$ (ENSO) = 0.05
+- $\beta_3$ (SST) = 0.3
+- $\beta_4$ (NAO) = 0.01
+
+After fitting the Negative Binomial Model to the simulated data, the recovered coefficients were:
+
+- $\hat\beta_0$ (intercept) = 2.4
+- $\hat\beta_1$ (year_ref) = -0.7
+- $\hat\beta_2$ (ENSO) = -0.04
+- $\hat\beta_3$ (SST) = 0.1
+- $\hat\beta_4$ (NAO) = 0.01
+
+The SST and year coefficients were recovered reasonably, while the ENSO and NAO parameter coefficients differed substantially from their true values. These mismatches occur because the simulated dataset contains only 50 observations (one per year). When true effects are small, limited sample size reduces the model’s ability to recover the exact parameter values even when the model is correctly specified.
+
+To determine whether these discrepancies were due to the small sample size, I repeated the simulation using a much larger sample.
+
+```{r}
+#|code-fold: false
+#-------------------- Larger simulation with repeated years --------------------
+set.seed(123)
+
+years_sim2 <- rep(1975:2025, 1000)
+n_sim2 <- length(years_sim2)
+
+# Center year
+year_ref_sim2 <- years_sim2 - mean(years_sim2)
+
+# Generate predictors
+nao_sim2  <- rnorm(n_sim2, 0, 1)
+enso_sim2 <- rnorm(n_sim2, 0, 1)
+sst_sim2  <- rnorm(n_sim2, 0, 1)
+
+# True parameters
+beta0 <- 2.5
+beta1 <- 0.01
+beta2 <- 0.05
+beta3 <- 0.3
+beta4 <- -0.6
+
+# Linear predictor
+log_mean_sim2 <- beta0 + beta1*year_ref_sim2 + beta2*enso_sim2 + 
+  beta3*sst_sim2 + beta4*nao_sim2
+
+mu_sim2 <- exp(log_mean_sim2)
+
+# Simulated counts
+extreme_events_sim2 <- rnbinom(n_sim2, size = 3, mu = mu_sim2)
+
+# Fit model
+sim2_data <- tibble::tibble(extreme_events = extreme_events_sim2,
+                            year_ref = year_ref_sim2,
+                            enso = enso_sim2,
+                            nao = nao_sim2,
+                            sst = sst_sim2)
+
+# simulate the model
+sim2_nb_model <- glm.nb(extreme_events ~ year_ref + enso + nao + sst, 
+                        data = sim2_data)
+
+# format the model summary table
+broom::tidy(sim2_nb_model) %>%
+  kable(digits = 3, caption = "Recovered Coefficients from the Large Simulation (n ≈ 50,000)") %>% 
+  kable_paper("hover", full_width = FALSE)
+
+```
+
+With a much larger simulated dataset (approximately 50,000 observations), the fitted model recovers the true parameter values with near-perfect accuracy. This confirms that the mismatches observed earlier were due to limited sample size rather than deficiencies in the model structure. Small effects such as the ENSO coefficient (0.05) are difficult to recover with only 50 years of observations, but are accurately estimated once the sample size is expanded. This larger simulation validates the parameter recovery process and demonstrates that the Negative Binomial model performs as expected under the assumptions used in this analysis.
+
 
 ```{r}
 #|code-fold: true
-#|fig-cap: "Effect of NAO on Simulated Extreme Precipitation Counts"
+#| fig-cap: "Effect of NAO on Simulated Extreme Precipitation Counts"
 # Create a prediction grid for NAO
 pred_sim_nao <- expand_grid(nao = seq(min(sim_data$nao),
                                       max(sim_data$nao), 
@@ -400,14 +484,16 @@ Figure 7 illustrates how the predicted number of simulated extreme precipitation
 For our inferential analysis of our collected data, we have established a null and alternative hypothesis. That is:
 
 $H_0$: The frequency of extreme precipitation events has not changed over time.
+
 $H_1$: Extreme precipitation events have increased over time.
 
 or 
 
-$$
- H_0: \beta_{\text{year}} = 0,\quad
+$$\begin{align}
+
+ H_0: \beta_{\text{year}} = 0 \quad \quad \quad 
  H_1: \beta_{\text{year}} > 0
-$$
+\end{align} $$
 # Fit Model
 
 Using the processed yearly counts of extreme events and the annual values of the NAO, ENSO, and TNA SST indices, I fit the same Negative Binomial model structure used in the simulation.
@@ -428,7 +514,7 @@ After fitting the Negative Binomial model, I found that the estimated coefficien
 # Effect of Year on Extreme Precipitation Events
 ```{r}
 #|code-fold: true
-#|fig-cap: "Predicted Effect of Year on Extreme Precipitation Events"
+#| fig-cap: "Predicted Effect of Year on Extreme Precipitation Events"
 # Prediction grid for Year
 pred_year <- expand_grid(
   year_ref = seq(min(clim_data$year_ref),
@@ -469,7 +555,7 @@ Figure 8 shows the modeled relationship between year and the expected number of 
 
 ```{r}
 #|code-fold: true
-#|fig-cap: "Effect of Tropical Northern Atlantic SST on Extreme Precipitation Events"
+#| fig-cap: "Effect of Tropical Northern Atlantic SST on Extreme Precipitation Events"
 
 # Prediction grid for TNA SST
 pred_sst <- expand_grid(
