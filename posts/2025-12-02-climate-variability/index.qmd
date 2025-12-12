@@ -344,12 +344,12 @@ broom::tidy(sim_nb_model) %>%
 
 ## Parameter Recovery in the Simulated Model
 
-In the simulation, I assigned the following true parameter values based on the model structure $$\log(\mu_t) = 
+In the simulation, I assigned the following true parameter values based on the model structure: $$\log(\mu_t) = 
 \beta_0 
 + \beta_1\,\text{Year}_t
 + \beta_2\,\text{ENSO}_t
 + \beta_3\,\text{SST}_t
-+ \beta_4\,\text{NAO}_t $$:
++ \beta_4\,\text{NAO}_t $$
 
 - $\beta_0$ (intercept) = 2.5
 - $\beta_1$ (year_ref) = -0.6
@@ -509,7 +509,7 @@ tidy(clim_model) %>%
 
 ```
 
-After fitting the Negative Binomial model, I found that the estimated coefficient for year was –0.009 (p = 0.04), indicating only a very small decrease in the expected number of extreme events after accounting for the other predictors. The ENSO coefficient was –0.208 (p = 0.008), meaning that ENSO phases are associated with meaningful changes in extreme rainfall frequency, with El Niño–like conditions generally linked to fewer extreme events. The SST effect (0.922; p = 7.22e–6) showed the strongest relationship, supporting the idea that warmer Atlantic temperatures are associated with more extreme rainfall events in San Juan. NAO had an estimated coefficient of 0.101 (p = 0.461). The intercept (2.122; p = 2e-16) represents the expected log count of extreme precipitation events when all predictors are at their reference values. This corresponds to roughly eight extreme events per year when ENSO, NAO, and SST anomalies are zero and the year is at its mean value.
+After fitting the Negative Binomial model, I found that the estimated coefficient for year was –0.009 (p = 0.04), indicating only a very small decrease in the expected number of extreme events after accounting for the other predictors. Although the estimate of the year effect was negative, its magnitude was marginal relative to ENSO and SST. This finding suggests that long-term temporal trends alone do not meaningfully explain changes in extreme precipitation frequency. The ENSO coefficient was –0.208 (p = 0.008), meaning that ENSO phases are associated with meaningful changes in extreme rainfall frequency, with El Niño–like conditions generally linked to fewer extreme events. The SST effect (0.922; p = 7.22e–6) showed the strongest relationship, supporting the idea that warmer Atlantic temperatures are associated with more extreme rainfall events in San Juan. NAO had an estimated coefficient of 0.101 (p = 0.461). The intercept (2.122; p = 2e-16) represents the expected log count of extreme precipitation events when all predictors are at their reference values. This corresponds to roughly eight extreme events per year when ENSO, NAO, and SST anomalies are zero and the year is at its mean value.
 
 # Effect of Year on Extreme Precipitation Events
 ```{r}
