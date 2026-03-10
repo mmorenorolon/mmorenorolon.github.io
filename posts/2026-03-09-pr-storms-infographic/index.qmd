@@ -8,7 +8,6 @@ author:
     affiliation-url: https://ucsb-meds.github.io/
 date: "March 8, 2026"
 categories: [MEDS, Data Visualization, Climate, Puerto Rico]
-image: "infographic/final_infographic.png"
 execute:
   message: false
   warning: false
@@ -96,14 +95,13 @@ The final visualization—the scatter plot—adds depth by connecting frequency 
 
 ## Color palette
 
-The color palette for this infographic was chosen to evoke a storm‑themed, coastal atmosphere while also maintaining clarity, accessibility, and consistency across all visual elements. Because the data focus heavily on water‑related hazards, the palette centers on cool blues and teals, which are also supported by warm accent colors for contrast and semantic meaning. To keep the infographic cohesive, the same palette is used across all three charts, the background, and the toned FEMA/AP photographs. 
+The color palette for this infographic was chosen to evoke a storm‑themed, coastal atmosphere while also maintaining clarity, accessibility, and consistency across all visual elements. Because the data focus heavily on flood‑related hazards, the palette centers on cool blues and teals, which are also supported by warm accent colors for contrast and semantic meaning. To keep the infographic cohesive, the same palette is used across all three charts, the background, and the toned FEMA/AP photographs. 
 
 The palette follows three guiding principles:
 
 1. **Storm‑themed, intuitive color associations**
 
-Water‑related hazards dominate Puerto Rico’s storm history, so the palette leans into navy, teal, turquoise, and sky blue. These colors evoke rainfall, flooding, and coastal storms while reinforcing the seriousness of the topic.
-Warm colors—red and orange—are reserved for hazards like fire or heat, which are less common but still important to distinguish.
+Water‑related hazards dominate Puerto Rico’s storm history, so the palette leans into navy, teal, turquoise, and sky blue. These colors evoke rainfall, flooding, and coastal storms while reinforcing the seriousness of the topic. Warm colors like red and orange are reserved for hazards like fire or heat, which are less common but still important to distinguish.
 
 2. **Consistency across charts**
 
@@ -154,6 +152,6 @@ Another challenge was deciding how to group event types. NOAA’s database inclu
 
 This was a recurring challenge: how to simplify without oversimplifying. Throughout the design process, I kept running into the tension between wanting to show nuance and wanting the infographic to remain readable. For example, I initially experimented with including drought and wildfire in the scatter plot, but they added noise without contributing meaningfully to the story. Removing them made the visualization cleaner and sharpened the narrative around water‑related hazards, which dominate the dataset.
 
-## Representing seasonality without overstating patterns
+### Representing seasonality without overstating patterns
 
-The heatmap also required careful interpretation. While hurricane season is clearly visible, the pattern isn’t as dramatic as one might expect. Storm events happen year‑round. I had to design the heatmap in a way that acknowledged the seasonal signal without exaggerating it. I had to use a restrained color scale and avoid visual modifications that would artificially amplify the pattern.
+While hurricane season is clearly visible, the pattern isn’t as dramatic as one might expect. Storm events happen year‑round. I had to design the heatmap in a way that acknowledged the seasonal signal without exaggerating it. I had to use a restrained color scale and avoid visual modifications that would artificially amplify the pattern.
