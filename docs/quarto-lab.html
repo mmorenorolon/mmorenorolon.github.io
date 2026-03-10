@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>My Blog Listing Page – Melannie Moreno Rolón</title>
+<title>quarto-lab – Melannie Moreno Rolón</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -42,7 +40,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/intersection-observer-polyfill-1.0.0/intersection-observer.js"></script>
+<script src="site_libs/quarto-contrib/scrollama-3.2.0/scrollama.min.js"></script>
+<script src="site_libs/quarto-contrib/closeread-0.1.0/closeread.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,67 +71,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
+<meta cr-debug-mode="false">
+<meta cr-remove-header-space="false">
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.scss">
+<link rel="stylesheet" href="site_libs\quarto-contrib\quarto-project\qmd-lab\closeread\closeread.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -165,7 +110,7 @@ window.Quarto = {
 <span class="menu-text">Resources</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./posts.html" aria-current="page"> 
+    <a class="nav-link" href="./posts.html"> 
 <span class="menu-text">Blog Posts</span></a>
   </li>  
 </ul>
@@ -186,20 +131,18 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Q2xpbWF0ZQ==">Climate <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2xpbWF0ZSUyMFZhcmlhYmlsaXR5JTIwJTI2JTIwQ2hhbmdl">Climate Variability &amp; Change <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMFZpc3VhbGl6YXRpb24=">Data Visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2Vvc3BhdGlhbCUyMEFuYWx5c2lz">Geospatial Analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TUVEUw==">MEDS <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UHVlcnRvJTIwUmljbw==">Puerto Rico <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U3RhdGlzdGljcw==">Statistics <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">My Blog Listing Page</h1>
+<h1 class="title">quarto-lab</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -214,136 +157,7 @@ window.Quarto = {
 
 
 
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1765591859298" data-listing-reading-time-sort="15" data-listing-word-count-sort="2993">
-<a href="./posts/2025-12-03-wildfire-analysis/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts\2025-12-03-wildfire-analysis\index_files\figure-html\f16d905e-1-image.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-<strong>A Geospatial Assessment of Burn Severity and Social Vulnerability in the 2025 LA Wildfires</strong>
-</h5>
-<div class="card-text listing-description delink">
-<em>Author: Melannie Moreno Rolón</em>
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-undefined Moreno Rolón
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="TUVEUyUyQ0RhdGElMjBWaXN1YWxpemF0aW9uJTJDQ2xpbWF0ZSUyQ1B1ZXJ0byUyMFJpY28=" data-listing-date-sort="1772956800000" data-listing-file-modified-sort="1773125553520" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1400">
-<a href="./posts/2026-03-09-pr-storms-infographic/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/2026-03-09-pr-storms-infographic/infographic/final_infographic.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Visualizing Storm Impacts in Puerto Rico
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TUVEUw=='); return false;">MEDS</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpc3VhbGl6YXRpb24='); return false;">Data Visualization</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2xpbWF0ZQ=='); return false;">Climate</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHVlcnRvJTIwUmljbw=='); return false;">Puerto Rico</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A data‑driven infographic exploring storm hazard frequency, seasonality, and severity in Puerto Rico using NOAA’s Storm Events Database.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-undefined Moreno Rolón, Melannie Moreno Rolón
-</div>
-<div class="listing-date">
-Mar 8, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="TUVEUyUyQ1IlMkNHZW9zcGF0aWFsJTIwQW5hbHlzaXM=" data-listing-date-sort="1765526400000" data-listing-file-modified-sort="1765612079182" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3023">
-<a href="./posts/2025-12-06-aquaculture-suitability/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="https://cf-images.us-east-1.prod.boltdns.net/v1/static/659677166001/7d188fff-3e5e-4059-b7ef-ffd4be742900/fef50dd1-d58f-4a03-84f7-579058fa9fd7/1280x720/match/image.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Evaluating Species-Specific Environmental Suitability for Marine Aquaculture Development Along the U.S. West Coast
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TUVEUw=='); return false;">MEDS</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('R2Vvc3BhdGlhbCUyMEFuYWx5c2lz'); return false;">Geospatial Analysis</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>Analysis of U.S. West Coast Exclusive Economic Zones to identify suitable marine aquaculture areas based on species-specific sea surface temperature and depth ranges.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-undefined Moreno Rolón, Melannie Moreno Rolón
-</div>
-<div class="listing-date">
-Dec 12, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="UiUyQ1N0YXRpc3RpY3MlMkNDbGltYXRlJTIwVmFyaWFiaWxpdHklMjAlMjYlMjBDaGFuZ2UlMkNQdWVydG8lMjBSaWNvJTJDTUVEUw==" data-listing-date-sort="1765514962000" data-listing-file-modified-sort="1765514962753" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="27" data-listing-word-count-sort="5383">
-<a href="./posts/2025-12-02-climate-variability/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/2025-12-02-climate-variability/usgs_annual_precip_map.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Temporal Trends in the Frequency of Extreme Precipitation Events at San Juan Int’l Airport, Puerto Rico
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2xpbWF0ZSUyMFZhcmlhYmlsaXR5JTIwJTI2JTIwQ2hhbmdl'); return false;">Climate Variability &amp; Change</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHVlcnRvJTIwUmljbw=='); return false;">Puerto Rico</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TUVEUw=='); return false;">MEDS</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A Negative Binomial analysis of 50 years of extreme rainfall events using NOAA data.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-undefined Moreno Rolón, Melannie Moreno Rolón
-</div>
-<div class="listing-date">
-Dec 11, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

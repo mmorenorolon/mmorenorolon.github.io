@@ -56,7 +56,7 @@ This period was selected since 1996 marks the year that NOAA event reporting bec
 ### Extracting time features
 
 ## The infographic
-![](/Documents/MEDS/Portfolio/mmorenorolon.github.io/figures/storms-pr-infographic.png)
+![](../../posts/2026-03-09-pr-storms-infographic/storms-pr-infographic.png)
 
 The infographic highlights three key patterns. First, flood-related hazards dominate Puerto Rico’s storm records. Second, storm activity peaks during the Atlantic hurricane season between August and October. Finally, while hurricanes are relatively rare events, they account for some of the largest economic losses.
 

@@ -228,6 +228,90 @@
     "href": "posts.html",
     "title": "My Blog Listing Page",
     "section": "",
-    "text": "A Geospatial Assessment of Burn Severity and Social Vulnerability in the 2025 LA Wildfires\n\n\n\n\n\n\nundefined Moreno Rolón\n\n\n\n\n\n\n\n\n\n\n\n\n\nEvaluating Species-Specific Environmental Suitability for Marine Aquaculture Development Along the U.S. West Coast\n\n\n\nMEDS\n\nR\n\nGeospatial Analysis\n\n\n\nAnalysis of U.S. West Coast Exclusive Economic Zones to identify suitable marine aquaculture areas based on species-specific sea surface temperature and depth ranges.\n\n\n\nundefined Moreno Rolón, Melannie Moreno Rolón\n\n\nDec 13, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trends in the Frequency of Extreme Precipitation Events at San Juan Int’l Airport, Puerto Rico\n\n\n\nR\n\nStatistics\n\nClimate Variability & Change\n\nPuerto Rico\n\nMEDS\n\n\n\nA Negative Binomial analysis of 50 years of extreme rainfall events using NOAA data.\n\n\n\nundefined Moreno Rolón, Melannie Moreno Rolón\n\n\nDec 12, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "A Geospatial Assessment of Burn Severity and Social Vulnerability in the 2025 LA Wildfires\n\n\n\n\n\n\nundefined Moreno Rolón\n\n\n\n\n\n\n\n\n\n\n\n\n\nVisualizing Storm Impacts in Puerto Rico\n\n\n\nMEDS\n\nData Visualization\n\nClimate\n\nPuerto Rico\n\n\n\nA data‑driven infographic exploring storm hazard frequency, seasonality, and severity in Puerto Rico using NOAA’s Storm Events Database.\n\n\n\nundefined Moreno Rolón, Melannie Moreno Rolón\n\n\nMar 8, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nEvaluating Species-Specific Environmental Suitability for Marine Aquaculture Development Along the U.S. West Coast\n\n\n\nMEDS\n\nR\n\nGeospatial Analysis\n\n\n\nAnalysis of U.S. West Coast Exclusive Economic Zones to identify suitable marine aquaculture areas based on species-specific sea surface temperature and depth ranges.\n\n\n\nundefined Moreno Rolón, Melannie Moreno Rolón\n\n\nDec 12, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trends in the Frequency of Extreme Precipitation Events at San Juan Int’l Airport, Puerto Rico\n\n\n\nR\n\nStatistics\n\nClimate Variability & Change\n\nPuerto Rico\n\nMEDS\n\n\n\nA Negative Binomial analysis of 50 years of extreme rainfall events using NOAA data.\n\n\n\nundefined Moreno Rolón, Melannie Moreno Rolón\n\n\nDec 11, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "qmd-lab.html",
+    "href": "qmd-lab.html",
+    "title": "My First Closeread",
+    "section": "",
+    "text": "Hello World! Please read my Closeread story below.\n\n\n\n\nCloseread enables scrollytelling.\n\n\n\n\nDraw your readers attention with focus effects.\n\n\n\n\n\n\n\nHighlighting\nZooming\nPanning"
+  },
+  {
+    "objectID": "posts/2026-03-09-pr-storms-infographic/index.html",
+    "href": "posts/2026-03-09-pr-storms-infographic/index.html",
+    "title": "Visualizing Storm Impacts in Puerto Rico",
+    "section": "",
+    "text": "Having grown up in Puerto Rico, extreme weather events are not abstract concepts but lived experiences. Hurricanes, floods, and severe storms have shaped both the physical landscape of the island and the everyday lives of its residents. This project explores how different hazards contribute to economic damage in Puerto Rico and when these events most frequently occur."
+  },
+  {
+    "objectID": "posts/2026-03-09-pr-storms-infographic/index.html#my-motivation-behind-this-infographic",
+    "href": "posts/2026-03-09-pr-storms-infographic/index.html#my-motivation-behind-this-infographic",
+    "title": "Visualizing Storm Impacts in Puerto Rico",
+    "section": "",
+    "text": "Having grown up in Puerto Rico, extreme weather events are not abstract concepts but lived experiences. Hurricanes, floods, and severe storms have shaped both the physical landscape of the island and the everyday lives of its residents. This project explores how different hazards contribute to economic damage in Puerto Rico and when these events most frequently occur."
+  },
+  {
+    "objectID": "posts/2026-03-09-pr-storms-infographic/index.html#my-question",
+    "href": "posts/2026-03-09-pr-storms-infographic/index.html#my-question",
+    "title": "Visualizing Storm Impacts in Puerto Rico",
+    "section": "My question",
+    "text": "My question\nTo better understand Puerto Rico’s hazard landscape, I asked three questions:\n\nWhat hazards dominate storm records in Puerto Rico?\nWhen during the year do these hazards occur most frequently?\nWhich hazards cause the greatest economic losses?"
+  },
+  {
+    "objectID": "posts/2026-03-09-pr-storms-infographic/index.html#data-sources",
+    "href": "posts/2026-03-09-pr-storms-infographic/index.html#data-sources",
+    "title": "Visualizing Storm Impacts in Puerto Rico",
+    "section": "Data sources",
+    "text": "Data sources\nDescribe the dataset.\nNOAA Storm Events Database\n\nTime frame: 1996–2025\n\nThis period was selected since 1996 marks the year that NOAA event reporting became standardized.\n\nVariables used (event type, property damage, dates)\n\n\ncleaning steps\n\n\nconverting damage values\n\n\nExtracting time features"
+  },
+  {
+    "objectID": "posts/2026-03-09-pr-storms-infographic/index.html#the-infographic",
+    "href": "posts/2026-03-09-pr-storms-infographic/index.html#the-infographic",
+    "title": "Visualizing Storm Impacts in Puerto Rico",
+    "section": "The infographic",
+    "text": "The infographic\n\nThe infographic highlights three key patterns. First, flood-related hazards dominate Puerto Rico’s storm records. Second, storm activity peaks during the Atlantic hurricane season between August and October. Finally, while hurricanes are relatively rare events, they account for some of the largest economic losses."
+  },
+  {
+    "objectID": "posts/2026-03-09-pr-storms-infographic/index.html#infographic-design-thinking",
+    "href": "posts/2026-03-09-pr-storms-infographic/index.html#infographic-design-thinking",
+    "title": "Visualizing Storm Impacts in Puerto Rico",
+    "section": "Infographic Design Thinking",
+    "text": "Infographic Design Thinking\nSelecting the right visualization for each part of this project was essential to tell a clear, cohesive story about storm hazards in Puerto Rico. Each plot answers a different question: the what, when, and so what. Together, they build a complete picture of risk.\n\nWaffle chart: What hazards occur most often?\nI chose a waffle chart to communicate the composition of storm events across Puerto Rico. Because each square represents one percent of all recorded events, the viewer can immediately grasp the dominance of flood‑related hazards, which make up nearly four‑fifths of all reports. The waffle format is ideal for showing parts of a whole, and its clean geometry provides a simple, intuitive entry point into the broader narrative.\n\n\nHeatmap: When do storm events happen?\nThe heatmap reveals the seasonality of storm activity over three decades. By mapping event counts across month‑year combinations, the visualization highlights clear clustering during the June–November hurricane season, while also showing that storm events—especially heavy rain and flooding—occur throughout the year. This format is particularly effective for uncovering temporal patterns, making it easy to see both long‑term trends and seasonal spikes.\n\n\nScatter plot: How severe are these events?\nThe scatter plot compares event frequency with total recorded property damage to allow for a direct look at the trade‑offs between how often hazards occur and how destructive they are. This visualization makes it clear that hurricanes, although rare, cause extreme economic losses, while flash floods and floods occur frequently and collectively contribute substantial damage. The plot helps contextualize risk by showing that Puerto Rico faces both high‑frequency, moderate‑impact hazards and low‑frequency, high‑impact events."
+  },
+  {
+    "objectID": "posts/2026-03-09-pr-storms-infographic/index.html#structuring-the-infographic",
+    "href": "posts/2026-03-09-pr-storms-infographic/index.html#structuring-the-infographic",
+    "title": "Visualizing Storm Impacts in Puerto Rico",
+    "section": "Structuring the infographic",
+    "text": "Structuring the infographic\nThe visual hierarchy of the infographic is designed to guide the reader through the story in a clear, intuitive way. Each section answers a progressively deeper question about storm hazards in Puerto Rico, moving from broad context to a more granular insight.\nThe flow follows an overview - pattern - consequence structure:\n\nHazard composition\n\nThe infographic opens with the waffle chart because it establishes the foundation of the story: what types of storm events occur most often? This overview orients the reader and highlights the dominance of flood‑related hazards before introducing any temporal or economic complexity.\n\nSeasonality\n\nFrom there, the reader moves naturally into the heatmap, which adds a temporal dimension. After understanding what hazards are most common, the next logical question is when they occur. The heatmap reveals clear seasonal clustering during hurricane season while also showing that storm activity persists year‑round.\n\nEconomic impact\n\nThe final visualization—the scatter plot—adds depth by connecting frequency to severity. Once the reader understands what hazards occur and when, the next step is understanding so what? This plot shows the economic consequences of different hazard types, highlighting the contrast between high‑frequency floods and low‑frequency but high‑impact hurricanes."
+  },
+  {
+    "objectID": "posts/2026-03-09-pr-storms-infographic/index.html#color-palette",
+    "href": "posts/2026-03-09-pr-storms-infographic/index.html#color-palette",
+    "title": "Visualizing Storm Impacts in Puerto Rico",
+    "section": "Color palette",
+    "text": "Color palette\nThe color palette for this infographic was chosen to evoke a storm‑themed, coastal atmosphere while also maintaining clarity, accessibility, and consistency across all visual elements. Because the data focus heavily on water‑related hazards, the palette centers on cool blues and teals, which are also supported by warm accent colors for contrast and semantic meaning. To keep the infographic cohesive, the same palette is used across all three charts, the background, and the toned FEMA/AP photographs.\nThe palette follows three guiding principles:\n\nStorm‑themed, intuitive color associations\n\nWater‑related hazards dominate Puerto Rico’s storm history, so the palette leans into navy, teal, turquoise, and sky blue. These colors evoke rainfall, flooding, and coastal storms while reinforcing the seriousness of the topic. Warm colors—red and orange—are reserved for hazards like fire or heat, which are less common but still important to distinguish.\n\nConsistency across charts\n\nAll three visualizations use the same set of colors, which helps the reader recognize hazard categories instantly as they move through the infographic. This consistency strengthens the narrative flow and reduces cognitive load, allowing the viewer to focus on the insights rather than re‑learning the color system in each panel.\n\nAccessibility and clarity\n\nThe palette was chosen with accessibility in mind. The blues and warm tones are colorblind‑friendly, and the contrast between categories is strong enough to remain legible for viewers with low vision or when printed. Backgrounds and text colors were also selected to maintain high readability and avoid visual clutter."
+  },
+  {
+    "objectID": "posts/2026-03-09-pr-storms-infographic/index.html#typography",
+    "href": "posts/2026-03-09-pr-storms-infographic/index.html#typography",
+    "title": "Visualizing Storm Impacts in Puerto Rico",
+    "section": "Typography",
+    "text": "Typography\nI chose a combination of Libre Baskerville and Source Sans 3 to balance clarity, professionalism, and visual warmth.\n\nLibre Baskerville for the title\n\nI felt that this font gave an editorial look without feeling decorative or overwhelming.\n\nSource Sans 3 for body text and annotations\n\nSource Sans 3 is used throughout the body text, subtitles, labels, and annotations. I felt it was a readable sans‑serif typeface for the audience. It supports accessibility and ensures that the narrative and data labels remain easy to scan. Its simplicity paired well with the title font, which I felt created a balanced design.\n\nClear hierarchy for readability\nThe type hierarchy is intentionally structured to guide the reader through the infographic:\n\nTitle: Libre Baskerville, bold and prominent\nSection headers: Source Sans 3, heavier weight\nSubheaders and annotations: Source Sans 3, medium weight\nBody text and captions: Source Sans 3, regular weight"
+  },
+  {
+    "objectID": "posts/2026-03-09-pr-storms-infographic/index.html#challenges-and-tradeoffs",
+    "href": "posts/2026-03-09-pr-storms-infographic/index.html#challenges-and-tradeoffs",
+    "title": "Visualizing Storm Impacts in Puerto Rico",
+    "section": "Challenges and trade‑offs",
+    "text": "Challenges and trade‑offs\nEvery visualization project comes with its own set of constraints, and this one was no exception. Working with the Storm Events Database required a lot of decision‑making. It wasn’t necessarily about how to visualize the data, but about what the data could realistically support. Several challenges shaped the final design.\n\nSkewed and inconsistent damage data\nOne of the biggest hurdles was figuring out how to represent economic losses. Property damage values in the dataset are extremely skewed: many events report zero damage, while a handful of hurricanes account for almost all recorded losses. When I explored median damage values, they were often zero across most hazard categories, which made the metric misleading. Because of this, I opted to use total cumulative damage instead. It’s not perfect since it’s heavily influenced by rare, catastrophic events, but I feel that this metric more accurately reflects the economic reality of storm impacts in Puerto Rico.\n\n\nChoosing meaningful hazard categories\nAnother challenge was deciding how to group event types. NOAA’s database includes dozens of categories, some of which are redundant or inconsistently used. I had to strike a balance between staying true to the raw data and creating categories that made sense to readers. This meant collapsing certain event types, removing hazards with very few observations, and focusing on the categories that actually shaped Puerto Rico’s storm landscape. Every grouping decision was a trade‑off between granularity and clarity.\n\n\nBalancing clarity and complexity\nThis was a recurring challenge: how to simplify without oversimplifying. Throughout the design process, I kept running into the tension between wanting to show nuance and wanting the infographic to remain readable. For example, I initially experimented with including drought and wildfire in the scatter plot, but they added noise without contributing meaningfully to the story. Removing them made the visualization cleaner and sharpened the narrative around water‑related hazards, which dominate the dataset."
+  },
+  {
+    "objectID": "posts/2026-03-09-pr-storms-infographic/index.html#representing-seasonality-without-overstating-patterns",
+    "href": "posts/2026-03-09-pr-storms-infographic/index.html#representing-seasonality-without-overstating-patterns",
+    "title": "Visualizing Storm Impacts in Puerto Rico",
+    "section": "Representing seasonality without overstating patterns",
+    "text": "Representing seasonality without overstating patterns\nThe heatmap also required careful interpretation. While hurricane season is clearly visible, the pattern isn’t as dramatic as one might expect. Storm events happen year‑round. I had to design the heatmap in a way that acknowledged the seasonal signal without exaggerating it. I had to use a restrained color scale and avoid visual modifications that would artificially amplify the pattern."
   }
 ]
