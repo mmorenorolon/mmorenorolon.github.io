@@ -1,28 +1,27 @@
-/* ----------------------------- */
-/*        FONT SETTINGS          */
-/* ----------------------------- */
+/* Remove default background */
+.quarto-title-block {
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
 
-/* Title (page title only) */
-h1.title {
+/* Color ONLY the title + subtitle area */
+.quarto-title-banner {
+  background-color: #CDF0DA !important;
+  padding: 30px;
+}
+
+/* Title text */
+.quarto-title-banner h1.title {
   font-family: "Libre Baskerville", serif !important;
   font-weight: 400 !important;
+  color: #003049 !important;
 }
 
-/* All headers (h1–h6) */
-h1, h2, h3, h4, h5, h6 {
+/* Subtitle text */
+.quarto-title-banner .subtitle {
   font-family: "Source Sans 3", sans-serif !important;
-  font-weight: 500 !important; /* Medium */
+  font-weight: 400 !important;
+  color: #003049 !important;
 }
 
-/* Body text */
-body, p, li {
-  font-family: "Source Sans 3", sans-serif !important;
-  font-weight: 400 !important; /* Normal */
-}
-
-/* Optional: code chunk background */
-pre.sourceCode, pre code {
-  background-color: #CDF0DA !important;
-  border-radius: 6px;
-  padding: 12px;
-}
