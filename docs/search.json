@@ -284,14 +284,14 @@
     "href": "posts/2026-03-09-pr-storms-infographic/index.html#structuring-the-infographic",
     "title": "Visualizing Storm Impacts in Puerto Rico",
     "section": "Structuring The Infographic",
-    "text": "Structuring The Infographic\nThe visual hierarchy of the infographic is designed to guide the reader through the story in a clear, intuitive way. Each section answers a progressively deeper question about storm hazards in Puerto Rico, moving from broad context to a more granular insight. The flow follows an overview - pattern - consequence structure. After generating the plots in R, I refined their layout and alignment in Affinity Designer. ## Color Palette\n\nThe color palette for this infographic was chosen to evoke a storm‑themed, coastal atmosphere while also maintaining clarity, accessibility, and consistency across all visual elements. Because the data focus heavily on flood‑related hazards, the palette centers on cool blues and teals, which are also supported by warm accent colors for contrast and semantic meaning. To keep the infographic cohesive, the same palette is used across all three charts, the background, and the toned FEMA/AP photographs."
+    "text": "Structuring The Infographic\nThe visual hierarchy of the infographic is designed to guide the reader through the story in a clear, intuitive way. Each section answers a progressively deeper question about storm hazards in Puerto Rico, moving from broad context to a more granular insight. The flow follows an overview - pattern - consequence structure. After generating the plots in R, I refined their layout and alignment in Affinity Designer."
   },
   {
     "objectID": "posts/2026-03-09-pr-storms-infographic/index.html#color-palette",
     "href": "posts/2026-03-09-pr-storms-infographic/index.html#color-palette",
     "title": "Visualizing Storm Impacts in Puerto Rico",
     "section": "Color Palette",
-    "text": "Color Palette\n The color palette for this infographic was chosen to evoke a storm‑themed, coastal atmosphere while also maintaining clarity, accessibility, and consistency across all visual elements. Because the data focus heavily on flood‑related hazards, the palette centers on cool blues and teals, which are also supported by warm accent colors for contrast and semantic meaning. To keep the infographic cohesive, the same palette is used across all three charts, the background, and the toned FEMA/AP photographs."
+    "text": "Color Palette\n\nThe color palette for this infographic was chosen to evoke a storm‑themed, coastal atmosphere while also maintaining clarity, accessibility, and consistency across all visual elements. Because the data focus heavily on flood‑related hazards, the palette centers on cool blues and teals, which are also supported by warm accent colors for contrast and semantic meaning. To keep the infographic cohesive, the same palette is used across all three charts, the background, and the toned FEMA/AP photographs."
   },
   {
     "objectID": "posts/2026-03-09-pr-storms-infographic/index.html#typography",

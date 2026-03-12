@@ -228,6 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#scatter-plot-how-severe-are-these-events" id="toc-scatter-plot-how-severe-are-these-events" class="nav-link" data-scroll-target="#scatter-plot-how-severe-are-these-events">Scatter plot: How severe are these events?</a></li>
   </ul></li>
   <li><a href="#structuring-the-infographic" id="toc-structuring-the-infographic" class="nav-link" data-scroll-target="#structuring-the-infographic">Structuring The Infographic</a></li>
+  <li><a href="#color-palette" id="toc-color-palette" class="nav-link" data-scroll-target="#color-palette">Color Palette</a></li>
   <li><a href="#typography" id="toc-typography" class="nav-link" data-scroll-target="#typography">Typography</a></li>
   <li><a href="#accessibility-deij-considerations" id="toc-accessibility-deij-considerations" class="nav-link" data-scroll-target="#accessibility-deij-considerations">Accessibility &amp; DEIJ Considerations</a></li>
   <li><a href="#challenges-and-tradeoffs" id="toc-challenges-and-tradeoffs" class="nav-link" data-scroll-target="#challenges-and-tradeoffs">Challenges And Trade‑offs</a></li>
@@ -258,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>These questions shaped both the structure of the infographic and the data I chose to work with. To answer them, I used the NOAA Storm Events Database, focusing on the years 1996–2025. NOAA expanded and standardized storm event reporting in 1996, which is why I restricted my analysis to 1996–2025. Before 1996, only a few event types were recorded consistently, making earlier data difficult to compare across hazards<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>By examining event type, property damage, and detailed date information, I distilled thousands of storm reports into a visual summary that highlights the patterns most relevant to life on the island: the dominance of flood‑related hazards, the rhythm of seasonality, and the outsized economic impact of rare but severe events like hurricanes.</p>
-<p><img src="../../posts/2026-03-09-pr-storms-infographic/storms-pr-infographic.png" class="img-fluid"></p>
+<p><img src="../../posts/2026-03-09-pr-storms-infographic/infographic-with-palmtrees.png" class="img-fluid"></p>
 <p>The infographic highlights three key patterns. First, flood-related hazards dominate Puerto Rico’s storm records. Second, storm activity peaks during the Atlantic hurricane season between August and October. Finally, while hurricanes are relatively rare events, they account for some of the largest economic losses.</p>
 </section>
 <section id="my-approach-to-visual-storytelling" class="level2">
@@ -279,7 +280,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="structuring-the-infographic" class="level2">
 <h2 class="anchored" data-anchor-id="structuring-the-infographic">Structuring The Infographic</h2>
-<p>The visual hierarchy of the infographic is designed to guide the reader through the story in a clear, intuitive way. Each section answers a progressively deeper question about storm hazards in Puerto Rico, moving from broad context to a more granular insight. The flow follows an overview - pattern - consequence structure. After generating the plots in R, I refined their layout and alignment in Affinity Designer. ## Color Palette</p>
+<p>The visual hierarchy of the infographic is designed to guide the reader through the story in a clear, intuitive way. Each section answers a progressively deeper question about storm hazards in Puerto Rico, moving from broad context to a more granular insight. The flow follows an overview - pattern - consequence structure. After generating the plots in R, I refined their layout and alignment in Affinity Designer.</p>
+</section>
+<section id="color-palette" class="level2">
+<h2 class="anchored" data-anchor-id="color-palette">Color Palette</h2>
 <p><img src="palette-infographic.png" class="img-fluid"></p>
 <p>The color palette for this infographic was chosen to evoke a storm‑themed, coastal atmosphere while also maintaining clarity, accessibility, and consistency across all visual elements. Because the data focus heavily on flood‑related hazards, the palette centers on cool blues and teals, which are also supported by warm accent colors for contrast and semantic meaning. To keep the infographic cohesive, the same palette is used across all three charts, the background, and the toned FEMA/AP photographs.</p>
 </section>
@@ -1204,7 +1208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>By examining event type, property damage, and detailed date information, I distilled thousands of storm reports into a visual summary that highlights the patterns most relevant to life on the island: the dominance of flood‑related hazards, the rhythm of seasonality, and the outsized economic impact of rare but severe events like hurricanes.</span>
 <span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="al">![](../../posts/2026-03-09-pr-storms-infographic/storms-pr-infographic.png)</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="al">![](../../posts/2026-03-09-pr-storms-infographic/infographic-with-palmtrees.png)</span></span>
 <span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>The infographic highlights three key patterns. First, flood-related hazards dominate Puerto Rico’s storm records. Second, storm activity peaks during the Atlantic hurricane season between August and October. Finally, while hurricanes are relatively rare events, they account for some of the largest economic losses.</span>
 <span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
@@ -1227,427 +1231,428 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Structuring The Infographic</span></span>
 <span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>The visual hierarchy of the infographic is designed to guide the reader through the story in a clear, intuitive way. Each section answers a progressively deeper question about storm hazards in Puerto Rico, moving from broad context to a more granular insight. The flow follows an overview - pattern - consequence structure. After generating the plots in R, I refined their layout and alignment in Affinity Designer. </span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Color Palette</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="al">![](palette-infographic.png)</span></span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>The color palette for this infographic was chosen to evoke a storm‑themed, coastal atmosphere while also maintaining clarity, accessibility, and consistency across all visual elements. Because the data focus heavily on flood‑related hazards, the palette centers on cool blues and teals, which are also supported by warm accent colors for contrast and semantic meaning. To keep the infographic cohesive, the same palette is used across all three charts, the background, and the toned FEMA/AP photographs. </span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## Color Palette</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="al">![](palette-infographic.png)</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>The color palette for this infographic was chosen to evoke a storm‑themed, coastal atmosphere while also maintaining clarity, accessibility, and consistency across all visual elements. Because the data focus heavily on flood‑related hazards, the palette centers on cool blues and teals, which are also supported by warm accent colors for contrast and semantic meaning. To keep the infographic cohesive, the same palette is used across all three charts, the background, and the toned FEMA/AP photographs. </span>
 <span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## Typography</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>I used a simple typographic system to keep the infographic clear and readable. ***Libre Baskerville*** to give the title an editorial feel, while ***Source Sans 3*** keeps the body text, labels, and annotations clean and accessible.</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## Accessibility &amp; DEIJ Considerations</span></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>Designing this infographic also meant thinking about who would be reading it and how to make the information as accessible and inclusive as possible. I chose high‑contrast colors, readable font weights, and clear labeling to support viewers with varying levels of visual acuity.</span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## Challenges And Trade‑offs</span></span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>One of the biggest hurdles was figuring out how to represent economic losses. Property damage values in the dataset are skewed, since many events report zero damage, while a handful of hurricanes account for almost all recorded losses. Because of this, I opted to use total cumulative property damage instead. Another challenge was deciding how to group event types. NOAA’s database includes dozens of categories, some of which are redundant or inconsistently used. I had to strike a balance between staying true to the raw data and creating categories that made sense to readers. Throughout the design process, I kept running into the tension between wanting to show nuance and wanting the infographic to remain readable. Removing them made the visualization cleaner and sharpened the narrative around flood‑related hazards, which dominate the dataset. In addition to this, I had to design the heatmap using a restrained color scale and avoid visual modifications that would artificially amplify the pattern.</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="fu">## Full R Code</span></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>All of the visualizations in this project were generated using R code.</span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>Expand the code chunk below to explore the full workflow!</span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,results='hide',eval=FALSE}</span></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(waffle)</span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## Typography</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>I used a simple typographic system to keep the infographic clear and readable. ***Libre Baskerville*** to give the title an editorial feel, while ***Source Sans 3*** keeps the body text, labels, and annotations clean and accessible.</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="fu">## Accessibility &amp; DEIJ Considerations</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>Designing this infographic also meant thinking about who would be reading it and how to make the information as accessible and inclusive as possible. I chose high‑contrast colors, readable font weights, and clear labeling to support viewers with varying levels of visual acuity.</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## Challenges And Trade‑offs</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>One of the biggest hurdles was figuring out how to represent economic losses. Property damage values in the dataset are skewed, since many events report zero damage, while a handful of hurricanes account for almost all recorded losses. Because of this, I opted to use total cumulative property damage instead. Another challenge was deciding how to group event types. NOAA’s database includes dozens of categories, some of which are redundant or inconsistently used. I had to strike a balance between staying true to the raw data and creating categories that made sense to readers. Throughout the design process, I kept running into the tension between wanting to show nuance and wanting the infographic to remain readable. Removing them made the visualization cleaner and sharpened the narrative around flood‑related hazards, which dominate the dataset. In addition to this, I had to design the heatmap using a restrained color scale and avoid visual modifications that would artificially amplify the pattern.</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## Full R Code</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>All of the visualizations in this project were generated using R code.</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>Expand the code chunk below to explore the full workflow!</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,results='hide',eval=FALSE}</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(waffle)</span>
 <span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------- raw data --------------------------------------</span></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a><span class="co"># Save all data files</span></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>storm_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(</span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>  <span class="at">path =</span> <span class="st">"C:/Documents/MEDS/EDS240 - data visualization/eds240-infographic/data"</span>,</span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>  <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.csv$"</span>,</span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>  <span class="at">full.names =</span> <span class="cn">TRUE</span></span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in all data files and merge as one dataframe</span></span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>storm_raw <span class="ot">&lt;-</span> storm_files <span class="sc">%&gt;%</span></span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_dfr</span>(</span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> <span class="fu">read_csv</span>(.x, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">.default =</span> <span class="fu">col_character</span>()))</span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>storm_clean <span class="ot">&lt;-</span> storm_raw <span class="sc">%&gt;%</span> </span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert variables to numeric</span></span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">c</span>(DEATHS_DIRECT, DEATHS_INDIRECT, INJURIES_DIRECT, INJURIES_INDIRECT, DAMAGE_PROPERTY_NUM, DAMAGE_CROPS_NUM, MAGNITUDE, BEGIN_RANGE, END_RANGE), <span class="sc">~</span> <span class="fu">parse_number</span>(.x))) <span class="sc">%&gt;%</span></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Standardize time strings</span></span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>    <span class="at">BEGIN_TIME =</span> <span class="fu">str_pad</span>(BEGIN_TIME, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">side =</span> <span class="st">"left"</span>, </span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>                         <span class="at">pad =</span> <span class="st">"0"</span>),</span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>    <span class="at">END_TIME =</span> <span class="fu">str_pad</span>(END_TIME,   <span class="at">width =</span> <span class="dv">4</span>, <span class="at">side =</span> <span class="st">"left"</span>, </span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>                       <span class="at">pad =</span> <span class="st">"0"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert dates and derive time features</span></span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">BEGIN_DATE =</span> <span class="fu">mdy</span>(BEGIN_DATE),</span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>         <span class="at">END_DATE =</span> <span class="fu">mdy</span>(END_DATE),</span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>         <span class="at">YEAR =</span> <span class="fu">year</span>(BEGIN_DATE),</span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>         <span class="at">BEGIN_HOUR =</span> <span class="fu">as.integer</span>(<span class="fu">substr</span>(BEGIN_TIME, <span class="dv">1</span>, <span class="dv">2</span>)),</span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>         <span class="at">END_HOUR =</span> <span class="fu">as.integer</span>(<span class="fu">substr</span>(END_TIME, <span class="dv">1</span>, <span class="dv">2</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select only the variables that will be used for analysis</span></span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(EVENT_ID, EPISODE_ID,</span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>         STATE_ABBR, CZ_NAME_STR, CZ_TYPE, CZ_FIPS,</span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>         EVENT_TYPE, MAGNITUDE, MAGNITUDE_TYPE,</span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>         BEGIN_DATE, END_DATE, YEAR, BEGIN_HOUR, END_HOUR,</span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>         DEATHS_DIRECT, DEATHS_INDIRECT,</span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>         INJURIES_DIRECT, INJURIES_INDIRECT,</span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>         DAMAGE_PROPERTY_NUM, DAMAGE_CROPS_NUM,</span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>         SOURCE, FLOOD_CAUSE) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Standardize variable names</span></span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------- raw data --------------------------------------</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="co"># Save all data files</span></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>storm_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>  <span class="at">path =</span> <span class="st">"C:/Documents/MEDS/EDS240 - data visualization/eds240-infographic/data"</span>,</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>  <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.csv$"</span>,</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>  <span class="at">full.names =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in all data files and merge as one dataframe</span></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>storm_raw <span class="ot">&lt;-</span> storm_files <span class="sc">%&gt;%</span></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_dfr</span>(</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> <span class="fu">read_csv</span>(.x, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">.default =</span> <span class="fu">col_character</span>()))</span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>storm_clean <span class="ot">&lt;-</span> storm_raw <span class="sc">%&gt;%</span> </span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert variables to numeric</span></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">c</span>(DEATHS_DIRECT, DEATHS_INDIRECT, INJURIES_DIRECT, INJURIES_INDIRECT, DAMAGE_PROPERTY_NUM, DAMAGE_CROPS_NUM, MAGNITUDE, BEGIN_RANGE, END_RANGE), <span class="sc">~</span> <span class="fu">parse_number</span>(.x))) <span class="sc">%&gt;%</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Standardize time strings</span></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>    <span class="at">BEGIN_TIME =</span> <span class="fu">str_pad</span>(BEGIN_TIME, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">side =</span> <span class="st">"left"</span>, </span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>                         <span class="at">pad =</span> <span class="st">"0"</span>),</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>    <span class="at">END_TIME =</span> <span class="fu">str_pad</span>(END_TIME,   <span class="at">width =</span> <span class="dv">4</span>, <span class="at">side =</span> <span class="st">"left"</span>, </span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>                       <span class="at">pad =</span> <span class="st">"0"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert dates and derive time features</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">BEGIN_DATE =</span> <span class="fu">mdy</span>(BEGIN_DATE),</span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>         <span class="at">END_DATE =</span> <span class="fu">mdy</span>(END_DATE),</span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>         <span class="at">YEAR =</span> <span class="fu">year</span>(BEGIN_DATE),</span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>         <span class="at">BEGIN_HOUR =</span> <span class="fu">as.integer</span>(<span class="fu">substr</span>(BEGIN_TIME, <span class="dv">1</span>, <span class="dv">2</span>)),</span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>         <span class="at">END_HOUR =</span> <span class="fu">as.integer</span>(<span class="fu">substr</span>(END_TIME, <span class="dv">1</span>, <span class="dv">2</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select only the variables that will be used for analysis</span></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(EVENT_ID, EPISODE_ID,</span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>         STATE_ABBR, CZ_NAME_STR, CZ_TYPE, CZ_FIPS,</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>         EVENT_TYPE, MAGNITUDE, MAGNITUDE_TYPE,</span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>         BEGIN_DATE, END_DATE, YEAR, BEGIN_HOUR, END_HOUR,</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>         DEATHS_DIRECT, DEATHS_INDIRECT,</span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>         INJURIES_DIRECT, INJURIES_INDIRECT,</span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>         DAMAGE_PROPERTY_NUM, DAMAGE_CROPS_NUM,</span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>         SOURCE, FLOOD_CAUSE) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Standardize variable names</span></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
 <span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------- background theme colors -------------------------------------</span></span>
-<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>bg <span class="ot">&lt;-</span> <span class="st">"#F4F6F8"</span></span>
-<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="st">"#E5E7EB"</span>   <span class="co"># subtle gridline color</span></span>
-<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a><span class="co">#--------------------- Waffle chart ------------------------------------</span></span>
-<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>pal_waffle <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flood-related"</span>      <span class="ot">=</span> <span class="st">"#003049"</span>,</span>
-<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tropical cyclones"</span>  <span class="ot">=</span> <span class="st">"#1A5E7A"</span>,</span>
-<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coastal &amp; marine"</span>   <span class="ot">=</span> <span class="st">"#2A9D8F"</span>,</span>
-<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Severe wind"</span>        <span class="ot">=</span> <span class="st">"#8FB8D0"</span>,</span>
-<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Fire &amp; lightning"</span>   <span class="ot">=</span> <span class="st">"#D62828"</span>,</span>
-<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Heat &amp; drought"</span>     <span class="ot">=</span> <span class="st">"#F77F00"</span>,</span>
-<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Other rare"</span>         <span class="ot">=</span> <span class="st">"#EAE2B7"</span></span>
-<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>levels_waffle <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flood-related"</span>,</span>
-<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Fire &amp; lightning"</span>,</span>
-<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Heat &amp; drought"</span>,</span>
-<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Severe wind"</span>,</span>
-<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coastal &amp; marine"</span>,</span>
-<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tropical cyclones"</span>,</span>
-<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Other rare"</span></span>
-<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>legend_labels <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(levels_waffle)</span>
-<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>pr_events_collapsed <span class="ot">&lt;-</span> storm_clean <span class="sc">%&gt;%</span></span>
-<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_type =</span> <span class="fu">as.character</span>(event_type),</span>
-<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>    <span class="at">hazard_cat =</span> <span class="fu">case_when</span>(</span>
-<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>      event_type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Flood"</span>, <span class="st">"Flash Flood"</span>, <span class="st">"Coastal Flood"</span>, <span class="st">"Heavy Rain"</span>, <span class="st">"Debris Flow"</span>) <span class="sc">~</span> <span class="st">"Flood-related"</span>,</span>
-<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>      event_type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Hurricane (Typhoon)"</span>, <span class="st">"Tropical Storm"</span>, <span class="st">"Tropical Depression"</span>) <span class="sc">~</span> <span class="st">"Tropical cyclones"</span>,</span>
-<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>      event_type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Thunderstorm Wind"</span>, <span class="st">"Strong Wind"</span>, <span class="st">"High Wind"</span>, <span class="st">"Tornado"</span>, <span class="st">"Funnel Cloud"</span>) <span class="sc">~</span> <span class="st">"Severe wind"</span>,</span>
-<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>      event_type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Excessive Heat"</span>, <span class="st">"Drought"</span>, <span class="st">"Extreme Cold/Wind Chill"</span>) <span class="sc">~</span> <span class="st">"Heat &amp; drought"</span>,</span>
-<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a>      event_type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Rip Current"</span>, <span class="st">"High Surf"</span>, <span class="st">"Waterspout"</span>, <span class="st">"Seiche"</span>) <span class="sc">~</span> <span class="st">"Coastal &amp; marine"</span>,</span>
-<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a>      event_type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Wildfire"</span>, <span class="st">"Lightning"</span>) <span class="sc">~</span> <span class="st">"Fire &amp; lightning"</span>,</span>
-<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Other rare"</span></span>
-<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a>    ))</span>
-<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize to 100%</span></span>
-<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a>pr_event_props <span class="ot">&lt;-</span> pr_events_collapsed <span class="sc">%&gt;%</span></span>
-<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(hazard_cat) <span class="sc">%&gt;%</span></span>
-<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n),</span>
-<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a>         <span class="at">parts =</span> <span class="fu">round</span>(prop <span class="sc">*</span> <span class="dv">100</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(parts))</span>
-<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a><span class="co"># Force total squares to be exactly 100</span></span>
-<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a>diff <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">-</span> <span class="fu">sum</span>(pr_event_props<span class="sc">$</span>parts)</span>
-<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (diff <span class="sc">!=</span> <span class="dv">0</span>) {</span>
-<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a>  pr_event_props<span class="sc">$</span>parts[<span class="fu">which.max</span>(pr_event_props<span class="sc">$</span>parts)] <span class="ot">&lt;-</span></span>
-<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a>    pr_event_props<span class="sc">$</span>parts[<span class="fu">which.max</span>(pr_event_props<span class="sc">$</span>parts)] <span class="sc">+</span> diff</span>
-<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a>pr_event_props <span class="ot">&lt;-</span> pr_event_props <span class="sc">%&gt;%</span></span>
-<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hazard_cat =</span> <span class="fu">factor</span>(hazard_cat, <span class="at">levels =</span> levels_waffle)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(hazard_cat)</span>
-<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a>waffle_vector <span class="ot">&lt;-</span> <span class="fu">setNames</span>(pr_event_props<span class="sc">$</span>parts, pr_event_props<span class="sc">$</span>hazard_cat)</span>
-<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a>waffle_plot <span class="ot">&lt;-</span> waffle<span class="sc">::</span><span class="fu">waffle</span>(</span>
-<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a>  <span class="at">parts =</span> waffle_vector,</span>
-<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend_pos =</span> <span class="st">"right"</span>,</span>
-<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="fl">0.5</span>,</span>
-<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a>  <span class="at">rows =</span> <span class="dv">20</span>,</span>
-<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a>  <span class="at">colors =</span> pal_waffle[<span class="fu">names</span>(waffle_vector)]</span>
-<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set chart background color</span></span>
-<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(</span>
-<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>      <span class="at">fill =</span> bg, </span>
-<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(</span>
-<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a>      <span class="at">fill =</span> bg, </span>
-<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set legend elements</span></span>
-<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>,</span>
-<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>,</span>
-<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a>                               <span class="at">lineheight =</span> <span class="fl">1.1</span>),</span>
-<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------- background theme colors -------------------------------------</span></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>bg <span class="ot">&lt;-</span> <span class="st">"#F4F6F8"</span></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="st">"#E5E7EB"</span>   <span class="co"># subtle gridline color</span></span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a><span class="co">#--------------------- Waffle chart ------------------------------------</span></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>pal_waffle <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flood-related"</span>      <span class="ot">=</span> <span class="st">"#003049"</span>,</span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tropical cyclones"</span>  <span class="ot">=</span> <span class="st">"#1A5E7A"</span>,</span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coastal &amp; marine"</span>   <span class="ot">=</span> <span class="st">"#2A9D8F"</span>,</span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Severe wind"</span>        <span class="ot">=</span> <span class="st">"#8FB8D0"</span>,</span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Fire &amp; lightning"</span>   <span class="ot">=</span> <span class="st">"#D62828"</span>,</span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Heat &amp; drought"</span>     <span class="ot">=</span> <span class="st">"#F77F00"</span>,</span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Other rare"</span>         <span class="ot">=</span> <span class="st">"#EAE2B7"</span></span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>levels_waffle <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flood-related"</span>,</span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Fire &amp; lightning"</span>,</span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Heat &amp; drought"</span>,</span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Severe wind"</span>,</span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coastal &amp; marine"</span>,</span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tropical cyclones"</span>,</span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Other rare"</span></span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>legend_labels <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(levels_waffle)</span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a>pr_events_collapsed <span class="ot">&lt;-</span> storm_clean <span class="sc">%&gt;%</span></span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_type =</span> <span class="fu">as.character</span>(event_type),</span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>    <span class="at">hazard_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>      event_type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Flood"</span>, <span class="st">"Flash Flood"</span>, <span class="st">"Coastal Flood"</span>, <span class="st">"Heavy Rain"</span>, <span class="st">"Debris Flow"</span>) <span class="sc">~</span> <span class="st">"Flood-related"</span>,</span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>      event_type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Hurricane (Typhoon)"</span>, <span class="st">"Tropical Storm"</span>, <span class="st">"Tropical Depression"</span>) <span class="sc">~</span> <span class="st">"Tropical cyclones"</span>,</span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>      event_type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Thunderstorm Wind"</span>, <span class="st">"Strong Wind"</span>, <span class="st">"High Wind"</span>, <span class="st">"Tornado"</span>, <span class="st">"Funnel Cloud"</span>) <span class="sc">~</span> <span class="st">"Severe wind"</span>,</span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a>      event_type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Excessive Heat"</span>, <span class="st">"Drought"</span>, <span class="st">"Extreme Cold/Wind Chill"</span>) <span class="sc">~</span> <span class="st">"Heat &amp; drought"</span>,</span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a>      event_type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Rip Current"</span>, <span class="st">"High Surf"</span>, <span class="st">"Waterspout"</span>, <span class="st">"Seiche"</span>) <span class="sc">~</span> <span class="st">"Coastal &amp; marine"</span>,</span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>      event_type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Wildfire"</span>, <span class="st">"Lightning"</span>) <span class="sc">~</span> <span class="st">"Fire &amp; lightning"</span>,</span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Other rare"</span></span>
+<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize to 100%</span></span>
+<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a>pr_event_props <span class="ot">&lt;-</span> pr_events_collapsed <span class="sc">%&gt;%</span></span>
+<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(hazard_cat) <span class="sc">%&gt;%</span></span>
+<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n),</span>
+<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a>         <span class="at">parts =</span> <span class="fu">round</span>(prop <span class="sc">*</span> <span class="dv">100</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(parts))</span>
+<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a><span class="co"># Force total squares to be exactly 100</span></span>
+<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a>diff <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">-</span> <span class="fu">sum</span>(pr_event_props<span class="sc">$</span>parts)</span>
+<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (diff <span class="sc">!=</span> <span class="dv">0</span>) {</span>
+<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a>  pr_event_props<span class="sc">$</span>parts[<span class="fu">which.max</span>(pr_event_props<span class="sc">$</span>parts)] <span class="ot">&lt;-</span></span>
+<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a>    pr_event_props<span class="sc">$</span>parts[<span class="fu">which.max</span>(pr_event_props<span class="sc">$</span>parts)] <span class="sc">+</span> diff</span>
+<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a>pr_event_props <span class="ot">&lt;-</span> pr_event_props <span class="sc">%&gt;%</span></span>
+<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hazard_cat =</span> <span class="fu">factor</span>(hazard_cat, <span class="at">levels =</span> levels_waffle)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(hazard_cat)</span>
+<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a>waffle_vector <span class="ot">&lt;-</span> <span class="fu">setNames</span>(pr_event_props<span class="sc">$</span>parts, pr_event_props<span class="sc">$</span>hazard_cat)</span>
+<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a>waffle_plot <span class="ot">&lt;-</span> waffle<span class="sc">::</span><span class="fu">waffle</span>(</span>
+<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a>  <span class="at">parts =</span> waffle_vector,</span>
+<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend_pos =</span> <span class="st">"right"</span>,</span>
+<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="fl">0.5</span>,</span>
+<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a>  <span class="at">rows =</span> <span class="dv">20</span>,</span>
+<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>  <span class="at">colors =</span> pal_waffle[<span class="fu">names</span>(waffle_vector)]</span>
+<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set chart background color</span></span>
+<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(</span>
+<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a>      <span class="at">fill =</span> bg, </span>
+<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(</span>
+<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a>      <span class="at">fill =</span> bg, </span>
+<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set legend elements</span></span>
+<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>,</span>
+<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>,</span>
+<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a>                               <span class="at">lineheight =</span> <span class="fl">1.1</span>),</span>
 <span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">16</span>),</span>
-<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a>waffle_plot</span>
-<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------ Heatmap ------------------------------------</span></span>
-<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a>heatmap_events <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flash Flood"</span>,</span>
-<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Heavy Rain"</span>,</span>
-<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flood"</span>,</span>
-<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coastal Flood"</span>,</span>
-<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Thunderstorm Wind"</span>,</span>
-<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a>  <span class="st">"High Wind"</span>,</span>
-<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Strong Wind"</span>,</span>
-<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Lightning"</span>,</span>
-<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Hail"</span>,</span>
-<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Funnel Cloud"</span>,</span>
-<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tornado"</span>,</span>
-<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Waterspout"</span>,</span>
-<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Debris Flow"</span>,</span>
-<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a>  <span class="st">"High Surf"</span>,</span>
-<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tropical Depression"</span>,</span>
-<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tropical Storm"</span>,</span>
-<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Hurricane (Typhoon)"</span></span>
-<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a>heatmap_filtered <span class="ot">&lt;-</span> storm_clean <span class="sc">%&gt;%</span> </span>
-<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(event_type <span class="sc">%in%</span> heatmap_events)</span>
-<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a>heatmap_df <span class="ot">&lt;-</span> heatmap_filtered <span class="sc">%&gt;%</span></span>
-<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a>    <span class="at">month =</span> <span class="fu">month</span>(begin_date)</span>
-<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(year), <span class="sc">!</span><span class="fu">is.na</span>(month)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(year, month, <span class="at">name =</span> <span class="st">"events"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(</span>
-<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a>    <span class="at">year  =</span> <span class="fu">full_seq</span>(year, <span class="dv">1</span>),</span>
-<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a>    <span class="at">month =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,</span>
-<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill  =</span> <span class="fu">list</span>(<span class="at">events =</span> <span class="dv">0</span>)</span>
-<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a><span class="co"># Save min and max values for annotations</span></span>
-<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a>yr_min <span class="ot">&lt;-</span> <span class="fu">min</span>(heatmap_df<span class="sc">$</span>year, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a>yr_max <span class="ot">&lt;-</span> <span class="fu">max</span>(heatmap_df<span class="sc">$</span>year, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a><span class="co"># Helper positions ----------------------------------------------------------</span></span>
-<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a><span class="co"># months (numeric): Jan = 1 ... Dec = 12</span></span>
-<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a>y_jun <span class="ot">&lt;-</span> <span class="dv">6</span></span>
-<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a>y_nov <span class="ot">&lt;-</span> <span class="dv">11</span></span>
-<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a><span class="co"># Annotate outside the panel to give ourselves breathing room</span></span>
-<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a>x_bracket <span class="ot">&lt;-</span> yr_min <span class="sc">-</span> <span class="fl">1.1</span></span>
-<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a>x_bracket_tick <span class="ot">&lt;-</span> yr_min <span class="sc">-</span> <span class="fl">0.55</span>   <span class="co"># small ticks to extend toward plot</span></span>
-<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a>heatmap_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(heatmap_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> month, <span class="at">fill =</span> events)) <span class="sc">+</span></span>
-<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Heatmap tiles without vertical gridlines</span></span>
-<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">width =</span> <span class="dv">1</span>, <span class="at">height =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Keep subtle horizontal separators only</span></span>
-<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">seq</span>(<span class="fl">1.5</span>, <span class="fl">11.5</span>, <span class="at">by =</span> <span class="dv">1</span>),</span>
-<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="fl">0.25</span>,</span>
-<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.45</span>) <span class="sc">+</span></span>
-<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- Jun–Nov bracket outside plot --------------------</span></span>
-<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate</span>(<span class="st">"segment"</span>,</span>
-<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> x_bracket, <span class="at">xend =</span> x_bracket,</span>
-<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> y_jun, <span class="at">yend =</span> y_nov,</span>
-<span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a>         <span class="at">linewidth =</span> <span class="fl">0.9</span>, <span class="at">color =</span> <span class="st">"#0B3C5D"</span>) <span class="sc">+</span></span>
-<span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-321"><a href="#cb2-321" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>,</span>
-<span id="cb2-322"><a href="#cb2-322" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> x_bracket, <span class="at">xend =</span> x_bracket_tick,</span>
-<span id="cb2-323"><a href="#cb2-323" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> y_jun, <span class="at">yend =</span> y_jun,</span>
-<span id="cb2-324"><a href="#cb2-324" aria-hidden="true" tabindex="-1"></a>           <span class="at">linewidth =</span> <span class="fl">0.9</span>, <span class="at">color =</span> <span class="st">"#0B3C5D"</span>) <span class="sc">+</span></span>
-<span id="cb2-325"><a href="#cb2-325" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-326"><a href="#cb2-326" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>,</span>
-<span id="cb2-327"><a href="#cb2-327" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> x_bracket, <span class="at">xend =</span> x_bracket_tick,</span>
-<span id="cb2-328"><a href="#cb2-328" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> y_nov, <span class="at">yend =</span> y_nov,</span>
-<span id="cb2-329"><a href="#cb2-329" aria-hidden="true" tabindex="-1"></a>           <span class="at">linewidth =</span> <span class="fl">0.9</span>, <span class="at">color =</span> <span class="st">"#0B3C5D"</span>) <span class="sc">+</span></span>
-<span id="cb2-330"><a href="#cb2-330" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-331"><a href="#cb2-331" aria-hidden="true" tabindex="-1"></a>  <span class="co"># X scale + add left padding for bracket</span></span>
-<span id="cb2-332"><a href="#cb2-332" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb2-333"><a href="#cb2-333" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">pretty_breaks</span>(<span class="at">n =</span> <span class="dv">8</span>),</span>
-<span id="cb2-334"><a href="#cb2-334" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(yr_min <span class="sc">-</span> <span class="fl">1.5</span>, yr_max <span class="sc">+</span> <span class="fl">0.5</span>),</span>
-<span id="cb2-335"><a href="#cb2-335" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb2-336"><a href="#cb2-336" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-337"><a href="#cb2-337" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-338"><a href="#cb2-338" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Months on y reversed so Dec is at the top</span></span>
-<span id="cb2-339"><a href="#cb2-339" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(</span>
-<span id="cb2-340"><a href="#cb2-340" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,</span>
-<span id="cb2-341"><a href="#cb2-341" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> month.abb,</span>
-<span id="cb2-342"><a href="#cb2-342" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">13.2</span>, <span class="fl">0.5</span>),</span>
-<span id="cb2-343"><a href="#cb2-343" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb2-344"><a href="#cb2-344" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-345"><a href="#cb2-345" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-346"><a href="#cb2-346" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Apply mako palette</span></span>
-<span id="cb2-347"><a href="#cb2-347" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(</span>
-<span id="cb2-348"><a href="#cb2-348" aria-hidden="true" tabindex="-1"></a>    <span class="at">option =</span> <span class="st">"mako"</span>,</span>
-<span id="cb2-349"><a href="#cb2-349" aria-hidden="true" tabindex="-1"></a>    <span class="at">begin  =</span> <span class="fl">0.25</span>,</span>
-<span id="cb2-350"><a href="#cb2-350" aria-hidden="true" tabindex="-1"></a>    <span class="at">end    =</span> <span class="dv">1</span>,</span>
-<span id="cb2-351"><a href="#cb2-351" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> comma,</span>
-<span id="cb2-352"><a href="#cb2-352" aria-hidden="true" tabindex="-1"></a>    <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb2-353"><a href="#cb2-353" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-354"><a href="#cb2-354" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-355"><a href="#cb2-355" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb2-356"><a href="#cb2-356" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>,</span>
-<span id="cb2-357"><a href="#cb2-357" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="cn">NULL</span></span>
-<span id="cb2-358"><a href="#cb2-358" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-359"><a href="#cb2-359" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-360"><a href="#cb2-360" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Legend top + horizontal</span></span>
-<span id="cb2-361"><a href="#cb2-361" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(</span>
-<span id="cb2-362"><a href="#cb2-362" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="fu">guide_colorbar</span>(</span>
-<span id="cb2-363"><a href="#cb2-363" aria-hidden="true" tabindex="-1"></a>      <span class="at">title.position =</span> <span class="st">"top"</span>,</span>
-<span id="cb2-364"><a href="#cb2-364" aria-hidden="true" tabindex="-1"></a>      <span class="at">title.hjust =</span> <span class="dv">0</span>,</span>
-<span id="cb2-365"><a href="#cb2-365" aria-hidden="true" tabindex="-1"></a>      <span class="at">barwidth =</span> <span class="fu">unit</span>(<span class="fl">3.8</span>, <span class="st">"in"</span>),</span>
-<span id="cb2-366"><a href="#cb2-366" aria-hidden="true" tabindex="-1"></a>      <span class="at">barheight =</span> <span class="fu">unit</span>(<span class="fl">0.18</span>, <span class="st">"in"</span>)</span>
-<span id="cb2-367"><a href="#cb2-367" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-368"><a href="#cb2-368" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-369"><a href="#cb2-369" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-370"><a href="#cb2-370" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
-<span id="cb2-371"><a href="#cb2-371" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb2-372"><a href="#cb2-372" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background  =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#F6F8FA"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb2-373"><a href="#cb2-373" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#F6F8FA"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb2-374"><a href="#cb2-374" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-375"><a href="#cb2-375" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-376"><a href="#cb2-376" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Monospace axis labels so characters align (x + y)</span></span>
-<span id="cb2-377"><a href="#cb2-377" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"mono"</span>, <span class="at">color =</span> <span class="st">"#374151"</span>),</span>
-<span id="cb2-378"><a href="#cb2-378" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"mono"</span>, <span class="at">color =</span> <span class="st">"#374151"</span>),</span>
-<span id="cb2-379"><a href="#cb2-379" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-380"><a href="#cb2-380" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
-<span id="cb2-381"><a href="#cb2-381" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.direction =</span> <span class="st">"horizontal"</span>,</span>
-<span id="cb2-382"><a href="#cb2-382" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#111827"</span>),</span>
-<span id="cb2-383"><a href="#cb2-383" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text  =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#374151"</span>),</span>
-<span id="cb2-384"><a href="#cb2-384" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-385"><a href="#cb2-385" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extra margins so annotations don't get clipped</span></span>
-<span id="cb2-386"><a href="#cb2-386" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">14</span>, <span class="dv">70</span>),</span>
-<span id="cb2-387"><a href="#cb2-387" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">2</span>)</span>
-<span id="cb2-388"><a href="#cb2-388" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-389"><a href="#cb2-389" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-390"><a href="#cb2-390" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Allow drawing outside the panel</span></span>
-<span id="cb2-391"><a href="#cb2-391" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>)</span>
-<span id="cb2-392"><a href="#cb2-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-393"><a href="#cb2-393" aria-hidden="true" tabindex="-1"></a>heatmap_plot</span>
-<span id="cb2-394"><a href="#cb2-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-395"><a href="#cb2-395" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------- Scatter Plot --------------------------------------</span></span>
-<span id="cb2-396"><a href="#cb2-396" aria-hidden="true" tabindex="-1"></a>pal_scatter <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb2-397"><a href="#cb2-397" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flash Flood"</span>           <span class="ot">=</span> <span class="st">"#003049"</span>,</span>
-<span id="cb2-398"><a href="#cb2-398" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Heavy Rain"</span>            <span class="ot">=</span> <span class="st">"#2A9D8F"</span>,</span>
-<span id="cb2-399"><a href="#cb2-399" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flood"</span>                 <span class="ot">=</span> <span class="st">"#003049"</span>,</span>
-<span id="cb2-400"><a href="#cb2-400" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coastal Flood"</span>         <span class="ot">=</span> <span class="st">"#2A9D8F"</span>,</span>
-<span id="cb2-401"><a href="#cb2-401" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Debris Flow"</span>           <span class="ot">=</span> <span class="st">"#1A5E7A"</span>,</span>
-<span id="cb2-402"><a href="#cb2-402" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tropical Storm"</span>        <span class="ot">=</span> <span class="st">"#1A5E7A"</span>,</span>
-<span id="cb2-403"><a href="#cb2-403" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Hurricane (Typhoon)"</span>   <span class="ot">=</span> <span class="st">"#003049"</span></span>
-<span id="cb2-404"><a href="#cb2-404" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-405"><a href="#cb2-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-406"><a href="#cb2-406" aria-hidden="true" tabindex="-1"></a>scatter_events <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb2-407"><a href="#cb2-407" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flash Flood"</span>,</span>
-<span id="cb2-408"><a href="#cb2-408" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Heavy Rain"</span>,</span>
-<span id="cb2-409"><a href="#cb2-409" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flood"</span>,</span>
-<span id="cb2-410"><a href="#cb2-410" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coastal Flood"</span>,</span>
-<span id="cb2-411"><a href="#cb2-411" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Debris Flow"</span>,</span>
-<span id="cb2-412"><a href="#cb2-412" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tropical Storm"</span>,</span>
-<span id="cb2-413"><a href="#cb2-413" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Hurricane (Typhoon)"</span></span>
-<span id="cb2-414"><a href="#cb2-414" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-415"><a href="#cb2-415" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-416"><a href="#cb2-416" aria-hidden="true" tabindex="-1"></a>scatter_df <span class="ot">&lt;-</span> storm_clean <span class="sc">%&gt;%</span></span>
-<span id="cb2-417"><a href="#cb2-417" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(event_type) <span class="sc">%&gt;%</span></span>
-<span id="cb2-418"><a href="#cb2-418" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb2-419"><a href="#cb2-419" aria-hidden="true" tabindex="-1"></a>    <span class="at">events =</span> <span class="fu">n</span>(),</span>
-<span id="cb2-420"><a href="#cb2-420" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_damage =</span> <span class="fu">sum</span>(damage_property_num, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb2-421"><a href="#cb2-421" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb2-422"><a href="#cb2-422" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-423"><a href="#cb2-423" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(event_type <span class="sc">%in%</span> scatter_events)</span>
-<span id="cb2-424"><a href="#cb2-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-425"><a href="#cb2-425" aria-hidden="true" tabindex="-1"></a><span class="co"># median reference lines</span></span>
-<span id="cb2-426"><a href="#cb2-426" aria-hidden="true" tabindex="-1"></a>x_ref <span class="ot">&lt;-</span> <span class="fu">median</span>(scatter_df<span class="sc">$</span>events, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-427"><a href="#cb2-427" aria-hidden="true" tabindex="-1"></a>y_ref <span class="ot">&lt;-</span> <span class="fu">median</span>(scatter_df<span class="sc">$</span>total_damage, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-428"><a href="#cb2-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">16</span>),</span>
+<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a>waffle_plot</span>
+<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------ Heatmap ------------------------------------</span></span>
+<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a>heatmap_events <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flash Flood"</span>,</span>
+<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Heavy Rain"</span>,</span>
+<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flood"</span>,</span>
+<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coastal Flood"</span>,</span>
+<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Thunderstorm Wind"</span>,</span>
+<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a>  <span class="st">"High Wind"</span>,</span>
+<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Strong Wind"</span>,</span>
+<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Lightning"</span>,</span>
+<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Hail"</span>,</span>
+<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Funnel Cloud"</span>,</span>
+<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tornado"</span>,</span>
+<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Waterspout"</span>,</span>
+<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Debris Flow"</span>,</span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a>  <span class="st">"High Surf"</span>,</span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tropical Depression"</span>,</span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tropical Storm"</span>,</span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Hurricane (Typhoon)"</span></span>
+<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a>heatmap_filtered <span class="ot">&lt;-</span> storm_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(event_type <span class="sc">%in%</span> heatmap_events)</span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a>heatmap_df <span class="ot">&lt;-</span> heatmap_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a>    <span class="at">month =</span> <span class="fu">month</span>(begin_date)</span>
+<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(year), <span class="sc">!</span><span class="fu">is.na</span>(month)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(year, month, <span class="at">name =</span> <span class="st">"events"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(</span>
+<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a>    <span class="at">year  =</span> <span class="fu">full_seq</span>(year, <span class="dv">1</span>),</span>
+<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a>    <span class="at">month =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,</span>
+<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill  =</span> <span class="fu">list</span>(<span class="at">events =</span> <span class="dv">0</span>)</span>
+<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a><span class="co"># Save min and max values for annotations</span></span>
+<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a>yr_min <span class="ot">&lt;-</span> <span class="fu">min</span>(heatmap_df<span class="sc">$</span>year, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a>yr_max <span class="ot">&lt;-</span> <span class="fu">max</span>(heatmap_df<span class="sc">$</span>year, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a><span class="co"># Helper positions ----------------------------------------------------------</span></span>
+<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a><span class="co"># months (numeric): Jan = 1 ... Dec = 12</span></span>
+<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a>y_jun <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a>y_nov <span class="ot">&lt;-</span> <span class="dv">11</span></span>
+<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a><span class="co"># Annotate outside the panel to give ourselves breathing room</span></span>
+<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a>x_bracket <span class="ot">&lt;-</span> yr_min <span class="sc">-</span> <span class="fl">1.1</span></span>
+<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a>x_bracket_tick <span class="ot">&lt;-</span> yr_min <span class="sc">-</span> <span class="fl">0.55</span>   <span class="co"># small ticks to extend toward plot</span></span>
+<span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a>heatmap_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(heatmap_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> month, <span class="at">fill =</span> events)) <span class="sc">+</span></span>
+<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Heatmap tiles without vertical gridlines</span></span>
+<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">width =</span> <span class="dv">1</span>, <span class="at">height =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Keep subtle horizontal separators only</span></span>
+<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">seq</span>(<span class="fl">1.5</span>, <span class="fl">11.5</span>, <span class="at">by =</span> <span class="dv">1</span>),</span>
+<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="fl">0.25</span>,</span>
+<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.45</span>) <span class="sc">+</span></span>
+<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- Jun–Nov bracket outside plot --------------------</span></span>
+<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate</span>(<span class="st">"segment"</span>,</span>
+<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> x_bracket, <span class="at">xend =</span> x_bracket,</span>
+<span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> y_jun, <span class="at">yend =</span> y_nov,</span>
+<span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a>         <span class="at">linewidth =</span> <span class="fl">0.9</span>, <span class="at">color =</span> <span class="st">"#0B3C5D"</span>) <span class="sc">+</span></span>
+<span id="cb2-321"><a href="#cb2-321" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-322"><a href="#cb2-322" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>,</span>
+<span id="cb2-323"><a href="#cb2-323" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> x_bracket, <span class="at">xend =</span> x_bracket_tick,</span>
+<span id="cb2-324"><a href="#cb2-324" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> y_jun, <span class="at">yend =</span> y_jun,</span>
+<span id="cb2-325"><a href="#cb2-325" aria-hidden="true" tabindex="-1"></a>           <span class="at">linewidth =</span> <span class="fl">0.9</span>, <span class="at">color =</span> <span class="st">"#0B3C5D"</span>) <span class="sc">+</span></span>
+<span id="cb2-326"><a href="#cb2-326" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-327"><a href="#cb2-327" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>,</span>
+<span id="cb2-328"><a href="#cb2-328" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> x_bracket, <span class="at">xend =</span> x_bracket_tick,</span>
+<span id="cb2-329"><a href="#cb2-329" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> y_nov, <span class="at">yend =</span> y_nov,</span>
+<span id="cb2-330"><a href="#cb2-330" aria-hidden="true" tabindex="-1"></a>           <span class="at">linewidth =</span> <span class="fl">0.9</span>, <span class="at">color =</span> <span class="st">"#0B3C5D"</span>) <span class="sc">+</span></span>
+<span id="cb2-331"><a href="#cb2-331" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-332"><a href="#cb2-332" aria-hidden="true" tabindex="-1"></a>  <span class="co"># X scale + add left padding for bracket</span></span>
+<span id="cb2-333"><a href="#cb2-333" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb2-334"><a href="#cb2-334" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">pretty_breaks</span>(<span class="at">n =</span> <span class="dv">8</span>),</span>
+<span id="cb2-335"><a href="#cb2-335" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(yr_min <span class="sc">-</span> <span class="fl">1.5</span>, yr_max <span class="sc">+</span> <span class="fl">0.5</span>),</span>
+<span id="cb2-336"><a href="#cb2-336" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb2-337"><a href="#cb2-337" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-338"><a href="#cb2-338" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-339"><a href="#cb2-339" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Months on y reversed so Dec is at the top</span></span>
+<span id="cb2-340"><a href="#cb2-340" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(</span>
+<span id="cb2-341"><a href="#cb2-341" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,</span>
+<span id="cb2-342"><a href="#cb2-342" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> month.abb,</span>
+<span id="cb2-343"><a href="#cb2-343" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">13.2</span>, <span class="fl">0.5</span>),</span>
+<span id="cb2-344"><a href="#cb2-344" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb2-345"><a href="#cb2-345" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-346"><a href="#cb2-346" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-347"><a href="#cb2-347" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Apply mako palette</span></span>
+<span id="cb2-348"><a href="#cb2-348" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(</span>
+<span id="cb2-349"><a href="#cb2-349" aria-hidden="true" tabindex="-1"></a>    <span class="at">option =</span> <span class="st">"mako"</span>,</span>
+<span id="cb2-350"><a href="#cb2-350" aria-hidden="true" tabindex="-1"></a>    <span class="at">begin  =</span> <span class="fl">0.25</span>,</span>
+<span id="cb2-351"><a href="#cb2-351" aria-hidden="true" tabindex="-1"></a>    <span class="at">end    =</span> <span class="dv">1</span>,</span>
+<span id="cb2-352"><a href="#cb2-352" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> comma,</span>
+<span id="cb2-353"><a href="#cb2-353" aria-hidden="true" tabindex="-1"></a>    <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb2-354"><a href="#cb2-354" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-355"><a href="#cb2-355" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-356"><a href="#cb2-356" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-357"><a href="#cb2-357" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb2-358"><a href="#cb2-358" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="cn">NULL</span></span>
+<span id="cb2-359"><a href="#cb2-359" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-360"><a href="#cb2-360" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-361"><a href="#cb2-361" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Legend top + horizontal</span></span>
+<span id="cb2-362"><a href="#cb2-362" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(</span>
+<span id="cb2-363"><a href="#cb2-363" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="fu">guide_colorbar</span>(</span>
+<span id="cb2-364"><a href="#cb2-364" aria-hidden="true" tabindex="-1"></a>      <span class="at">title.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb2-365"><a href="#cb2-365" aria-hidden="true" tabindex="-1"></a>      <span class="at">title.hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb2-366"><a href="#cb2-366" aria-hidden="true" tabindex="-1"></a>      <span class="at">barwidth =</span> <span class="fu">unit</span>(<span class="fl">3.8</span>, <span class="st">"in"</span>),</span>
+<span id="cb2-367"><a href="#cb2-367" aria-hidden="true" tabindex="-1"></a>      <span class="at">barheight =</span> <span class="fu">unit</span>(<span class="fl">0.18</span>, <span class="st">"in"</span>)</span>
+<span id="cb2-368"><a href="#cb2-368" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-369"><a href="#cb2-369" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-370"><a href="#cb2-370" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-371"><a href="#cb2-371" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb2-372"><a href="#cb2-372" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-373"><a href="#cb2-373" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background  =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#F6F8FA"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb2-374"><a href="#cb2-374" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#F6F8FA"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb2-375"><a href="#cb2-375" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-376"><a href="#cb2-376" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-377"><a href="#cb2-377" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Monospace axis labels so characters align (x + y)</span></span>
+<span id="cb2-378"><a href="#cb2-378" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"mono"</span>, <span class="at">color =</span> <span class="st">"#374151"</span>),</span>
+<span id="cb2-379"><a href="#cb2-379" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"mono"</span>, <span class="at">color =</span> <span class="st">"#374151"</span>),</span>
+<span id="cb2-380"><a href="#cb2-380" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-381"><a href="#cb2-381" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb2-382"><a href="#cb2-382" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.direction =</span> <span class="st">"horizontal"</span>,</span>
+<span id="cb2-383"><a href="#cb2-383" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#111827"</span>),</span>
+<span id="cb2-384"><a href="#cb2-384" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text  =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#374151"</span>),</span>
+<span id="cb2-385"><a href="#cb2-385" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-386"><a href="#cb2-386" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extra margins so annotations don't get clipped</span></span>
+<span id="cb2-387"><a href="#cb2-387" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">14</span>, <span class="dv">70</span>),</span>
+<span id="cb2-388"><a href="#cb2-388" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">2</span>)</span>
+<span id="cb2-389"><a href="#cb2-389" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-390"><a href="#cb2-390" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-391"><a href="#cb2-391" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Allow drawing outside the panel</span></span>
+<span id="cb2-392"><a href="#cb2-392" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>)</span>
+<span id="cb2-393"><a href="#cb2-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-394"><a href="#cb2-394" aria-hidden="true" tabindex="-1"></a>heatmap_plot</span>
+<span id="cb2-395"><a href="#cb2-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-396"><a href="#cb2-396" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------- Scatter Plot --------------------------------------</span></span>
+<span id="cb2-397"><a href="#cb2-397" aria-hidden="true" tabindex="-1"></a>pal_scatter <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-398"><a href="#cb2-398" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flash Flood"</span>           <span class="ot">=</span> <span class="st">"#003049"</span>,</span>
+<span id="cb2-399"><a href="#cb2-399" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Heavy Rain"</span>            <span class="ot">=</span> <span class="st">"#2A9D8F"</span>,</span>
+<span id="cb2-400"><a href="#cb2-400" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flood"</span>                 <span class="ot">=</span> <span class="st">"#003049"</span>,</span>
+<span id="cb2-401"><a href="#cb2-401" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coastal Flood"</span>         <span class="ot">=</span> <span class="st">"#2A9D8F"</span>,</span>
+<span id="cb2-402"><a href="#cb2-402" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Debris Flow"</span>           <span class="ot">=</span> <span class="st">"#1A5E7A"</span>,</span>
+<span id="cb2-403"><a href="#cb2-403" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tropical Storm"</span>        <span class="ot">=</span> <span class="st">"#1A5E7A"</span>,</span>
+<span id="cb2-404"><a href="#cb2-404" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Hurricane (Typhoon)"</span>   <span class="ot">=</span> <span class="st">"#003049"</span></span>
+<span id="cb2-405"><a href="#cb2-405" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-406"><a href="#cb2-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-407"><a href="#cb2-407" aria-hidden="true" tabindex="-1"></a>scatter_events <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-408"><a href="#cb2-408" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flash Flood"</span>,</span>
+<span id="cb2-409"><a href="#cb2-409" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Heavy Rain"</span>,</span>
+<span id="cb2-410"><a href="#cb2-410" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Flood"</span>,</span>
+<span id="cb2-411"><a href="#cb2-411" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coastal Flood"</span>,</span>
+<span id="cb2-412"><a href="#cb2-412" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Debris Flow"</span>,</span>
+<span id="cb2-413"><a href="#cb2-413" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tropical Storm"</span>,</span>
+<span id="cb2-414"><a href="#cb2-414" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Hurricane (Typhoon)"</span></span>
+<span id="cb2-415"><a href="#cb2-415" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-416"><a href="#cb2-416" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-417"><a href="#cb2-417" aria-hidden="true" tabindex="-1"></a>scatter_df <span class="ot">&lt;-</span> storm_clean <span class="sc">%&gt;%</span></span>
+<span id="cb2-418"><a href="#cb2-418" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(event_type) <span class="sc">%&gt;%</span></span>
+<span id="cb2-419"><a href="#cb2-419" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb2-420"><a href="#cb2-420" aria-hidden="true" tabindex="-1"></a>    <span class="at">events =</span> <span class="fu">n</span>(),</span>
+<span id="cb2-421"><a href="#cb2-421" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_damage =</span> <span class="fu">sum</span>(damage_property_num, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-422"><a href="#cb2-422" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb2-423"><a href="#cb2-423" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-424"><a href="#cb2-424" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(event_type <span class="sc">%in%</span> scatter_events)</span>
+<span id="cb2-425"><a href="#cb2-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-426"><a href="#cb2-426" aria-hidden="true" tabindex="-1"></a><span class="co"># median reference lines</span></span>
+<span id="cb2-427"><a href="#cb2-427" aria-hidden="true" tabindex="-1"></a>x_ref <span class="ot">&lt;-</span> <span class="fu">median</span>(scatter_df<span class="sc">$</span>events, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-428"><a href="#cb2-428" aria-hidden="true" tabindex="-1"></a>y_ref <span class="ot">&lt;-</span> <span class="fu">median</span>(scatter_df<span class="sc">$</span>total_damage, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb2-429"><a href="#cb2-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-430"><a href="#cb2-430" aria-hidden="true" tabindex="-1"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(scatter_df, </span>
-<span id="cb2-431"><a href="#cb2-431" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">aes</span>(<span class="at">x =</span> events,</span>
-<span id="cb2-432"><a href="#cb2-432" aria-hidden="true" tabindex="-1"></a>                            <span class="at">y =</span> total_damage,</span>
-<span id="cb2-433"><a href="#cb2-433" aria-hidden="true" tabindex="-1"></a>                            <span class="at">label =</span> event_type,</span>
-<span id="cb2-434"><a href="#cb2-434" aria-hidden="true" tabindex="-1"></a>                            <span class="at">colour =</span> event_type)) <span class="sc">+</span></span>
-<span id="cb2-435"><a href="#cb2-435" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-436"><a href="#cb2-436" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> x_ref, <span class="at">color =</span> <span class="st">"#9CA3AF"</span>, <span class="at">linewidth =</span> <span class="fl">0.4</span>,</span>
-<span id="cb2-437"><a href="#cb2-437" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb2-438"><a href="#cb2-438" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> y_ref, <span class="at">color =</span> <span class="st">"#9CA3AF"</span>, <span class="at">linewidth =</span> <span class="fl">0.4</span>,</span>
-<span id="cb2-439"><a href="#cb2-439" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb2-440"><a href="#cb2-440" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-441"><a href="#cb2-441" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">4.9</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
-<span id="cb2-442"><a href="#cb2-442" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-443"><a href="#cb2-443" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">pretty_breaks</span>(<span class="at">n =</span> <span class="dv">5</span>),</span>
-<span id="cb2-444"><a href="#cb2-444" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="fl">0.03</span>, <span class="fl">0.08</span>))) <span class="sc">+</span></span>
-<span id="cb2-445"><a href="#cb2-445" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-446"><a href="#cb2-446" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set log scale and add a dollar format for values in the y-axis</span></span>
-<span id="cb2-447"><a href="#cb2-447" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_log</span>(<span class="at">n =</span> <span class="dv">5</span>),</span>
-<span id="cb2-448"><a href="#cb2-448" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
-<span id="cb2-449"><a href="#cb2-449" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-450"><a href="#cb2-450" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal_scatter) <span class="sc">+</span></span>
-<span id="cb2-451"><a href="#cb2-451" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-452"><a href="#cb2-452" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Label all point on the chart</span></span>
-<span id="cb2-453"><a href="#cb2-453" aria-hidden="true" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_text_repel</span>( <span class="at">size =</span> <span class="fl">3.5</span>,</span>
-<span id="cb2-454"><a href="#cb2-454" aria-hidden="true" tabindex="-1"></a>                            <span class="at">max.overlaps =</span> <span class="dv">20</span>,</span>
-<span id="cb2-455"><a href="#cb2-455" aria-hidden="true" tabindex="-1"></a>                            <span class="at">box.padding =</span> <span class="fl">0.4</span>,</span>
-<span id="cb2-456"><a href="#cb2-456" aria-hidden="true" tabindex="-1"></a>                            <span class="at">point.padding =</span> <span class="fl">0.3</span>,</span>
-<span id="cb2-457"><a href="#cb2-457" aria-hidden="true" tabindex="-1"></a>                            <span class="at">min.segment.length =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb2-458"><a href="#cb2-458" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Label the chart</span></span>
-<span id="cb2-459"><a href="#cb2-459" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb2-460"><a href="#cb2-460" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of events"</span>,</span>
-<span id="cb2-461"><a href="#cb2-461" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total recorded property damage ($, log scale)"</span></span>
-<span id="cb2-462"><a href="#cb2-462" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-463"><a href="#cb2-463" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-464"><a href="#cb2-464" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add chart theme</span></span>
-<span id="cb2-465"><a href="#cb2-465" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
-<span id="cb2-466"><a href="#cb2-466" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> bg, <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb2-467"><a href="#cb2-467" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> bg, <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb2-468"><a href="#cb2-468" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb2-469"><a href="#cb2-469" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Monospace axis labels so characters align</span></span>
-<span id="cb2-470"><a href="#cb2-470" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"mono"</span>, <span class="at">color =</span> <span class="st">"#374151"</span>),</span>
-<span id="cb2-471"><a href="#cb2-471" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"mono"</span>, <span class="at">color =</span> <span class="st">"#374151"</span>),</span>
-<span id="cb2-472"><a href="#cb2-472" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb2-473"><a href="#cb2-473" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-474"><a href="#cb2-474" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-475"><a href="#cb2-475" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb2-476"><a href="#cb2-476" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb2-477"><a href="#cb2-477" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb2-478"><a href="#cb2-478" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">16</span>)</span>
-<span id="cb2-479"><a href="#cb2-479" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb2-480"><a href="#cb2-480" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-481"><a href="#cb2-481" aria-hidden="true" tabindex="-1"></a>scatter_plot</span>
-<span id="cb2-482"><a href="#cb2-482" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-483"><a href="#cb2-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-484"><a href="#cb2-484" aria-hidden="true" tabindex="-1"></a><span class="fu">## Citation:</span></span>
-<span id="cb2-485"><a href="#cb2-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-486"><a href="#cb2-486" aria-hidden="true" tabindex="-1"></a>National Centers for Environmental Information (NCEI). Storm Events Database. NOAA. https://www.ncei.noaa.gov/stormevents/</span>
-<span id="cb2-487"><a href="#cb2-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-430"><a href="#cb2-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-431"><a href="#cb2-431" aria-hidden="true" tabindex="-1"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(scatter_df, </span>
+<span id="cb2-432"><a href="#cb2-432" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">aes</span>(<span class="at">x =</span> events,</span>
+<span id="cb2-433"><a href="#cb2-433" aria-hidden="true" tabindex="-1"></a>                            <span class="at">y =</span> total_damage,</span>
+<span id="cb2-434"><a href="#cb2-434" aria-hidden="true" tabindex="-1"></a>                            <span class="at">label =</span> event_type,</span>
+<span id="cb2-435"><a href="#cb2-435" aria-hidden="true" tabindex="-1"></a>                            <span class="at">colour =</span> event_type)) <span class="sc">+</span></span>
+<span id="cb2-436"><a href="#cb2-436" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-437"><a href="#cb2-437" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> x_ref, <span class="at">color =</span> <span class="st">"#9CA3AF"</span>, <span class="at">linewidth =</span> <span class="fl">0.4</span>,</span>
+<span id="cb2-438"><a href="#cb2-438" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb2-439"><a href="#cb2-439" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> y_ref, <span class="at">color =</span> <span class="st">"#9CA3AF"</span>, <span class="at">linewidth =</span> <span class="fl">0.4</span>,</span>
+<span id="cb2-440"><a href="#cb2-440" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb2-441"><a href="#cb2-441" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-442"><a href="#cb2-442" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">4.9</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb2-443"><a href="#cb2-443" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-444"><a href="#cb2-444" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">pretty_breaks</span>(<span class="at">n =</span> <span class="dv">5</span>),</span>
+<span id="cb2-445"><a href="#cb2-445" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="fl">0.03</span>, <span class="fl">0.08</span>))) <span class="sc">+</span></span>
+<span id="cb2-446"><a href="#cb2-446" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-447"><a href="#cb2-447" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set log scale and add a dollar format for values in the y-axis</span></span>
+<span id="cb2-448"><a href="#cb2-448" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_log</span>(<span class="at">n =</span> <span class="dv">5</span>),</span>
+<span id="cb2-449"><a href="#cb2-449" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb2-450"><a href="#cb2-450" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-451"><a href="#cb2-451" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal_scatter) <span class="sc">+</span></span>
+<span id="cb2-452"><a href="#cb2-452" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-453"><a href="#cb2-453" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Label all point on the chart</span></span>
+<span id="cb2-454"><a href="#cb2-454" aria-hidden="true" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_text_repel</span>( <span class="at">size =</span> <span class="fl">3.5</span>,</span>
+<span id="cb2-455"><a href="#cb2-455" aria-hidden="true" tabindex="-1"></a>                            <span class="at">max.overlaps =</span> <span class="dv">20</span>,</span>
+<span id="cb2-456"><a href="#cb2-456" aria-hidden="true" tabindex="-1"></a>                            <span class="at">box.padding =</span> <span class="fl">0.4</span>,</span>
+<span id="cb2-457"><a href="#cb2-457" aria-hidden="true" tabindex="-1"></a>                            <span class="at">point.padding =</span> <span class="fl">0.3</span>,</span>
+<span id="cb2-458"><a href="#cb2-458" aria-hidden="true" tabindex="-1"></a>                            <span class="at">min.segment.length =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb2-459"><a href="#cb2-459" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Label the chart</span></span>
+<span id="cb2-460"><a href="#cb2-460" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-461"><a href="#cb2-461" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of events"</span>,</span>
+<span id="cb2-462"><a href="#cb2-462" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total recorded property damage ($, log scale)"</span></span>
+<span id="cb2-463"><a href="#cb2-463" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-464"><a href="#cb2-464" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-465"><a href="#cb2-465" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add chart theme</span></span>
+<span id="cb2-466"><a href="#cb2-466" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb2-467"><a href="#cb2-467" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> bg, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb2-468"><a href="#cb2-468" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> bg, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb2-469"><a href="#cb2-469" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-470"><a href="#cb2-470" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Monospace axis labels so characters align</span></span>
+<span id="cb2-471"><a href="#cb2-471" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"mono"</span>, <span class="at">color =</span> <span class="st">"#374151"</span>),</span>
+<span id="cb2-472"><a href="#cb2-472" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"mono"</span>, <span class="at">color =</span> <span class="st">"#374151"</span>),</span>
+<span id="cb2-473"><a href="#cb2-473" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-474"><a href="#cb2-474" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-475"><a href="#cb2-475" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-476"><a href="#cb2-476" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-477"><a href="#cb2-477" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb2-478"><a href="#cb2-478" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-479"><a href="#cb2-479" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">16</span>)</span>
+<span id="cb2-480"><a href="#cb2-480" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb2-481"><a href="#cb2-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-482"><a href="#cb2-482" aria-hidden="true" tabindex="-1"></a>scatter_plot</span>
+<span id="cb2-483"><a href="#cb2-483" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-484"><a href="#cb2-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-485"><a href="#cb2-485" aria-hidden="true" tabindex="-1"></a><span class="fu">## Citation:</span></span>
+<span id="cb2-486"><a href="#cb2-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-487"><a href="#cb2-487" aria-hidden="true" tabindex="-1"></a>National Centers for Environmental Information (NCEI). Storm Events Database. NOAA. https://www.ncei.noaa.gov/stormevents/</span>
 <span id="cb2-488"><a href="#cb2-488" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-489"><a href="#cb2-489" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-490"><a href="#cb2-490" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-491"><a href="#cb2-491" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-492"><a href="#cb2-492" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb2-492"><a href="#cb2-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-493"><a href="#cb2-493" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

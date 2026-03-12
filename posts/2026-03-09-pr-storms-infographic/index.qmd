@@ -46,7 +46,7 @@ These questions shaped both the structure of the infographic and the data I chos
 By examining event type, property damage, and detailed date information, I distilled thousands of storm reports into a visual summary that highlights the patterns most relevant to life on the island: the dominance of flood‑related hazards, the rhythm of seasonality, and the outsized economic impact of rare but severe events like hurricanes.
 
 
-![](../../posts/2026-03-09-pr-storms-infographic/storms-pr-infographic.png)
+![](../../posts/2026-03-09-pr-storms-infographic/infographic-with-palmtrees.png)
 
 The infographic highlights three key patterns. First, flood-related hazards dominate Puerto Rico’s storm records. Second, storm activity peaks during the Atlantic hurricane season between August and October. Finally, while hurricanes are relatively rare events, they account for some of the largest economic losses.
 
@@ -69,6 +69,7 @@ The scatter plot compares event frequency with total recorded property damage to
 ## Structuring The Infographic
 
 The visual hierarchy of the infographic is designed to guide the reader through the story in a clear, intuitive way. Each section answers a progressively deeper question about storm hazards in Puerto Rico, moving from broad context to a more granular insight. The flow follows an overview - pattern - consequence structure. After generating the plots in R, I refined their layout and alignment in Affinity Designer. 
+
 ## Color Palette
 
 ![](palette-infographic.png)
