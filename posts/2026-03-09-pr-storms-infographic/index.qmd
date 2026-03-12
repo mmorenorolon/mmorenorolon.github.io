@@ -486,6 +486,8 @@ scatter_plot
 
 National Centers for Environmental Information (NCEI). Storm Events Database. NOAA. https://www.ncei.noaa.gov/stormevents/
 
+NOAA National Hurricane Center. (2022). Hurricane Fiona advisory number 24A. https://www.nhc.noaa.gov
+
 
 
 
