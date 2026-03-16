@@ -19,7 +19,7 @@ $color: $linen;
 
 /*-- scss:rules --*/
 h1, h2, h3{
-  font-family: $josefin:;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -40,3 +40,57 @@ h1, h2 {
   color: orange;
 }
 
+
+/* ----------------------------- */
+/*   SCROLLY ABOUT SECTION       */
+/* ----------------------------- */
+
+.scrolly-container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 2rem;
+  min-height: 100vh;
+  margin-top: 2rem;
+}
+
+.scrolly-left {
+  position: relative;
+}
+
+.sticky-bio {
+  position: sticky;
+  top: 20vh;
+  color: $linen;
+}
+
+.about-photo {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.scrolly-right .step {
+  margin: 0 0 60vh 0;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: $linen;
+}
+
+/* Optional fade-in effect */
+.step {
+  opacity: 0.25;
+  transition: opacity 0.6s ease;
+}
+
+.step:is(:hover, :focus-within) {
+  opacity: 1;
+}
+
+
+/* Ensure the Leaflet map behaves inside the sticky column */
+.scrolly-left .leaflet-container {
+  height: 60vh;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}

@@ -79,7 +79,7 @@ The color palette for this infographic was chosen to evoke a storm‑themed, coa
 
 ## Typography
 
-I used a simple typographic system to keep the infographic clear and readable. ***Libre Baskerville*** to give the title an editorial feel, while ***Source Sans 3*** keeps the body text, labels, and annotations clean and accessible.
+I used a simple typographic system to keep the infographic clear and readable. ***Libre Baskerville*** gives the title an editorial feel, while ***Source Sans 3*** keeps the body text, labels, and annotations clean and accessible.
 
 ## Accessibility & DEIJ Considerations
 

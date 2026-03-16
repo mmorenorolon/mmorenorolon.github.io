@@ -4,7 +4,7 @@ project:
 
 format:
   html:
-    theme: [cosmo, brand]
+    theme: quartz
     css: styles.scss
     toc: true
     page-layout: full
@@ -20,7 +20,7 @@ website:
       - href: resources.qmd
         text: Resources
       - href: posts.qmd
-        text: Blog Posts
+        text: Portfolio
     right:
       - icon: github
         href: https://github.com/mmorenorolon/mmorenorolon.github.io

@@ -109,7 +109,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "Environmental Data Scientist\nBorn and raised in Puerto Rico\n\n\n\n\n\nI grew up on an island shaped by coastlines, storms, and the quiet knowledge that weather is never just weather.\nPuerto Rico taught me to pay attention to patterns in the sky, to the rhythm of hurricane seasons, and to the ways communities adapt, rebuild, and remember.\nThose early experiences became the foundation for how I see the world today.\n\n\n\n\n\nHurricane seasons were a rhythm I grew up with—preparing, waiting, listening to the wind shift.\nSome storms passed quietly. Others reshaped entire communities.\nLiving through them taught me that environmental change is not abstract.\nIt’s personal, uneven, and deeply tied to the places we call home.\n\n\n\nAs I got older, I wanted to understand the forces that shaped my island.\nEnvironmental science became a way to connect lived experience with data—\nto turn questions into patterns, and patterns into insight.\nIt gave me language for things I had always felt but never fully understood.\n\n\n\nMaps became my way of making sense of the world.\nThey reveal what’s uneven, what’s vulnerable, and what’s often overlooked.\nSpatial data lets me connect people, places, and patterns—\nand tell stories that honor the complexity of real communities.\n\n\n\nI care about clarity, accessibility, and editorial honesty.\nGood design should invite people in—not overwhelm them.\nI build workflows that are reproducible, transparent, and grounded in DEIJ principles,\nbecause the way we communicate data shapes who feels seen by it.\n\n\n\nAt the Bren School, I focus on storm climatology, hazard communication,\nand the ways data can support more equitable decision‑making.\nMy work blends spatial analysis, environmental data science,\nand a commitment to making complex information understandable.\n\n\n\nI’m still learning, still refining, still finding new ways to connect science and storytelling.\nWhat I know for sure is this:\nI want my work to make environmental information clearer, more human, and more accessible so that the people most affected by change can see themselves in the data."
   },
   {
     "objectID": "about.html#what-i-do-for-work",
@@ -137,14 +137,14 @@
     "href": "index.html#education",
     "title": "Melannie Moreno Rolón",
     "section": "Education",
-    "text": "Education\n\nB.S. Environmental Science University of Puerto Rico, Río Piedras Campus (Graduated - June 2023)"
+    "text": "Education\nB.S. Environmental Science University of Puerto Rico, Río Piedras Campus (Graduated - June 2023)"
   },
   {
     "objectID": "index.html#professional-experience",
     "href": "index.html#professional-experience",
     "title": "Melannie Moreno Rolón",
     "section": "Professional Experience",
-    "text": "Professional Experience\n\nEnvironmental Specialist (2023-2024)"
+    "text": "Professional Experience\nEnvironmental Specialist (2023-2024)"
   },
   {
     "objectID": "posts/2025-12-03-wildfire-analysis/index.html",
@@ -298,7 +298,7 @@
     "href": "posts/2026-03-09-pr-storms-infographic/index.html#typography",
     "title": "Visualizing Storm Impacts in Puerto Rico",
     "section": "Typography",
-    "text": "Typography\nI used a simple typographic system to keep the infographic clear and readable. Libre Baskerville to give the title an editorial feel, while Source Sans 3 keeps the body text, labels, and annotations clean and accessible."
+    "text": "Typography\nI used a simple typographic system to keep the infographic clear and readable. Libre Baskerville gives the title an editorial feel, while Source Sans 3 keeps the body text, labels, and annotations clean and accessible."
   },
   {
     "objectID": "posts/2026-03-09-pr-storms-infographic/index.html#challenges-and-tradeoffs",
@@ -362,5 +362,75 @@
     "title": "Visualizing Storm Impacts in Puerto Rico",
     "section": "Citation:",
     "text": "Citation:\nNational Centers for Environmental Information (NCEI). Storm Events Database. NOAA. https://www.ncei.noaa.gov/stormevents/\nNOAA National Hurricane Center. (2022). Hurricane Fiona advisory number 24A. https://www.nhc.noaa.gov"
+  },
+  {
+    "objectID": "about.html#about-me",
+    "href": "about.html#about-me",
+    "title": "About",
+    "section": "",
+    "text": "Environmental Data Scientist\nBorn and raised in Puerto Rico\n\n\n\n\n\nI grew up on an island shaped by coastlines, storms, and the quiet knowledge that weather is never just weather.\nPuerto Rico taught me to pay attention to patterns in the sky, to the rhythm of hurricane seasons, and to the ways communities adapt, rebuild, and remember.\nThose early experiences became the foundation for how I see the world today.\n\n\n\n\n\nHurricane seasons were a rhythm I grew up with—preparing, waiting, listening to the wind shift.\nSome storms passed quietly. Others reshaped entire communities.\nLiving through them taught me that environmental change is not abstract.\nIt’s personal, uneven, and deeply tied to the places we call home.\n\n\n\nAs I got older, I wanted to understand the forces that shaped my island.\nEnvironmental science became a way to connect lived experience with data—\nto turn questions into patterns, and patterns into insight.\nIt gave me language for things I had always felt but never fully understood.\n\n\n\nMaps became my way of making sense of the world.\nThey reveal what’s uneven, what’s vulnerable, and what’s often overlooked.\nSpatial data lets me connect people, places, and patterns—\nand tell stories that honor the complexity of real communities.\n\n\n\nI care about clarity, accessibility, and editorial honesty.\nGood design should invite people in—not overwhelm them.\nI build workflows that are reproducible, transparent, and grounded in DEIJ principles,\nbecause the way we communicate data shapes who feels seen by it.\n\n\n\nAt the Bren School, I focus on storm climatology, hazard communication,\nand the ways data can support more equitable decision‑making.\nMy work blends spatial analysis, environmental data science,\nand a commitment to making complex information understandable.\n\n\n\nI’m still learning, still refining, still finding new ways to connect science and storytelling.\nWhat I know for sure is this:\nI want my work to make environmental information clearer, more human, and more accessible so that the people most affected by change can see themselves in the data."
+  },
+  {
+    "objectID": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html",
+    "href": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html",
+    "title": "Puerto Rico: Storm Risk Profile",
+    "section": "",
+    "text": "Gapminder is an independent educational non-proﬁt ﬁghting global misconceptions.\n\nScrollytelling visualisation by Melannie Moreno Rolón.\n\n\n\n\n\nGDP (Gross Domestic Product) is the total monetary value of all finished goods and services produced within a country’s borders over a specific period, typically used to measure economic performance. Higher GDP per capita often correlates with better healthcare, education, and living standards, which can lead to longer life expectancy.\n\n\n\n\n\nPopulation growth is the increase in the number of people in a given area over time, influenced by birth rates, death rates, and migration. Population growth affects GDP by influencing labour supply, consumer demand, and economic productivity.\n\n\n\n\n\nLife expectancy is the average number of years a person is expected to live based on current mortality trends and healthcare conditions in a given population. On average, life expectancy is increasing across every continent, although both the levels of life expectancy and the rates of change can be very different.\n\n\n\n\n\nGenerally, countries with higher GDP per capita tend to have higher life expectancy, as economic growth improves healthcare, nutrition, and living standards. Population growth can have mixed effects; in some cases, rapid growth strains resources and slows GDP per capita gains, while in others, a growing workforce can boost economic productivity.\n Note: lines indicate median life expectancy and GDP per capita, and size of circles represents population size.\n\n\n\n\n\nThe majority of countries with high GDP per capita and high life expectancy are in Europe, the Americas, and Asia. High GDP per capita and high life expectancy often go together because wealthier countries can invest in advanced healthcare, education, infrastructure, and social services, leading to better living conditions and lower mortality rates.\n\n\n\n\n\nThere are few countries with low GDP per capita but high life expectancy. These are primarily countries in Asia which may be due to strong public healthcare systems, community-based health initiatives, and cultural factors that promote healthy lifestyles.\n\n\n\n\n\nThe majority of countries with low GDP per capita and low life expectancy are in Africa, alongside several Asian countries. Low GDP per capita and low life expectancy often coincide due to limited access to healthcare, education, and basic services, leading to higher mortality rates and poorer living conditions.\n\n\n\n\n\nThere are few countries with high GDP per capita, and low life expectancy. These are primarily countries in Africa, where high GDP may stem from natural resource exports (such as oil), but low life expectancy persists due to unequal wealth distribution.\n\n\n\n\n“Remember: things can be bad, and getting better.” - Hans Rosling, Factfulness.\n\n{{&lt; fa globe &gt;}} nrennie.rbind.io\n\n{{&lt; fa brands linkedin &gt;}} melanniemoreno\n\n{{&lt; fa brands github &gt;}} mmorenorolon"
+  },
+  {
+    "objectID": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#gdp",
+    "href": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#gdp",
+    "title": "Puerto Rico: Storm Risk Profile",
+    "section": "",
+    "text": "GDP (Gross Domestic Product) is the total monetary value of all finished goods and services produced within a country’s borders over a specific period, typically used to measure economic performance. Higher GDP per capita often correlates with better healthcare, education, and living standards, which can lead to longer life expectancy."
+  },
+  {
+    "objectID": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#population",
+    "href": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#population",
+    "title": "Puerto Rico: Storm Risk Profile",
+    "section": "",
+    "text": "Population growth is the increase in the number of people in a given area over time, influenced by birth rates, death rates, and migration. Population growth affects GDP by influencing labour supply, consumer demand, and economic productivity."
+  },
+  {
+    "objectID": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#life-expectancy",
+    "href": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#life-expectancy",
+    "title": "Puerto Rico: Storm Risk Profile",
+    "section": "",
+    "text": "Life expectancy is the average number of years a person is expected to live based on current mortality trends and healthcare conditions in a given population. On average, life expectancy is increasing across every continent, although both the levels of life expectancy and the rates of change can be very different."
+  },
+  {
+    "objectID": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#the-world-in-2007",
+    "href": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#the-world-in-2007",
+    "title": "Puerto Rico: Storm Risk Profile",
+    "section": "",
+    "text": "Generally, countries with higher GDP per capita tend to have higher life expectancy, as economic growth improves healthcare, nutrition, and living standards. Population growth can have mixed effects; in some cases, rapid growth strains resources and slows GDP per capita gains, while in others, a growing workforce can boost economic productivity.\n Note: lines indicate median life expectancy and GDP per capita, and size of circles represents population size."
+  },
+  {
+    "objectID": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#high-gdp-per-capita-high-life-expectancy",
+    "href": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#high-gdp-per-capita-high-life-expectancy",
+    "title": "Puerto Rico: Storm Risk Profile",
+    "section": "",
+    "text": "The majority of countries with high GDP per capita and high life expectancy are in Europe, the Americas, and Asia. High GDP per capita and high life expectancy often go together because wealthier countries can invest in advanced healthcare, education, infrastructure, and social services, leading to better living conditions and lower mortality rates."
+  },
+  {
+    "objectID": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#low-gdp-per-capita-high-life-expectancy",
+    "href": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#low-gdp-per-capita-high-life-expectancy",
+    "title": "Puerto Rico: Storm Risk Profile",
+    "section": "",
+    "text": "There are few countries with low GDP per capita but high life expectancy. These are primarily countries in Asia which may be due to strong public healthcare systems, community-based health initiatives, and cultural factors that promote healthy lifestyles."
+  },
+  {
+    "objectID": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#low-gdp-per-capita-low-life-expetancy",
+    "href": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#low-gdp-per-capita-low-life-expetancy",
+    "title": "Puerto Rico: Storm Risk Profile",
+    "section": "",
+    "text": "The majority of countries with low GDP per capita and low life expectancy are in Africa, alongside several Asian countries. Low GDP per capita and low life expectancy often coincide due to limited access to healthcare, education, and basic services, leading to higher mortality rates and poorer living conditions."
+  },
+  {
+    "objectID": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#high-gdp-per-capita-low-life-expectancy",
+    "href": "posts/2026-03-12-pr-storms-scrollytelling-post/pr-storms-scrollytelling.html#high-gdp-per-capita-low-life-expectancy",
+    "title": "Puerto Rico: Storm Risk Profile",
+    "section": "",
+    "text": "There are few countries with high GDP per capita, and low life expectancy. These are primarily countries in Africa, where high GDP may stem from natural resource exports (such as oil), but low life expectancy persists due to unequal wealth distribution."
   }
 ]

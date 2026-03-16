@@ -1,5 +1,98 @@
 ---
 title: "About"
-format: closeread-html
+format: 
+  closeread-html:
+    cr-style:
+          narrative-background-color-sidebar: "#7A3B0"
+          narrative-text-color-sidebar: "#374151"
+          section-background-color: "#DEF5E5"
+          narrative-font-size: 14pt
+          narrative-font-family: Source Sans 3
 ---
 
+## About Me {.about-section}
+
+::: {.scrolly-container}
+
+::: {.scrolly-left}
+
+```{r}
+library(leaflet)
+
+leaflet() |>
+  addTiles() |>
+  setView(lng = -66.0367, lat = 18.2341, zoom = 10) |>  # replace with your hometown coords
+  addMarkers(
+    lng = -66.0367,
+    lat = 18.2341,
+    popup = "My hometown"
+  )
+```
+
+<div class="sticky-bio">
+### Melannie Moreno Rolón  
+Environmental Data Scientist  
+Born and raised in Puerto Rico
+</div>
+:::
+
+::: {.scrolly-right}
+
+<div class="step">
+
+### Where I Come From  
+I grew up on an island shaped by coastlines, storms, and the quiet knowledge that weather is never just weather.  
+Puerto Rico taught me to pay attention to patterns in the sky, to the rhythm of hurricane seasons, and to the ways communities adapt, rebuild, and remember.  
+Those early experiences became the foundation for how I see the world today.
+</div>
+
+:::
+
+:::
+
+<div class="step">
+### Storms as Lived Experience  
+Hurricane seasons were a rhythm I grew up with—preparing, waiting, listening to the wind shift.  
+Some storms passed quietly. Others reshaped entire communities.  
+Living through them taught me that environmental change is not abstract.  
+It’s personal, uneven, and deeply tied to the places we call home.
+</div>
+
+<div class="step">
+### Discovering Environmental Science  
+As I got older, I wanted to understand the forces that shaped my island.  
+Environmental science became a way to connect lived experience with data—  
+to turn questions into patterns, and patterns into insight.  
+It gave me language for things I had always felt but never fully understood.
+</div>
+
+<div class="step">
+### Why Spatial Data  
+Maps became my way of making sense of the world.  
+They reveal what’s uneven, what’s vulnerable, and what’s often overlooked.  
+Spatial data lets me connect people, places, and patterns—  
+and tell stories that honor the complexity of real communities.
+</div>
+
+<div class="step">
+### My Design Philosophy  
+I care about clarity, accessibility, and editorial honesty.  
+Good design should invite people in—not overwhelm them.  
+I build workflows that are reproducible, transparent, and grounded in DEIJ principles,  
+because the way we communicate data shapes who feels seen by it.
+</div>
+
+<div class="step">
+### Graduate Work at Bren  
+At the Bren School, I focus on storm climatology, hazard communication,  
+and the ways data can support more equitable decision‑making.  
+My work blends spatial analysis, environmental data science,  
+and a commitment to making complex information understandable.
+</div>
+
+<div class="step">
+### Looking Forward  
+I’m still learning, still refining, still finding new ways to connect science and storytelling.  
+What I know for sure is this:  
+I want my work to make environmental information clearer, more human, and more accessible so that the people most affected by change can see themselves in the data.
+</div>
