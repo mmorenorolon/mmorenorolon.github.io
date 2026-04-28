@@ -11,3 +11,4 @@
 
 #Ignore data from the data/ directory
 data/*
+.positai
