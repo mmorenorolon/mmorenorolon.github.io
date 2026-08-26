@@ -10,7 +10,7 @@ format:
           narrative-font-family: Source Sans 3
 ---
 
-## About Me {.about-section}
+## Melannie Moreno Rolón {.about-section}
 
 ::: {.scrolly-container}
 
@@ -30,9 +30,8 @@ leaflet() |>
 ```
 
 <div class="sticky-bio">
-### Melannie Moreno Rolón  
-Environmental Data Scientist  
-Born and raised in Puerto Rico
+### Who I Am
+I am a Data Scientist born and raised in Puerto Rico's metropolitan area.
 </div>
 :::
 
@@ -41,8 +40,11 @@ Born and raised in Puerto Rico
 <div class="step">
 
 ### Where I Come From  
+
 I grew up on an island shaped by coastlines, storms, and the quiet knowledge that weather is never just weather.  
-Puerto Rico taught me to pay attention to patterns in the sky, to the rhythm of hurricane seasons, and to the ways communities adapt, rebuild, and remember.  
+
+Puerto Rico taught me to pay attention to patterns in the sky, to the rhythm of hurricane seasons, and to the ways communities adapt, rebuild, and remember.
+
 Those early experiences became the foundation for how I see the world today.
 </div>
 
@@ -52,47 +54,75 @@ Those early experiences became the foundation for how I see the world today.
 
 <div class="step">
 ### Storms as Lived Experience  
-Hurricane seasons were a rhythm I grew up with—preparing, waiting, listening to the wind shift.  
-Some storms passed quietly. Others reshaped entire communities.  
-Living through them taught me that environmental change is not abstract.  
+
+Hurricane seasons were a rhythm I grew up with. Here, you grow up preparing, waiting, and listening to the wind shift.  
+
+Some storms pass quietly. Others reshape entire communities. 
+
+Living through them has taught me that environmental change is not abstract. 
+
 It’s personal, uneven, and deeply tied to the places we call home.
+
 </div>
 
 <div class="step">
+
 ### Discovering Environmental Science  
-As I got older, I wanted to understand the forces that shaped my island.  
-Environmental science became a way to connect lived experience with data—  
-to turn questions into patterns, and patterns into insight.  
-It gave me language for things I had always felt but never fully understood.
+
+As I got older, I wanted to understand the forces that shaped my island. 
+
+Environmental Science became a way to connect lived experience with data,
+turn questions into patterns, and patterns into insight. 
+
+It gave me a language for things I had always felt but never fully understood.
 </div>
 
 <div class="step">
+
 ### Why Spatial Data  
+
 Maps became my way of making sense of the world.  
 They reveal what’s uneven, what’s vulnerable, and what’s often overlooked.  
-Spatial data lets me connect people, places, and patterns—  
+
+Spatial data lets me connect people, places, and patterns...
+
 and tell stories that honor the complexity of real communities.
+
 </div>
 
 <div class="step">
+
 ### My Design Philosophy  
-I care about clarity, accessibility, and editorial honesty.  
-Good design should invite people in—not overwhelm them.  
+
+I care about clarity, accessibility, and editorial honesty. 
+
+Good design should invite people in, not overwhelm them.  
+
 I build workflows that are reproducible, transparent, and grounded in DEIJ principles,  
 because the way we communicate data shapes who feels seen by it.
+
 </div>
 
 <div class="step">
+
 ### Graduate Work at Bren  
-At the Bren School, I focus on storm climatology, hazard communication,  
+
+At the Bren School, I focused on storm climatology, hazard communication,  
 and the ways data can support more equitable decision‑making.  
+
 My work blends spatial analysis, environmental data science,  
 and a commitment to making complex information understandable.
+
 </div>
 
 <div class="step">
-### Looking Forward  
-I’m still learning, still refining, still finding new ways to connect science and storytelling.  
+
+### Looking Forward 
+
+I’m still learning, still refining, and still finding new ways to connect science and storytelling.  
+
 What I know for sure is this:  
-I want my work to make environmental information clearer, more human, and more accessible so that the people most affected by change can see themselves in the data.
+
+I want my work to make environmental information clearer, more human, and more accessible so that the people most affected by change can see themselves in the information provided to them.
+
 </div>
