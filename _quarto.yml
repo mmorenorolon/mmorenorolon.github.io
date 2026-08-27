@@ -20,8 +20,6 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - href: resources.qmd
-        text: Resources
       - href: posts.qmd
         text: Portfolio
     right:
