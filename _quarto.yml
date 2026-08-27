@@ -4,13 +4,16 @@ project:
 
 format:
   html:
-    theme: quartz
+    theme: 
+      light: cosmo
+    mainfont: Poppins
+    headingfont: Montserrat
     css: styles.scss
     toc: true
     page-layout: full
-    
+
 website:
-  title: "Melannie Moreno Rolón"
+  title: "Melannie Moreno"
   navbar:
     left:
       - href: index.qmd
@@ -24,8 +27,9 @@ website:
     right:
       - icon: github
         href: https://github.com/mmorenorolon/mmorenorolon.github.io
+
   page-footer:
-    left: "Copyright 2025, Melannie Moreno Rolón"
+    left: "Copyright 2025, Melannie Moreno"
     right:
       - href: posts.qmd
         text: Posts
