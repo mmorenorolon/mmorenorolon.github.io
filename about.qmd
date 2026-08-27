@@ -1,13 +1,6 @@
 ---
 title: "About"
-format: 
-  closeread-html:
-    cr-style:
-          narrative-background-color-sidebar: "#7A3B0"
-          narrative-text-color-sidebar: "#374151"
-          section-background-color: "#DEF5E5"
-          narrative-font-size: 14pt
-          narrative-font-family: Source Sans 3
+format: closeread-html
 ---
 
 ## Melannie Moreno Rolón {.about-section}
