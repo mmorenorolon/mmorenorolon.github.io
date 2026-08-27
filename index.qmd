@@ -1,7 +1,8 @@
 ---
-title: "Melannie Moreno Rolón"
+title: "Melannie Moreno"
 image: Melannie_Headshot.jpg
 toc: false
+
 about:
   template: jolla
   image-shape: round
@@ -15,7 +16,7 @@ about:
       href: https://github.com/mmorenorolon
     - text: Email
       icon: inbox
-      href: mailto:melanniemoreno@gmail.com
+      href: mailto:melanniemoreno
 ---
 
 Using data to protect communities and the resources they rely on.
