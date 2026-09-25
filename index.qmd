@@ -1,31 +1,119 @@
 ---
-title: "Melannie Moreno"
-image: Melannie_Headshot.jpg
-toc: false
+title: "<span class='home-title'>Melannie Moreno</span>"
+pagetitle: "Melannie Moreno"
+subtitle: "Environmental Data Scientist building reliable, scalable data systems for environmental decision‑making."
 
 about:
-  template: jolla
-  image-shape: round
-  image-width: 17em
-  links: 
-    - text: LinkedIn
-      icon: linkedin
-      href: https://www.linkedin.com/in/melanniemoreno
-    - text: GitHub
-      icon: github
+  template: solana
+  image-width: 26em
+  image: img/favicon-transparent-bg.svg
+  image-alt: "Melannie Moreno website logo of a vivid red <i>Thespesia grandiflora<i/> flower."
+  id: hero-heading
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/melanniemoreno/
+      target: _blank
+    - icon: github
+      text: GitHub
       href: https://github.com/mmorenorolon
-    - text: Email
-      icon: inbox
-      href: mailto:melanniemoreno
+      target: _blank
+    - icon: envelope
+      text: Email
+      href: mailto:melanniemoreno@gmail.com
+page-layout: full
+
+execute: 
+  freeze: false
+  echo: false
+  warning: false
+
+filters: 
+  - carousel
 ---
 
-Using data to protect communities and the resources they rely on.
+<br><br>
 
-## Education
+::: {#hero-heading}
 
-B.S. Environmental Science 
-University of Puerto Rico, Río Piedras Campus (Graduated - June 2023)
+Recent graduate with a <strong>Master in Environmental Data Science</strong> from the Bren School at UCSB. I’m building a career in development, data stewardship, database management, and analysis with a focus on environmental applications.<br><br>
 
-## Professional Experience
+[More about me](about.html){.btn .btn-secondary role="button"}
+:::
 
-Environmental Specialist (2023-2024)
+<!-- end hero-heading -->
+
+<br><br>
+
+:::{.column-screen style="background-color:#c3b29d"}
+:::{.home-column-screen-inset}
+
+:::{.home-column-text.col-left}
+## A Smarter Way to Explore Biodiversity Data
+
+The Bio Weaver tool is a spatial data application that helps explore biodiversity data in California.
+
+*Python • GIS • Data Engineering • Reproducible Workflows*
+
+[View Project →](posts/2026-09-05-bioweaver-tool/index.qmd){.btn .btn-secondary role="button"}
+:::
+
+:::{.home-column-image.col-right}
+:::: {.carousel controls="false" indicators="false" duration=5000}
+
+:::: {.carousel-item image="img/slide-1-carousel-homepage.gif"}
+::::
+
+:::: {.carousel-item image="img/slide-2-carousel-map.gif"}
+::::
+
+:::: {.carousel-item image="img/slide-3-carousel-pto.gif"}
+::::
+:::
+
+:::
+:::
+
+:::
+
+<br>
+
+## Highlights
+
+Here is some of my other work!
+
+:::: {.home-grid-container}
+::: {.home-grid}
+::: {.home-grid-item}
+![](img/thumb-storm.png){.home-thumb}<br>
+
+### Puerto Rico Storm Profile Infographic
+Designed a storm‑risk infographic used to communicate hazard exposure to non‑technical audiences.
+
+<br><br>
+[View Project →](posts/2026-03-09-pr-storms-infographic/index.qmd){.btn .btn-secondary role="button"}
+:::
+::: {.home-grid-item}
+
+![Photo by <a href="https://unsplash.com/@hansonluu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hanson Lu</a> on <a href="https://unsplash.com/photos/aerial-photography-of-white-frames-on-top-of-water-eUfnha6ev9g?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](img/thumb-water.png){.home-thumb}
+
+### SF Bay Water Quality Database
+Built a relational water‑quality database enabling fast queries for environmental monitoring.
+
+<br><br>
+[View Project →](posts.qmd){.btn .btn-secondary role="button"}
+:::
+::: {.home-grid-item}
+
+![](img/thumb-aqua.jpg){.home-thumb}
+
+### Aquaculture Suitability Analysis
+Modeled coastal suitability for aquaculture using spatial data and environmental constraints.
+
+<br><br>
+
+[View Project →](posts/2025-12-06-aquaculture-suitability/index.qmd){.btn .btn-secondary role="button"}
+:::
+:::
+::::
+
