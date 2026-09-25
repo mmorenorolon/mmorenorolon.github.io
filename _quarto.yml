@@ -2,32 +2,59 @@ project:
   type: website
   output-dir: docs
 
-format:
-  html:
-    theme: 
-      light: cosmo
-    mainfont: Poppins
-    headingfont: Montserrat
-    css: styles.scss
-    toc: true
-    page-layout: full
-
 website:
+  site-url: "https://www.melanniemoreno.com"
+  favicon: img/favicon-transparent-bg.svg
   title: "Melannie Moreno"
+  back-to-top-navigation: true
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: about.qmd
-        text: About
-      - href: posts.qmd
-        text: Portfolio
+    logo: img/favicon-transparent-bg.svg
+    logo-alt: "Website Logo"
+    background: "#F5F0E6"
+    foreground: "#880D1E"
+    pinned: true
+    search: true
     right:
+      - text: HOME
+        href: index.qmd
+      - text: ABOUT
+        href: about.qmd
+      - text: MY PROJECTS
+        href: posts.qmd
+      - text: RESUME
+        href: Resume_MelannieMoreno_2026.pdf
+        target: _blank
+      - text: CONTACT
+        menu:
+          - icon: linkedin
+            text: LinkedIn
+            href: https://www.linkedin.com/in/melanniemoreno/
+            target: _blank
+          - icon: envelope
+            text: Email
+            href: mailto:melanniemoreno@gmail.com
       - icon: github
-        href: https://github.com/mmorenorolon/mmorenorolon.github.io
-
+        menu:
+          - text: Source Code
+            href: https://github.com/mmorenorolon/mmorenorolon.github.io
+            target: _blank
+          - text: Report a Bug
+            href: https://github.com/mmorenorolon/mmorenorolon.github.io/issues
+            target: _blank
   page-footer:
-    left: "Copyright 2025, Melannie Moreno"
-    right:
-      - href: posts.qmd
-        text: Posts
+    background: "#F5F0E6"
+    foreground: "#880D1E"
+    left: "|
+    <img src='img/favicon-transparent-bg.svg' alt='Melannie Moreno logo' style='height:22px; vertical-align:middle; margin-right:8px;'> 
+    {{< fa regular copyright title='copyright classic icon' >}} 2026 Melannie Moreno"
+    center: 
+      - text: Accessibility
+        href: accessibility.qmd
+    right: "This website is built with [{{< fa brands github title='GitHub octocat logo' >}}](https://github.com/mmorenorolon/mmorenorolon.github.io){target=_blank}, [{{< fa brands r-project title='R Project' >}}](https://www.r-project.org/about.html){target=_blank} and [Quarto](https://quarto.org/){target=_blank}."
+
+format: 
+  html:
+    theme: styles.scss
+    mainfont: Montserrat
+    toc: false
+    page-layout: full
