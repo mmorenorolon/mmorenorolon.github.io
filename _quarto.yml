@@ -45,7 +45,7 @@ website:
     background: "#F5F0E6"
     foreground: "#880D1E"
     left: "|
-    <img src='img/favicon-transparent-bg.svg' alt='Melannie Moreno logo' style='height:22px; vertical-align:middle; margin-right:8px;'> 
+    <img src='/img/favicon-transparent-bg.svg' alt='Melannie Moreno logo' style='height:22px; vertical-align:middle; margin-right:8px;'> 
     {{< fa regular copyright title='copyright classic icon' >}} 2026 Melannie Moreno"
     center: 
       - text: Accessibility

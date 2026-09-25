@@ -15,12 +15,12 @@ categories:
   - CEQA
   - Python
   - Biodiversity
-subtitle: "**A Streamlit-based biodiversity reporting tool developed for Rincon Consultants that automates species-occurrence analysis and supports CEQA environmental review workflows.**"
+description: "**A Streamlit-based biodiversity reporting tool developed for Rincon Consultants that automates species-occurrence analysis and supports CEQA environmental review workflows.**"
 links: 
   - icon: github
   - name: GitHub project
   - url: https://github.com/bioweavers
-description: ""
+subtitle: ""
 title-block-banner: title-banner-image-light-blue.png
 title-block-banner-overlay: true
 page-layout: full
@@ -32,19 +32,9 @@ format:
         narrative-text-color-sidebar: "#333333"
         narrative-font-family: "Montserrat, sans-serif"
         narrative-font-size: 1em
-      theme: styles.scss
-
-filters:
-  - embedpdf
-  
-resources:
-  - resources/*
-
-embedpdf:
-  renderer: pdfjs
-  width: 600
-  height: 500
-
+      theme: ../../styles.scss
+      grid: 
+        body-width: 640px
 editor_options: 
   chunk_output_type: console
 ---
@@ -454,20 +444,35 @@ Ultimately, Bio Weaver was designed as a foundation rather than a finished endpo
 ::: {.g-col-6}
 Watch our team's full presentation at the 2026 MEDS Capstone showcase!
 
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/1206270711?h=4f334a5504" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1206270711?h=4f334a5504" width="100%" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
 :::
 
 ::: {.g-col-6}
-Other project resources:
 
-[Slide Deck](resources/public-presentation-slides.pdf){.btn .btn-secondary role="button"}
+::: {.resource-card}
+#### {{< fa file-powerpoint >}} Slide Deck
+View the capstone presentation slides.
 
-[Project pProposal](resources/proposal.pdf){.btn .btn-secondary role="button"}
+[Open Slide Deck](resources/public-presentation-slides.pdf){.btn .btn-secondary role="button" target="_blank"}
+:::
 
-[Technical Documentation](resources/bioweavers_TechnicalDocumentation.pdf){.btn .btn-secondary role="button"}
+::: {.resource-card}
+#### {{< fa file >}} Project Proposal
+Read the original project proposal submitted from Rincon.
+
+[Open Proposal](resources/proposal.pdf){.btn .btn-secondary role="button"}
+:::
+
+::: {.resource-card}
+#### {{< fa file-lines >}} Technical Documentation
+Explore implementation details and system architecture.
+
+[Open Documentation](resources/bioweavers_TechnicalDocumentation.pdf){.btn .btn-secondary role="button"}
 :::
 
 :::
+:::
 
+<!-- end grid -->
 ## Acknowledgements
 
