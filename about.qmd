@@ -1,121 +1,130 @@
 ---
-title: "About"
-format: closeread-html
+title: "Melannie Moreno"
+subtitle: "Data Scientist"
+image: "img/about-profile.jpeg"
+image-alt: "Smiling woman with a fair complexion, dark eyes, and dark long straight hair"
+
+about:
+  template: trestles
+  image-width: 20em
+  id: hero-heading
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/melanniemoreno/
+      target: _blank
+    - icon: github
+      text: GitHub
+      href: https://github.com/mmorenorolon
+      target: _blank
+    - icon: envelope
+      text: Email
+      href: mailto:melanniemoreno@gmail.com
 ---
 
-## Melannie Moreno Rolón {.about-section}
-
-::: {.scrolly-container}
-
-::: {.scrolly-left}
-
-```{r}
-library(leaflet)
-
-leaflet() |>
-  addTiles() |>
-  setView(lng = -66.0367, lat = 18.2341, zoom = 10) |>  # replace with your hometown coords
-  addMarkers(
-    lng = -66.0367,
-    lat = 18.2341,
-    popup = "My hometown"
-  )
-```
-
-<div class="sticky-bio">
-### Who I Am
-I am a Data Scientist born and raised in Puerto Rico's metropolitan area.
-</div>
+::: {#hero-heading}
+::: h1
+Thanks for stopping by!
 :::
 
-::: {.scrolly-right}
+I’m an early‑career data scientist trained in statistics, computation, and spatial analysis. I’m especially drawn to the development side of data science, like building tools, workflows, and visualizations that help people make sense of messy information.
 
-<div class="step">
+Whether I’m wrangling thousands of biodiversity records or designing a reproducible geospatial workflow, my goal is always to make complex information clearer and more accessible. My projects showcase how I approach messy data, build reproducible workflows, and turn analysis into tools and visualizations that others can use. Explore what I’ve been working on in my [projects](posts.qmd) page. 
 
-### Where I Come From  
+Get in touch by [Email](mailto:melanniemoreno@gmail.com) {{< fa envelope title='an envelope' >}}
+:::
 
-I grew up on an island shaped by coastlines, storms, and the quiet knowledge that weather is never just weather.  
+<br><br>
 
-Puerto Rico taught me to pay attention to patterns in the sky, to the rhythm of hurricane seasons, and to the ways communities adapt, rebuild, and remember.
+## About Me
 
-Those early experiences became the foundation for how I see the world today.
-</div>
+::: {.grid}
+
+::: {.g-col-6 #about-me-1}
+<strong>Data scientist with a background in environmental science and experience working with complex, real-world data.</strong>
+
+I work primarily in R and Python to build cleaner workflows and reduce the friction that comes with managing large datasets. I’m interested in roles where I can apply geospatial analysis and develop tools that make information easier to interpret and use in decision‑making. 
+
+:::
+
+::: {.g-col-6 #about-me-2}
+Before moving into data science, I worked as a liaison between proposed development projects and environmental agencies, helping navigate regulatory requirements throughout the permitting process. That experience gave me a firsthand understanding of how technical information moves from analysis to real-world decisions. I’m interested in analytical roles where I can combine technical problem-solving with environmental domain knowledge to build tools and workflows that strengthen decision-making and organizational capacity.
+
+{{< fa solid graduation-cap title="graduation cap" >}} Master of Environmental Data Science • University of California, Santa Barbara • 2026
+
+{{< fa solid graduation-cap title="graduation cap" >}} B.S. in Environmental Science • University of Puerto Rico, Rio Piedras • 2023
 
 :::
 
 :::
 
-<div class="step">
-### Storms as Lived Experience  
+<!-- end about-me section -->
 
-Hurricane seasons were a rhythm I grew up with. Here, you grow up preparing, waiting, and listening to the wind shift.  
 
-Some storms pass quietly. Others reshape entire communities. 
+## Skills & Tools
 
-Living through them has taught me that environmental change is not abstract. 
+::: {.grid}
 
-It’s personal, uneven, and deeply tied to the places we call home.
+::: {.g-col-4 .box}
+### Languages
 
-</div>
+<span class="pill">R</span>
+<span class="pill">Python</span>
+<span class="pill">SQL</span>
+:::
 
-<div class="step">
+::: {.g-col-4 .box}
+### Geospatial
 
-### Discovering Environmental Science  
+<span class="pill">sf</span>
+<span class="pill">terra</span>
+<span class="pill">QGIS</span>
+<span class="pill">ArcGIS Pro</span>
+:::
 
-As I got older, I wanted to understand the forces that shaped my island. 
+:::{.g-col-4 .box}
+###  Data & Modeling
 
-Environmental Science became a way to connect lived experience with data,
-turn questions into patterns, and patterns into insight. 
+<span class="pill">Monte Carlo simulation</span>
+<span class="pill">tidyverse</span>
+<span class="pill">pandas</span>
+<span class="pill">scikit-learn</span>
+:::
+:::
 
-It gave me a language for things I had always felt but never fully understood.
-</div>
+<!-- end grid -->
 
-<div class="step">
+:::{.grid}
 
-### Why Spatial Data  
+:::{.g-col-4 .box}
+### Visualization
 
-Maps became my way of making sense of the world.  
-They reveal what’s uneven, what’s vulnerable, and what’s often overlooked.  
+<span class="pill">ggplot2</span>
+<span class="pill">matplotlib</span>
+<span class="pill">Affinity</span>
+:::
 
-Spatial data lets me connect people, places, and patterns...
+:::{.g-col-4 .box}
+### Workflows
 
-and tell stories that honor the complexity of real communities.
+<span class="pill">reproducible workflows</span>
+<span class="pill">version control</span>
+<span class="pill">documentation</span>
+:::
 
-</div>
+:::{.g-col-4 .box}
+### Applied
 
-<div class="step">
+<span class="pill">spatial analysis</span>
+<span class="pill">environmental data</span>
+<span class="pill">biodiversity data</span>
+<span class="pill">regulatory context</span>
+:::
 
-### My Design Philosophy  
+:::
 
-I care about clarity, accessibility, and editorial honesty. 
+<!-- end grid -->
 
-Good design should invite people in, not overwhelm them.  
+## What I'm Working On Now
 
-I build workflows that are reproducible, transparent, and grounded in DEIJ principles,  
-because the way we communicate data shapes who feels seen by it.
-
-</div>
-
-<div class="step">
-
-### Graduate Work at Bren  
-
-At the Bren School, I focused on storm climatology, hazard communication,  
-and the ways data can support more equitable decision‑making.  
-
-My work blends spatial analysis, environmental data science,  
-and a commitment to making complex information understandable.
-
-</div>
-
-<div class="step">
-
-### Looking Forward 
-
-I’m still learning, still refining, and still finding new ways to connect science and storytelling.  
-
-What I know for sure is this:  
-
-I want my work to make environmental information clearer, more human, and more accessible so that the people most affected by change can see themselves in the information provided to them.
-
-</div>
+> I'm currently expanding my data science portfolio through projects that combine statistical analysis, programming, visualization, and reproducible workflows. I'm particularly interested in building practical tools that turn messy datasets into information people can explore and use.
