@@ -1,0 +1,189 @@
+---
+title: "Bio Weaver Tool: Streamlining Species Data for Environmental Review"
+date: "2026-09-05"
+date-modified: last-modified
+image: title-banner-image.png
+author: 
+  - Melannie Moreno Rolón
+  - Gigi Moura
+  - Ava Robillard
+categories:
+  - MEDS
+  - Streamlit
+  - Data Engineering
+  - Automation
+  - CEQA
+  - Python
+  - Biodiversity
+subtitle: "An automated data-processing pipeline and Streamlit application for exploring species occurrence data in environmental consulting."
+links: 
+  - icon: github
+  - name: GitHub project
+  - url: https://github.com/bioweavers
+description: ''
+title-block-banner: title-banner-image.png
+title-block-banner-overlay: true
+df-print: paged
+page-layout: full
+format: closeread-html
+---
+
+
+## The Problem: A Fragmented Data Processing Worflow
+
+Biologists conducting environmental reviews often need to cross-reference multiple sources of information to determine which special-status species may be present or occur within or near a proposed project area. This process often requires repeated searches across sources, interpolating the information with the desired boundary locations and depending on the judgement of the individual, which can introduce inconsistencies, becoming a time-consuming endeavour for the biologist drafting the report. At Rincon Consulting, Inc., they are looking to revolutionize California Environmental Quality Assurance (CEQA) biological diversity reporting. 
+
+The process involves numerous manual steps like: 
+  - entering project information
+  - performing searches across different datasets
+  - joining and organizing results 
+  - working with different data structures
+  - preparing information for regulatory reporting
+  
+This process posed several problems. It involves
+  - repetitive data wrangling
+  - potential inconsistencies in reporting
+  - difficulty reproducing the same workflow
+  - time spent preparing data instead of reproducing it
+
+The overarching goal of the tool was not to simply make the process faster, but to create a more consistent and accessible workflow that could be reused across projects.
+
+<br>
+
+::: {.grid}
+
+::: {.g-col-6}
+### About Our Client
+Rincon is an environmental consulting company. The biologist team often conducts biological reports for environmental impact statements.
+:::
+
+:::{.g-col-6}
+![Rincon Logo](rincon-logo-transparent.png)
+:::
+
+:::
+
+## The Goal: Build a Repeatable Workflow
+
+Our project's main goal was to develop a platform for biologists that the technological team could continue to expand and customize after handoff. 
+
+That being said, the project needed to accomplish some indispensable functions:
+
+- it needed to accept project-specific information from the user, such as a project boundary/footprint. 
+- Upon reception of the project boundary, the app would have to query the relevant species datasets (CNPS and CNDDB).
+- Next, the returned records would have to be processed and organized. Biologists wanted to be able to view the raw results based on the dataset.
+- The plaform had to allow users to explore results spatially and analytically. The results would display the radius of occurrence of plants and animals in a map as well as show ordered charts of the number of occurrences for each species found within the project. 
+- Lastly, it needed to produce outputs that could be used in regulatory reporting. The returned records needed to be formatted in a report-friendly format in conformity with CEQA regulations. 
+
+*add a diagram (capstone materials)*
+
+## Constructing the Bio Weaver Tool (what we built)
+
+(this section consists of screenshots/gifs, primarily images with short captions)
+
+- introducing the streamlit application
+- explaining what the user can do
+  - upload a project boundary
+  - specify a search radius
+  - select search criteria
+  - retrieve relevant species occurrence information
+  - explore results in an interactive map
+  - inspect records in a table
+  - summarize results with charts
+  - export information for reporting
+
+## The Data y el proceso de trabajo
+
+- Discuss the different sources feeding the app (CNDDB, CNPS)
+- detail the structure of the different sources 
+- geographic info needs to be associated with the project
+- query results are organized into a consistent output
+- the workflow needs to handle different project boundaries and search parameters
+
+processing pipeline simplified:
+input -> query -> process -> analyze -> output (maps, charts, tables, pto report)
+
+
+## Interactive Analysis
+
+talk about the small features in the interactive features of the app
+
+- mapping
+  - spatial information allows the user to preview the project footprint
+  - user can see the relationship between occurrence records and the project area
+  - the search radius applied to the project area
+  - the species occurrence radii within the project radius
+
+- tables
+  - tables provide access to the underlying records and lets the user inspect the results directly
+  - user can filter results and export the tables
+
+- charts
+  - The charts rank the species occurences by most common to least value of occurrence
+  
+
+## My Role
+
+- I made the suggestion/pitch that ultimately led to using Streamlit as the app framework to use for this case (Shiny vs Streamlit)
+
+- developed the report-export functionality
+- contributed to improving the user workflow
+- worked on transforming both datasets so they would both have the same structure
+- built the editable pto results table structure  before creating PTO report
+- contributed to documenting the application before github handoff
+
+## Challenges & Design Decisions
+
+- we decided for users to define their search area with one type of file and to only take in one project area at a time. 
+- we decided to make the app in-session rather than be able to store previous project information.
+- the search radius was handled differently depending on the user input by giving them choices depending on the regulatory req (5-mile, 9-quad)
+- in the report, we decided to match the actual pto report they typically use for reporting in style and categorizing different species categories (plants & lichens, birds, reptiles, amphibians, fish etc.)
+- to make the workflow easier for someone who doesn't want to interact with Python directly we wrapped it into a Streamlit app that is deployed by docker.
+
+Example: One design challenge was balancing the amount of information available to users with the need to keep the interface manageable. Rather than presenting users with raw query results alone, we organized the output into maps, tables, and summaries that corresponded to different stages of their review process.
+
+## The Final Product: From Workflow to Working Application
+
+- Show a diagram of the before (capstone materials)
+- Show the app and summarize what changed.
+- broader result/payoff: allows users to move from project information to analyzed species-occurrence results without manually repeating each processing step.
+
+- callout note: All screenshots use synthetic or publicly available data. The production version of Bio Weaver is deployed privately for Rincon Consultants and is not publicly accessible.
+
+## My Experience: Learned Lessons/ What I Took Away
+
+building a tool for actual users requires thinking beyond just the underlying analysis
+- it requires thinking about the overall framework and structure
+- you need to foresee potential issues with each feature you develop rather than troubleshoot as you go or implement blindly
+- you have to balance what the client wants and what is actually achievable
+- user stories make the app clear to understand what goes into it
+- some user needs need to be reevaluated in terms of their viability and usability
+- you need to be thinking about the long-term evolution of what you are developing: is this just a short-term app meant for quick results in the moment or do we want an app with full customizability that can be expanded and improved long-term?
+
+>*Watch this segment from the public MEDS Capstone Showcase highlighting my role in developing the Bio Weaver Tool.* [Insert clipped video with my speaking parts here.]
+
+## Future Directions
+
+- potential extensions to the app that the client could implement
+  - multi-project comparison
+  - expansion of datasets
+  - add charts or map visualization options for increased interactivity within the app
+
+## Project Resources 
+
+- DIP document if available
+- Technical documentation
+
+**Presentation Slides** 
+*View the slides from our public capstone presentation.*
+
+[Show slides that you can either open in a new tab or pass through in the same page]
+
+**Presentation Video**
+*Watch our team's full presentation and demonstration of Bio Weaver. *
+{{< video https://vimeo.com/1206270711 title='Bren Project: Rincon’s Bio Weaver Tool: From Disparate Data to Actionable Analysis' >}}
+
+
+## Acknowledgements
+
+We extend our utmost gratitude to the team at Rincon Consultants Inc., Lisa Achter, Carly Caswell, Robin Murray, Allie Sennett, Tyler Friesen, Dr. Kelly Caylor, Dr. Carmen Galaz García, the MEDS Capstone Committee, and our MEDS cohort for their support, feedback, and love throughout the year.
