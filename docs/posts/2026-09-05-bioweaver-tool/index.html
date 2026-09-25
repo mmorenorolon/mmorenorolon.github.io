@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Melannie Moreno Rolón">
+<meta name="author" content="Gigi Moura">
+<meta name="author" content="Ava Robillard">
+<meta name="dcterms.date" content="2026-09-05">
+
+<title>Bio Weaver Tool: Streamlining Species Data for Environmental Review – Melannie Moreno</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/favicon-transparent-bg.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bd050772773011bfcd68ee339724fb75.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/intersection-observer-polyfill-1.0.0/intersection-observer.js"></script>
+<script src="../../site_libs/quarto-contrib/scrollama-3.2.0/scrollama.min.js"></script>
+<script src="../../site_libs/quarto-contrib/closeread-0.1.0/closeread.js"></script>
+<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background-image: url(title-banner-image-light-blue.png);
+background-size: cover;
+      }
+</style>
+<meta cr-debug-mode="false">
+<meta cr-remove-header-space="false">
+
+
+<link rel="stylesheet" href="..\..\site_libs\quarto-contrib\quarto-project\qmd-lab\closeread\closeread.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/favicon-transparent-bg.svg" alt="Website Logo" class="navbar-logo light-content">
+    <img src="../../img/favicon-transparent-bg.svg" alt="Website Logo" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Melannie Moreno</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">HOME</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">ABOUT</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts.html"> 
+<span class="menu-text">MY PROJECTS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../Resume_MelannieMoreno_2026.pdf" target="_blank"> 
+<span class="menu-text">RESUME</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-contact" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">CONTACT</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-contact">    
+        <li>
+    <a class="dropdown-item" href="https://www.linkedin.com/in/melanniemoreno/" target="_blank"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="dropdown-text">LinkedIn</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="mailto:melanniemoreno@gmail.com"><i class="bi bi-envelope" role="img">
+</i> 
+ <span class="dropdown-text">Email</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-github" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-bi-github">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/mmorenorolon/mmorenorolon.github.io" target="_blank">
+ <span class="dropdown-text">Source Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/mmorenorolon/mmorenorolon.github.io/issues" target="_blank">
+ <span class="dropdown-text">Report a Bug</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Bio Weaver Tool: Streamlining Species Data for Environmental Review</h1>
+            <p class="subtitle lead"><strong>A Streamlit-based biodiversity reporting tool developed for Rincon Consultants that automates species-occurrence analysis and supports CEQA environmental review workflows.</strong></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">MEDS</div>
+                <div class="quarto-category">Streamlit</div>
+                <div class="quarto-category">Data Engineering</div>
+                <div class="quarto-category">Automation</div>
+                <div class="quarto-category">CEQA</div>
+                <div class="quarto-category">Python</div>
+                <div class="quarto-category">Biodiversity</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page">
+
+      <div>
+      <div class="quarto-title-meta-heading">Authors</div>
+      <div class="quarto-title-meta-contents">
+               <p>Melannie Moreno Rolón </p>
+               <p>Gigi Moura </p>
+               <p>Ava Robillard </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 5, 2026</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">September 25, 2026</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+      <!-- user-provided yaml closeread style options -->
+      <style>
+        :root {
+          --cr-narrative-text-color-sidebar: #333333;
+--cr-narrative-font-size: 1em;
+--cr-narrative-font-family: Montserrat, sans-serif;
+--cr-section-background-color: #FAF7F2;
+--cr-narrative-background-color-sidebar: #FAF7F2;
+        }
+      </style>
+    
+
+
+
+
+
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Project Snapshot
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Client</strong>: Rincon Consultants</p>
+<p><strong>Role</strong>: Data Engineer &amp; Application Developer</p>
+<p><strong>Timeline</strong>: MEDS Capstone</p>
+<p><strong>Tools</strong>: Python, Streamlit, Pydeck, Docker</p>
+<p><strong>Domain</strong>: Environmental Consulting, Biodiversity, CEQA</p>
+<p><strong>Outcome</strong>: Streamlined species-occurrence analysis and reporting workflow</p>
+</div>
+</div>
+<section id="environmental-review-starts-with-a-data-problem" class="level2">
+<h2 class="anchored" data-anchor-id="environmental-review-starts-with-a-data-problem">Environmental Review Starts with a Data Problem</h2>
+<p>Environmental review process often has to answer a deceptively simple question:</p>
+<blockquote class="blockquote">
+<p>Which special-status species may occur within or near the proposed project area?</p>
+</blockquote>
+<p>Answering that question, however, requires navigating multiple biological datasets, each with its own structure, search methodology, and reporting requirements. Biologists conducting environmental reviews must gather information from disparate sources, interpret the results within the context of a project site, and translate those findings into regulatory reports that support decision-making.</p>
+<p>At Rincon Consultants, biological assessments frequently require consulting multiple species-occurrence databases, including the California Native Plant Society (CNPS) Inventory and the California Natural Diversity Database (CNDDB). While both datasets provide valuable information, they store and organize occurrence records differently, requiring biologists to perform separate searches and manually reconcile results before analysis and reporting can begin.</p>
+<p>As a result, much of the review process is spent preparing data rather than interpreting it. Project boundaries must be defined, search areas selected, records retrieved, results organized, and reporting tables assembled, often through a series of repetitive and difficult-to-reproduce steps. Small differences in how these tasks are performed can also introduce inconsistencies between projects.</p>
+<p><em>The following section illustrates the workflow biologists followed prior to the Bio Weaver and highlights the manual steps the tool was designed to simplify.</em></p>
+</section>
+<section id="the-existing-workflow-piecing-together-disparate-data-sources" class="level2 closeread">
+<h2 class="anchored" data-anchor-id="the-existing-workflow-piecing-together-disparate-data-sources">The Existing Workflow: Piecing Together Disparate Data Sources</h2>
+<div class="cr-section cr-column-screen sidebar-left">
+<div class="narrative-col">
+<div class="trigger new-trigger" data-focus-on="cr-searchcnps">
+<div class="narrative">
+<p>Before the Bio Weaver, species-occurrence analysis involved much more than running a simple search. The information needed to support environmental review was distributed across multiple data sources, reporting workflows and software tools that each require its own search methodology and interpretation.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-searchcnddb">
+<div class="narrative">
+<p>The process often began with separate searches across biological databases. Because datasets store information differently and provide different types of records, biologists needed to retrieve information from multiple sources in order to build a complete understanding of species that may occur within a project area.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-download">
+<div class="narrative">
+<p>After identifying the relevant searches, the resulting files and reports had to be downloaded, organized, and reviewed. Rather than working from a single source of truth, project information was often spread across numerous files that required additional processing before it could be used.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-crossval">
+<div class="narrative">
+<p>Retrieving all of the data was only the beginning. Results from different sources needed to be compared and cross-referenced to verify observations, reconcile differences between datasets and ensure that relevant records were not overlooked.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-datacleaning">
+<div class="narrative">
+<p>Once collected, the records required additional formatting and cleaning to make them suitable for analysis and reporting. Much of this work involved manually organizing information into structures that could later be incorporated into biological review documents.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-maplayers">
+<div class="narrative">
+<p>Spatial analysis introduced another layer of complexity. Search areas often needed to be represented geographically, requiring the creation of multiple spatial layers corresponding to different search criteria and regulatory requirements.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-generatemap">
+<div class="narrative">
+<p>Those layers could then be combined with species occurrence information to generate project-specific maps and spatial summaries for interpretation.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-generatepto">
+<div class="narrative">
+<p>The final challenge was translating all of this information into a report-ready format. Biologists ultimately needed to synthesize records from multiple sources into Potential-to-Occur (PTO) tables and regulatory deliverables that supported environmental review.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-diagram">
+<div class="narrative">
+<p>Importantly, these tasks were not always performed in a simple linear sequence. Information often needed to be revisited, validated, reformatted, or supplemented with additional searches as new findings emerged during the review process.</p>
+</div>
+</div>
+<div class="trigger">
+<div class="narrative">
+<p>The result was a workflow that relied heavily on manual effort, repeated data preparation, and multiple disconnected tools. While each step provided valuable information, the overall process required considerable time and attention before meaningful analysis and reporting could begin.</p>
+</div>
+</div>
+</div>
+<div class="sticky-col">
+<div class="sticky-col-stack">
+<div id="cr-searchcnps" class="sticky">
+<p><img src="screenshots/cr1-search-cnps.png" class="img-fluid"></p>
+</div>
+<div id="cr-searchcnddb" class="sticky">
+<p><img src="screenshots/cr1-search-cnddb.png" class="img-fluid"></p>
+</div>
+<div id="cr-download" class="sticky">
+<p><img src="screenshots/cr1-download-files.png" class="img-fluid"></p>
+</div>
+<div id="cr-crossval" class="sticky">
+<p><img src="screenshots/cr1-cross-validate.png" class="img-fluid"></p>
+</div>
+<div id="cr-datacleaning" class="sticky">
+<p><img src="screenshots/cr1-manual-cleaning.png" class="img-fluid"></p>
+</div>
+<div id="cr-maplayers" class="sticky">
+<p><img src="screenshots/cr1-map-layers.png" class="img-fluid"></p>
+</div>
+<div id="cr-generatemap" class="sticky">
+<p><img src="screenshots/cr1-generate-map.png" class="img-fluid"></p>
+</div>
+<div id="cr-generatepto" class="sticky">
+<p><img src="screenshots/cr1-generate-pto.png" class="img-fluid"></p>
+</div>
+<div id="cr-diagram" class="sticky">
+<p><img src="diagrams/fragmented-workflow-diagram.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="designing-a-better-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="designing-a-better-workflow">Designing a Better Workflow</h2>
+<p>The fragmented workflow highlighted a broader challenge than simply retrieving species occurrence data. Rincon’s biologists needed a process that was not only faster, but also more consistent, reproducible, and easier to maintain across projects. Their goal was to move beyond a collection of disconnected tasks and create a unified workflow that could guide users from project setup to report generation within a single environment.</p>
+<p>At the start of the project, Rincon identified several core requirements. The final product needed to accept project-specific spatial inputs, automate the retrieval of species occurrence data from multiple biological datasets, and generate standardized outputs that could support environmental review workflows. The platform also needed to remain maintainable after project handoff so that Rincon’s data science and biology teams could continue expanding its capabilities over time.</p>
+<p>To meet these requirements, our team focused on three objectives:</p>
+<section id="create-a-reproducible-search-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-reproducible-search-workflow">1. Create a Reproducible Search Workflow</h3>
+<p>The first objective was to replace a manual process with a repeatable analytical pipeline. Users would define a project boundary and search criteria, while the application would handle the underlying spatial processing and dataset queries. This reduced the need for repeated downloads, manual joins, and ad hoc formatting steps.</p>
+</section>
+<section id="centralize-data-exploration" class="level3">
+<h3 class="anchored" data-anchor-id="centralize-data-exploration">2. Centralize Data Exploration</h3>
+<p>The second objective was to provide a single location where biologists could explore project-specific results. Rather than switching between spreadsheets, GIS software, and external databases, users would be able to review maps, raw records, summary visualizations, and reporting tables within the same application.</p>
+</section>
+<section id="generate-report-ready-outputs" class="level3">
+<h3 class="anchored" data-anchor-id="generate-report-ready-outputs">3. Generate Report-Ready Outputs</h3>
+<p>The final objective was to support the creation of Potential-to-Occur (PTO) reports. The workflow needed to transform occurrence records from multiple datasets into a standardized reporting format that biologists could review, edit, and export for use in environmental assessments. Producing report-ready outputs was a central requirement of the project and one of the primary ways the tool would integrate into existing biological review practices.</p>
+<p>These requirements ultimately shaped the design of Bio Weaver. Rather than functioning as a standalone visualization tool, the application was designed as an end-to-end workflow that connects project boundaries, species occurrence databases, spatial analysis, and regulatory reporting into a single repeatable process.</p>
+</section>
+</section>
+<section id="building-the-bio-weaver" class="level2 closeread">
+<h2 class="anchored" data-anchor-id="building-the-bio-weaver">Building the Bio Weaver</h2>
+<div class="cr-section cr-column-screen sidebar-left">
+<div class="narrative-col">
+<div class="trigger new-trigger" data-focus-on="cr-upload">
+<div class="narrative">
+<p>The Bio Weaver workflow begins with a project boundary uploaded by the user. Once loaded, the application displays a preview map so biologists can confirm that the correct site has been provided before continuing with the analysis.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-search">
+<div class="narrative">
+<p>After verifying the project boundary, users select the search criteria that will be used to identify relevant species occurrences. The application previews the resulting search area, allowing users to understand the geographic extent that will be evaluated.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-map">
+<div class="narrative">
+<p>Once processing is complete, the Bio Weaver tool presents project-specific occurrence records in an interactive map. Plant and animal occurrences are symbolized separately, which helps users quickly identify which records fall within the selected search area and their spatial relationship to the project footprint.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-chart">
+<div class="narrative">
+<p>Beyond mapping, the Bio Weaver summarizes occurrence data through visualizations that help users understand patterns in the results. The application generates a frequency chart to provide an overview of which species appear most often within the returned records and support exploratory analysis.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-tables">
+<div class="narrative">
+<p>Transparency was an important design consideration for this project. In addition to visualizations, users can inspect the original query results returned by each dataset independently to provide direct access to the underlying records used throughout the workflow.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-ptobuilder">
+<div class="narrative">
+<p>The Potential-to-Occur (PTO) Report Builder transofrms species records into a format designed for environmental review and reporting. Users can review, edit and refine the generated table directly within the application, making it easier to prepare reporting deliverables.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-report">
+<div class="narrative">
+<p>After reviewing and saving their edits, users can export the PTO results as a Word document, The exported report preserves modifications made within the application and produces a standardized output that can be incorporated into Rincon’s broader biological review workflow.</p>
+</div>
+</div>
+</div>
+<div class="sticky-col">
+<div class="sticky-col-stack">
+<div id="cr-upload" class="sticky">
+<p><img src="gifs/1-upload.gif" class="img-fluid"></p>
+</div>
+<div id="cr-search" class="sticky">
+<p><img src="gifs/2-search.gif" class="img-fluid"></p>
+</div>
+<div id="cr-map" class="sticky">
+<p><img src="gifs/3-map.gif" class="img-fluid"></p>
+</div>
+<div id="cr-chart" class="sticky">
+<p><img src="gifs/4-chart.gif" class="img-fluid"></p>
+</div>
+<div id="cr-tables" class="sticky">
+<p><img src="gifs/5-tables.gif" class="img-fluid"></p>
+</div>
+<div id="cr-ptobuilder" class="sticky">
+<p><img src="gifs/6-pto-edit.gif" class="img-fluid"></p>
+</div>
+<div id="cr-report" class="sticky">
+<p><img src="gifs/7-pto-doc.gif" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="behind-the-scenes-data-pipeline-processing" class="level2">
+<h2 class="anchored" data-anchor-id="behind-the-scenes-data-pipeline-processing">Behind the Scenes: Data Pipeline &amp; Processing</h2>
+<div class="closeread">
+<div class="cr-section cr-column-screen sidebar-left">
+<div class="narrative-col">
+<div class="trigger">
+<div class="narrative">
+<p>What actually happens after the user clicks Start Analysis?</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-start">
+<div class="narrative">
+<p>The platform is composed of structured Python scripts that take on a sequence of automated tasks as the user moves along the tool.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-d1">
+<div class="narrative">
+<p>The workflow starts after the user uploads a project boundary. This file must be a KMZ format.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-d2">
+<div class="narrative">
+<p>Before any species records can be retrieved, the boundary must be validated and standardized to ensure that subsequent spatial operations are performed correctly. Depending on the selected search criteria, the application generates an appropriate search area around the project site and identifies the geographic units required to query biological datasets. After the user selects a search distance, the application performs the task of creating the search distance and mapping that. What the user doesn’t see is that it is already filtering the datasets in the search distance even before they click the results page.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-d3">
+<div class="narrative">
+<p>Once the search area has been established, the Bio Weaver retrieves project-specific species occurrence information from multiple biological databases. Because the underlying datasets use different structures and methods for storing location information, separate query methodologies are applied to each source. This allows the application to return records relevant to the selected project area while accounting for differences between datasets.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-d4">
+<div class="narrative">
+<p>The Bio Weaver compiles the returned records as separate entities for traceability and maintenance of the results.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-d5">
+<div class="narrative">
+<p>The records returned from each dataset are organized into a consistent structure for downstream analysis. Standardizing the results enables information from multiple sources to be explored together while maintaining the original query outputs for transparency and review. This integration step provides the foundation for the visualizations and reporting workflows generated later in the process.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-d6">
+<div class="narrative">
+<p>Once standardized, the occurrence records are transformed into user-facing analysis products.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-d7">
+<div class="narrative">
+<p>Bio Weaver produces interactive maps, summary visualizations, and searchable result tables that allow biologists to explore occurrence patterns within the project area. These outputs provide multiple perspectives on the returned records while preserving access to the underlying data.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-d10">
+<div class="narrative">
+<p>Reporting introduces a separate data-processing workflow. Although the datasets can be analyzed together, their structures differ substantially and are not immediately compatible with the format required for Potential-to-Occur (PTO) reporting. To support report generation, the application further harmonizes the results into a common reporting schema. This process reconciles differences in field names and structure, prevents duplicate information from propagating through the workflow, and creates a standardized foundation for the PTO table.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-d11">
+<div class="narrative">
+<p>The resulting PTO table can be reviewed and edited directly within the application. Any modifications made by the user are preserved and incorporated into the final output.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-d14">
+<div class="narrative">
+<p>The resulting PTO table can be reviewed and edited directly within the application. Any modifications made by the user are preserved and incorporated into the final output.</p>
+</div>
+</div>
+</div>
+<div class="sticky-col">
+<div class="sticky-col-stack">
+<div id="cr-start" class="sticky">
+<p><em>While the interface simplifies the experience for users, a series of automated data-processing, spatial-query and reporting workflows operate behind the scenes to transform project boundaries into report-ready outputs. The next section explores how the Bio Weaver tool processes and integrates species occurrence data behind the scenes.</em></p>
+</div>
+<div id="cr-d1" class="sticky">
+<p><img src="diagrams/1-backend.png" class="img-fluid"></p>
+</div>
+<div id="cr-d2" class="sticky">
+<p><img src="diagrams/2-backend.png" class="img-fluid"></p>
+</div>
+<div id="cr-d3" class="sticky">
+<p><img src="diagrams/3-backend.png" class="img-fluid"></p>
+</div>
+<div id="cr-d4" class="sticky">
+<p><img src="diagrams/4-backend.png" class="img-fluid"></p>
+</div>
+<div id="cr-d5" class="sticky">
+<p><img src="diagrams/5-backend.png" class="img-fluid"></p>
+</div>
+<div id="cr-d6" class="sticky">
+<p><img src="diagrams/6-backend.png" class="img-fluid"></p>
+</div>
+<div id="cr-d7" class="sticky">
+<p><img src="diagrams/7-backend.png" class="img-fluid"></p>
+</div>
+<div id="cr-d10" class="sticky">
+<p><img src="diagrams/10-backend.png" class="img-fluid"></p>
+</div>
+<div id="cr-d11" class="sticky">
+<p><img src="diagrams/11-backend.png" class="img-fluid"></p>
+</div>
+<div id="cr-d14" class="sticky">
+<p><img src="diagrams/14-backend.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="designing-for-real-users" class="level2">
+<h2 class="anchored" data-anchor-id="designing-for-real-users">Designing for Real Users</h2>
+<p>Throughout the process of developing this tool, we kept in mind that it will be used by biologists in their everyday work, many who do not have coding experience.</p>
+<p>Because of this, we decided to simplify the format of the spatial boundary by having it accept only a single file type (KMZ), to save them the headache of handling different file formats for the same thing.</p>
+<p>The search distance options are based on the biologist’s reporting needs. Some regulatory reports require a variety of different search criteria, and this feature on the platform reflects these project-specific needs.</p>
+<p>The PTO report structure is based on the fact that they have to often draft that report from scratch. By partially automating the report, we save the biologist time entering every species’ information one-by-one.</p>
+<p>Streamlit was selected as the framework to use to build this tool for a few reasons related to time-constraints, longevity of the tool, and economic reasons. First, the framework allowed us to prototype and build this app in a relatively short period of time. We wanted something that was not too focused on the styling but that was also ‘easy’ to build. Other frameworks required a longer development period and we were focused on making the most complete possible platform that biologists could readily use once handed over to the company. Secondly, we were thinking about the long-term lifespan of the tool, and it’s ability to be continuously built by the Rincon tech team. We handed over an app that the Rincon could find intuitive to understand the codebase and build upon. Lastly, other frameworks required subscription based deployment and use once the app was built. We decided to use Streamlit since it is an open source framework that didn’t require having the company divest resources for the biologists to access.</p>
+<p>Our decision to use Docker also comes from thinking about the biologist’s ability to deploy the app without having to access a terminal. While it does require some extra steps to download initially, after download, the app can be deployed at any time.</p>
+<p>– draft</p>
+<p>Building Bio Weaver required more than connecting datasets and automating analysis. Because the application was being developed for practicing environmental consultants, many of the project’s most important decisions involved balancing technical possibilities with the realities of day-to-day biological review.</p>
+<p>Throughout development, our team worked closely with Rincon stakeholders to understand how biologists currently conduct species searches, review occurrence records, and prepare regulatory reports. These conversations helped shape a series of design decisions intended to make the application both practical and maintainable.</p>
+<p>Simplifying Project Inputs</p>
+<p>One early decision was to limit the application to a single project boundary at a time. While it would have been possible to support more complex workflows involving multiple sites, focusing on one project area aligned with Rincon’s existing review process and reduced unnecessary complexity for users.</p>
+<p>Similarly, the application accepts a standardized boundary file format and validates its contents before running the analysis. This approach reduced opportunities for input errors and helped ensure consistency across projects.</p>
+<p>Supporting Regulatory Search Requirements</p>
+<p>Species searches are often governed by established regulatory and organizational practices. Rather than requiring users to manually define search distances, Bio Weaver provides predefined search options that correspond to common review workflows, including multiple buffer distances and the 9-quadrangle search methodology.</p>
+<p>By integrating these options directly into the application, users can conduct analyses using familiar criteria while maintaining a standardized workflow.</p>
+<p>Balancing Transparency and Automation</p>
+<p>A major project goal was to automate repetitive tasks without obscuring the underlying data. While Bio Weaver generates maps, charts, and reporting outputs automatically, users retain access to the original query results from each dataset.</p>
+<p>This balance between automation and transparency allows biologists to inspect source records, verify results, and maintain confidence in the information used to support environmental review.</p>
+<p>Designing Around Existing Reporting Workflows</p>
+<p>One of the most important design considerations involved the Potential-to-Occur (PTO) workflow. Rather than generating a completely new reporting format, the PTO Builder was designed to mirror the structure and organization of reports already familiar to Rincon’s biological staff.</p>
+<p>Species categories, reporting conventions, and editable review workflows were incorporated directly into the application so that the transition from analysis to reporting felt like a natural extension of the existing process.</p>
+<p>Building for Future Growth</p>
+<p>The project was also designed with long-term maintainability in mind. By developing the application in Streamlit and documenting the underlying workflow, the platform can continue evolving after project handoff. Future enhancements can build upon the existing framework without requiring the application’s core workflow to be redesigned from scratch.</p>
+<p>Ultimately, many of Bio Weaver’s most important technical decisions were guided by a simple question:</p>
+<p>How can we reduce the amount of time spent preparing data while preserving the flexibility and transparency needed for environmental review?</p>
+<p>The resulting application combines automation, analysis, and reporting within a workflow designed around the needs of its users rather than the underlying technology alone.</p>
+<p>This transitions very naturally into Results &amp; Impact, where you can finally answer:</p>
+<p>What changed once Bio Weaver was implemented?</p>
+</section>
+<section id="results-impact" class="level2">
+<h2 class="anchored" data-anchor-id="results-impact">Results &amp; Impact</h2>
+<p>Bio Weaver was designed to reduce the amount of time biologists spend preparing and organizing data so they can focus on evaluating species occurrence information and supporting environmental review. By combining data retrieval, spatial analysis, visualization, and reporting into a single workflow, the application streamlines tasks that were previously distributed across multiple platforms and file formats.</p>
+<p>Before Bio Weaver, project-specific species information often required searching multiple databases, manually organizing downloaded files, validating results across sources, preparing maps, and formatting information for reporting. Much of the effort was concentrated on moving information between tools rather than analyzing the results themselves.</p>
+<p>With Bio Weaver, these steps are integrated into a single workflow. Users can move from project boundary definition to project-specific species occurrence analysis, map exploration, and report generation without repeatedly recreating the same processing steps for each project.</p>
+<p>A Unified Workflow</p>
+<p>One of the project’s most significant outcomes was the creation of a repeatable workflow that connects data retrieval, spatial analysis, and reporting within a single application. Rather than treating each stage as a separate task, Bio Weaver guides users through a consistent process from project setup to final deliverables.</p>
+<p>This consistency helps reduce opportunities for error while making analyses easier to reproduce across projects.</p>
+<p>Improved Access to Information</p>
+<p>The application provides multiple ways to explore species occurrence records, including interactive maps, summary visualizations, and access to the underlying query results. By presenting information in several formats, users can move between high-level summaries and detailed records without leaving the application.</p>
+<p>This approach improves transparency and supports different stages of the biological review process.</p>
+<p>Streamlined Reporting</p>
+<p>The PTO workflow represents one of the most practical outcomes of the project. By transforming records from multiple datasets into a common reporting structure, Bio Weaver reduces the effort required to prepare report-ready tables while preserving the ability for users to review and edit results before export.</p>
+<p>The automated Word export further extends this workflow by generating a deliverable that can be incorporated directly into existing reporting processes.</p>
+<p>From Data Collection to Decision Support</p>
+<p>Ultimately, the value of Bio Weaver lies not in any individual feature, but in the way those features work together. The platform brings project boundaries, occurrence records, spatial analysis, visual exploration, and reporting into a cohesive workflow designed around the needs of environmental consultants.</p>
+<p>Rather than spending time assembling information from disparate sources, biologists can focus on interpreting results, evaluating species occurrence patterns, and supporting the environmental review process.</p>
+<p>Note: All screenshots and demonstrations shown in this case study use synthetic or publicly available data. The production version of Bio Weaver was developed for Rincon Consultants and is not publicly accessible.</p>
+</section>
+<section id="my-contributions" class="level2">
+<h2 class="anchored" data-anchor-id="my-contributions">My Contributions</h2>
+<p>As a team project, the Bio Weaver Tool benefited from the contributions of multiple developers, analysts, and stakeholders. My work focused on application design, reporting workflows, data transformation, and documentation, with an emphasis on creating a tool that could be maintained and expanded after project handoff.</p>
+<p>Advocating for Streamlit</p>
+<p>One of my riskiest contributions to the project came before a single line of application code was written. During the early planning stages, our team evaluated several possible frameworks, including Shiny, Dash, and Streamlit. Given the capstone timeline and our project requirements, I advocated for using Streamlit as the application’s primary framework.</p>
+<p>My reasoning was straightforward: Streamlit offered a relatively low barrier to development, integrated naturally with the Python ecosystem we were already using, and allowed us to rapidly prototype user-facing workflows without sacrificing functionality. While selecting a framework may seem like a small decision, it ultimately shaped how we approached development throughout the project and contributed to our ability to deliver a working application within the capstone timeframe.</p>
+<p>Building the PTO Reporting Workflow</p>
+<p>The contribution I am most proud of was developing the reporting workflow behind the Potential-to-Occur (PTO) Report Builder.</p>
+<p>Although the application retrieved records from both CNPS and CNDDB, the datasets differed considerably in their structure and field naming conventions. To support a unified PTO workflow, I developed logic that further harmonized the schema of both datasets without modifying the original query outputs. This allowed users to inspect the raw source records while simultaneously working with a standardized reporting structure.</p>
+<p>In addition to schema harmonization, I worked to ensure that duplicate information was not propagated into the reporting workflow. These transformations provided the foundation for the editable PTO table within the application and enabled the automated Word report export process while preserving user modifications.</p>
+<p>Improving the User Workflow</p>
+<p>Throughout development, I contributed to discussions surrounding usability and workflow design. Because the application’s primary users were environmental consultants rather than software engineers, it was important that the interface support the tasks biologists already performed rather than require them to learn an entirely new process.</p>
+<p>This included contributing to the design of the PTO review workflow, helping organize outputs into intuitive formats, and supporting the transition from species query results to report-ready products.</p>
+<p>Documentation and Knowledge Transfer</p>
+<p>Every script I worked on included thorough documentation, with the understanding that the codebase would eventually be transferred to Rincon after project completion. Clear documentation was critical not only for maintainability, but also for ensuring that future analysts and developers could understand the decisions, assumptions, and workflows embedded within the application.</p>
+<p>Building software for a real client reinforced an important lesson: successful projects are not measured solely by whether the code works. They must also be understandable, maintainable, and useful to the people who inherit them after development is complete.</p>
+</section>
+<section id="lessons-learned" class="level2">
+<h2 class="anchored" data-anchor-id="lessons-learned">Lessons Learned</h2>
+<p>Working on Bio Weaver was one of the most rewarding experiences of my graduate program because it allowed me to develop a solution for a challenge I could personally relate to. Prior to becoming a data scientist, I worked as an Environmental Specialist, where many of my daily responsibilities involved repetitive data collection, organization, and reporting tasks. Because of that experience, I immediately understood why Rincon’s biologists were looking for a way to reduce the amount of time spent preparing information and increase the amount of time available for analysis and decision-making.</p>
+<p>One of the most important lessons I learned was that streamlining a workflow requires first understanding the workflow in its entirety. Before writing code or designing interfaces, we had to identify, document, and understand every step that users performed, including the small tasks that often go unnoticed. By mapping the process from data retrieval to reporting, I learned that successful automation is rarely about eliminating a single task. Instead, it is about understanding how individual tasks connect to form a larger workflow and identifying where technology can provide the greatest value.</p>
+<p>This project also taught me how to balance client expectations with technical feasibility. Stakeholders naturally want tools that can solve every problem and support every possible workflow, but development requires making thoughtful tradeoffs. Throughout the project, our team continuously evaluated which features would provide the greatest benefit within the project’s timeline while still creating a foundation that could be expanded in the future. Learning to navigate that balance helped me think more critically about project scope, prioritization, and long-term maintainability.</p>
+<p>Perhaps most importantly, Bio Weaver taught me how to think like a developer rather than solely as an analyst. Instead of focusing only on producing results, I learned to think about user experiences, system architecture, maintainability, and future growth. User stories became an invaluable tool throughout the project because they shifted our perspective from what the application could do to what users actually needed it to do.</p>
+<p>Looking back, one of my biggest takeaways is that building software for real users is ultimately an exercise in empathy. Effective tools are not created by starting with technology and searching for a problem. They are created by understanding how people work, identifying the challenges they face, and designing solutions that integrate naturally into their existing workflows. Bio Weaver gave me my first opportunity to apply that mindset in a client-facing development environment, and it fundamentally changed the way I think about designing data products.</p>
+</section>
+<section id="future-directions" class="level2">
+<h2 class="anchored" data-anchor-id="future-directions">Future Directions</h2>
+<p>While Bio Weaver successfully brings species querying, analysis, and reporting into a unified workflow, there are several opportunities for future expansion. Because the application was designed with maintainability and extensibility in mind, additional functionality could be incorporated without fundamentally changing its core architecture.</p>
+<p>Expanding Data Sources</p>
+<p>One potential enhancement would be the integration of additional biological and environmental datasets. Incorporating new sources could provide users with a more comprehensive view of project-specific ecological information while reducing the need to consult external databases outside the application.</p>
+<p>Supporting Multi-Project Comparisons</p>
+<p>The current implementation focuses on a single project area at a time, reflecting Rincon’s existing workflow. Future versions of the application could enable users to compare multiple project sites simultaneously, allowing teams to evaluate species occurrence patterns across locations and investigate differences between potential project alternatives.</p>
+<p>Enhancing Data Visualization</p>
+<p>Although Bio Weaver currently provides interactive maps and summary charts, additional visualization tools could further support analysis and reporting. Expanded charting options, filtering capabilities, and alternative map visualizations could provide users with new ways to explore occurrence records and communicate findings.</p>
+<p>Continued Workflow Automation</p>
+<p>Future development could also further streamline the transition from analysis to reporting. Additional report templates, export formats, and automated summarization features could reduce manual effort while maintaining the transparency and flexibility required for environmental review workflows.</p>
+<p>Ultimately, Bio Weaver was designed as a foundation rather than a finished endpoint. The project’s modular architecture provides Rincon with a platform that can continue evolving alongside the needs of its biologists, analysts, and environmental review processes.</p>
+</section>
+<section id="project-resources" class="level2">
+<h2 class="anchored" data-anchor-id="project-resources">Project Resources</h2>
+<div class="grid">
+<div class="g-col-6">
+<p>Watch our team’s full presentation at the 2026 MEDS Capstone showcase!</p>
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1206270711?h=4f334a5504" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen="">
+</iframe>
+</div>
+<div class="g-col-6">
+<p>Other project resources:</p>
+<p><a href="resources/public-presentation-slides.pdf" class="btn btn-secondary" role="button">Slide Deck</a></p>
+<p><a href="resources/proposal.pdf" class="btn btn-secondary" role="button">Project pProposal</a></p>
+<p><a href="resources/bioweavers_TechnicalDocumentation.pdf" class="btn btn-secondary" role="button">Technical Documentation</a></p>
+</div>
+</div>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.melanniemoreno\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<div class="line-block"><span id="lb1-1"><img src="img/favicon-transparent-bg.svg" alt="Melannie Moreno logo" style="height:22px; vertical-align:middle; margin-right:8px;"> <i class="fa-regular fa-copyright" title="copyright classic icon" aria-label="copyright"></i> 2026 Melannie Moreno</span></div>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../accessibility.html">
+<p>Accessibility</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+<p>This website is built with <a href="https://github.com/mmorenorolon/mmorenorolon.github.io" target="_blank"><i class="fa-brands fa-github" title="GitHub octocat logo" aria-label="github"></i></a>, <a href="https://www.r-project.org/about.html" target="_blank"><i class="fa-brands fa-r-project" title="R Project" aria-label="r-project"></i></a> and <a href="https://quarto.org/" target="_blank">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

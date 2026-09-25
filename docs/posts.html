@@ -2,20 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="">
+<meta name="description" content="A selection of projects showcasing my approach to data analysis, visualization, geospatial work, and tool development.">
 
-<title>My Blog Listing Page – Melannie Moreno</title>
+<title>Projects – Melannie Moreno</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -27,12 +32,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./img/favicon-transparent-bg.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -41,10 +46,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ea5a0d3aefd1419f2bf81314f1bfb7a1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-04142ef69de368e7b481f5cf84a96321.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-categories','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
@@ -103,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -132,16 +139,19 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.scss">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed posts-page quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/favicon-transparent-bg.svg" alt="Website Logo" class="navbar-logo light-content">
+    <img src="./img/favicon-transparent-bg.svg" alt="Website Logo" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Melannie Moreno</span>
     </a>
@@ -151,26 +161,57 @@ window.Quarto = {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">HOME</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text">ABOUT</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./posts.html" aria-current="page"> 
-<span class="menu-text">Portfolio</span></a>
+<span class="menu-text">MY PROJECTS</span></a>
   </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/mmorenorolon/mmorenorolon.github.io"> <i class="bi bi-github" role="img">
+  <li class="nav-item">
+    <a class="nav-link" href="./Resume_MelannieMoreno_2026.pdf" target="_blank"> 
+<span class="menu-text">RESUME</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-contact" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">CONTACT</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-contact">    
+        <li>
+    <a class="dropdown-item" href="https://www.linkedin.com/in/melanniemoreno/" target="_blank"><i class="bi bi-linkedin" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="dropdown-text">LinkedIn</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="mailto:melanniemoreno@gmail.com"><i class="bi bi-envelope" role="img">
+</i> 
+ <span class="dropdown-text">Email</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-github" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-bi-github">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/mmorenorolon/mmorenorolon.github.io" target="_blank">
+ <span class="dropdown-text">Source Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/mmorenorolon/mmorenorolon.github.io/issues" target="_blank">
+ <span class="dropdown-text">Report a Bug</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -183,16 +224,20 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Q2xpbWF0ZQ==">Climate <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2xpbWF0ZSUyMFZhcmlhYmlsaXR5JTIwJTI2JTIwQ2hhbmdl">Climate Variability &amp; Change <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMFZpc3VhbGl6YXRpb24=">Data Visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2Vvc3BhdGlhbCUyMEFuYWx5c2lz">Geospatial Analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TUVEUw==">MEDS <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UHVlcnRvJTIwUmljbw==">Puerto Rico <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U3RhdGlzdGljcw==">Statistics <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="QXV0b21hdGlvbg==">Automation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QmlvZGl2ZXJzaXR5">Biodiversity <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q0VRQQ==">CEQA <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2xpbWF0ZQ==">Climate <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2xpbWF0ZSUyMFZhcmlhYmlsaXR5JTIwJTI2JTIwQ2hhbmdl">Climate Variability &amp; Change <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMEVuZ2luZWVyaW5n">Data Engineering <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMFZpc3VhbGl6YXRpb24=">Data Visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2Vvc3BhdGlhbCUyMEFuYWx5c2lz">Geospatial Analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TUVEUw==">MEDS <span class="quarto-category-count">(4)</span></div><div class="category" data-category="UHVlcnRvJTIwUmljbw==">Puerto Rico <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U3RhdGlzdGljcw==">Statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RyZWFtbGl0">Streamlit <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">My Blog Listing Page</h1>
+<h1 class="title">Projects</h1>
 </div>
 
+<div>
+  <div class="description">
+    <p>A selection of projects showcasing my approach to data analysis, visualization, geospatial work, and tool development.</p>
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-page-left">
@@ -221,9 +266,7 @@ window.Quarto = {
 <h5 class="no-anchor card-title listing-title">
 <strong>A Geospatial Assessment of Burn Severity and Social Vulnerability in the 2025 LA Wildfires</strong>
 </h5>
-<div class="card-text listing-description delink">
-<em>Author: Melannie Moreno Rolón</em>
-</div>
+<div class="listing-reading-time card-text text-muted">15 min</div>
 <div class="card-attribution card-text-small start">
 <div class="listing-author">
 undefined Moreno Rolón
@@ -232,7 +275,80 @@ undefined Moreno Rolón
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="TUVEUyUyQ0RhdGElMjBWaXN1YWxpemF0aW9uJTJDQ2xpbWF0ZSUyQ1B1ZXJ0byUyMFJpY28=" data-listing-date-sort="1772942400000" data-listing-file-modified-sort="1773644278528" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3371">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1788547763652" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="./posts/2026-09-04-sf-bay-water-quality-database/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+index
+</h5>
+<div class="listing-reading-time card-text text-muted">1 min</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+undefined Moreno Rolón
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1790283520891" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="./posts/2026-09-17-algal-bloom-bulletin-text-analysis/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+index
+</h5>
+<div class="listing-reading-time card-text text-muted">1 min</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+undefined Moreno Rolón
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="TUVEUyUyQ1N0cmVhbWxpdCUyQ0RhdGElMjBFbmdpbmVlcmluZyUyQ0F1dG9tYXRpb24lMkNDRVFBJTJDUHl0aG9uJTJDQmlvZGl2ZXJzaXR5" data-listing-date-sort="1788580800000" data-listing-file-modified-sort="1790319351263" data-listing-date-modified-sort="1790319351000" data-listing-reading-time-sort="21" data-listing-word-count-sort="4167">
+<a href="./posts/2026-09-05-bioweaver-tool/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/2026-09-05-bioweaver-tool/title-banner-image.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Bio Weaver Tool: Streamlining Species Data for Environmental Review
+</h5>
+<div class="listing-reading-time card-text text-muted">21 min</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TUVEUw=='); return false;">MEDS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RyZWFtbGl0'); return false;">Streamlit</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMEVuZ2luZWVyaW5n'); return false;">Data Engineering</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('QXV0b21hdGlvbg=='); return false;">Automation</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q0VRQQ=='); return false;">CEQA</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('QmlvZGl2ZXJzaXR5'); return false;">Biodiversity</div>
+
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+undefined Moreno Rolón, Melannie Moreno Rolón, Gigi Moura, Ava Robillard
+</div>
+<div class="listing-date">
+Sep 5, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="TUVEUyUyQ0RhdGElMjBWaXN1YWxpemF0aW9uJTJDQ2xpbWF0ZSUyQ1B1ZXJ0byUyMFJpY28=" data-listing-date-sort="1772942400000" data-listing-file-modified-sort="1773644278528" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3371">
 <a href="./posts/2026-03-09-pr-storms-infographic/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img loading='lazy' src="posts\2026-03-09-pr-storms-infographic\infographic-with-palmtrees.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -240,6 +356,7 @@ undefined Moreno Rolón
 <h5 class="no-anchor card-title listing-title">
 Visualizing Storm Impacts in Puerto Rico
 </h5>
+<div class="listing-reading-time card-text text-muted">17 min</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('TUVEUw=='); return false;">MEDS</div>
@@ -250,9 +367,6 @@ Visualizing Storm Impacts in Puerto Rico
 
 <div class="listing-category" onclick="window.quartoListingCategory('UHVlcnRvJTIwUmljbw=='); return false;">Puerto Rico</div>
 
-</div>
-<div class="card-text listing-description delink">
-<p><strong>A data‑driven infographic exploring storm hazard frequency, seasonality, and severity in Puerto Rico using NOAA’s Storm Events Database.</strong></p>
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -265,7 +379,7 @@ Mar 8, 2026
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="UiUyQ1N0YXRpc3RpY3MlMkNDbGltYXRlJTIwVmFyaWFiaWxpdHklMjAlMjYlMjBDaGFuZ2UlMkNQdWVydG8lMjBSaWNvJTJDTUVEUw==" data-listing-date-sort="1765514962000" data-listing-file-modified-sort="1765514962753" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="27" data-listing-word-count-sort="5383">
+<div class="g-col-1" data-index="5" data-categories="UiUyQ1N0YXRpc3RpY3MlMkNDbGltYXRlJTIwVmFyaWFiaWxpdHklMjAlMjYlMjBDaGFuZ2UlMkNQdWVydG8lMjBSaWNvJTJDTUVEUw==" data-listing-date-sort="1765514962000" data-listing-file-modified-sort="1765514962753" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="27" data-listing-word-count-sort="5384">
 <a href="./posts/2025-12-02-climate-variability/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -275,6 +389,7 @@ Mar 8, 2026
 <h5 class="no-anchor card-title listing-title">
 Temporal Trends in the Frequency of Extreme Precipitation Events at San Juan Int’l Airport, Puerto Rico
 </h5>
+<div class="listing-reading-time card-text text-muted">27 min</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
@@ -288,9 +403,6 @@ Temporal Trends in the Frequency of Extreme Precipitation Events at San Juan Int
 <div class="listing-category" onclick="window.quartoListingCategory('TUVEUw=='); return false;">MEDS</div>
 
 </div>
-<div class="card-text listing-description delink">
-<p>A Negative Binomial analysis of 50 years of extreme rainfall events using NOAA data.</p>
-</div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
 undefined Moreno Rolón, Melannie Moreno Rolón
@@ -302,7 +414,7 @@ Dec 12, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="TUVEUyUyQ1IlMkNHZW9zcGF0aWFsJTIwQW5hbHlzaXM=" data-listing-date-sort="1765512000000" data-listing-file-modified-sort="1765612079182" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3023">
+<div class="g-col-1" data-index="6" data-categories="TUVEUyUyQ1IlMkNHZW9zcGF0aWFsJTIwQW5hbHlzaXM=" data-listing-date-sort="1765512000000" data-listing-file-modified-sort="1765612079182" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3024">
 <a href="./posts/2025-12-06-aquaculture-suitability/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -312,6 +424,7 @@ Dec 12, 2025
 <h5 class="no-anchor card-title listing-title">
 Evaluating Species-Specific Environmental Suitability for Marine Aquaculture Development Along the U.S. West Coast
 </h5>
+<div class="listing-reading-time card-text text-muted">16 min</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('TUVEUw=='); return false;">MEDS</div>
@@ -320,9 +433,6 @@ Evaluating Species-Specific Environmental Suitability for Marine Aquaculture Dev
 
 <div class="listing-category" onclick="window.quartoListingCategory('R2Vvc3BhdGlhbCUyMEFuYWx5c2lz'); return false;">Geospatial Analysis</div>
 
-</div>
-<div class="card-text listing-description delink">
-<p>Analysis of U.S. West Coast Exclusive Economic Zones to identify suitable marine aquaculture areas based on species-specific sea surface temperature and depth ranges.</p>
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -337,7 +447,7 @@ Dec 12, 2025
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -411,7 +521,7 @@ Dec 12, 2025
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/www\.melanniemoreno\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -742,20 +852,20 @@ Dec 12, 2025
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Copyright 2025, Melannie Moreno</p>
+<div class="line-block"><img src="img/favicon-transparent-bg.svg" alt="Melannie Moreno logo" style="height:22px; vertical-align:middle; margin-right:8px;"> <i class="fa-regular fa-copyright" title="copyright classic icon" aria-label="copyright"></i> 2026 Melannie Moreno</div>
 </div>   
     <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./posts.html">
-<p>Posts</p>
+    <a class="nav-link" href="./accessibility.html">
+<p>Accessibility</p>
 </a>
   </li>  
 </ul>
     </div>
+    <div class="nav-footer-right">
+<p>This website is built with <a href="https://github.com/mmorenorolon/mmorenorolon.github.io" target="_blank"><i class="fa-brands fa-github" title="GitHub octocat logo" aria-label="github"></i></a>, <a href="https://www.r-project.org/about.html" target="_blank"><i class="fa-brands fa-r-project" title="R Project" aria-label="r-project"></i></a> and <a href="https://quarto.org/" target="_blank">Quarto</a>.</p>
+</div>
   </div>
 </footer>
 
