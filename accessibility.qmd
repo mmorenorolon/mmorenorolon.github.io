@@ -1,0 +1,54 @@
+---
+comments: false
+title: "Accessibility Commitment"
+date: last-modified
+format: html
+---
+
+## Accessibility
+
+I care a lot about making the things I create, whether they are visualizations or applications, usable by as many people as possible. Accessibility is part of responsible science communication! This page outlines the practices I follow and the areas where I’m continuing to learn and improve.
+
+## Feedback
+
+If you run into any accessibility barriers on my site or in the materials I share, I genuinely want to know. Please open an issue in my [GitHub repository](https://github.com/mmorenorolon/mmorenorolon.github.io/issues) and I’ll do my best to address it promptly.
+
+Thank you for taking the time to visit and read this page. <i class="fa-solid fa-heart"></i>
+
+## Accessibility Practices
+
+This site is designed with the following considerations in mind:
+
+- Color contrast that meets WCAG 2.1 AA standards.  
+
+I rely on a palette that stays readable across devices and lighting conditions, and I’m intentional about avoiding color combinations that can make maps or plots hard to interpret.
+
+- Alternative text for all informative images.  
+
+When I include figures or graphics, I aim for alt text that communicates the meaning of the visualization—not just what it looks like.
+
+- Readable, accessible typography.  
+
+I use Red Hat Text because it avoids impostor letter shapes and tends to be more comfortable for readers with dyslexic traits or low vision.
+
+- Clear structure for longer content.  
+
+Blog posts include a sidebar table of contents to make navigation easier, especially for screen reader users or anyone skimming for specific sections.
+
+- Accessible scientific content.
+
+Since I often share maps, plots, and code:
+
+- Legends avoid color-only encoding when possible
+
+- Code blocks use consistent spacing and readable font sizes
+
+- Tables include proper headers for screen readers
+
+- Jargon is minimized or explained when it appears
+
+I’m still learning how to build more inclusive and accessible digital content. I’m not a web developer, but I regularly audit my site and update things as I discover better practices. These are the tools I use most often:
+
+- [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/)
+
+I document any issues I find and the steps I take to fix them in the [GitHub repository](https://github.com/mmorenorolon/mmorenorolon.github.io) that houses this site.
