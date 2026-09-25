@@ -1,0 +1,13 @@
+---
+pagetitle: "404"
+---
+
+# Oops! The page you are looking for is missing or may have moved.
+
+::: {.center-text .large-text .josefin-font}
+
+Head back to the [homepage](/), try using the search feature <i class="fa-solid fa-magnifying-glass"></i> or [reach out](mailto:melanniemoreno@gmail.com) {{< fa envelope title="envelope" >}}.
+:::  
+
+ 
+
