@@ -1,12 +1,17 @@
 ---
 title: "Bio Weaver Tool: Streamlining Species Data for Environmental Review"
+
 date: "2026-09-05"
+
 date-modified: last-modified
+
 image: title-banner-image.png
+
 author: 
   - Melannie Moreno Rolón
   - Jaslyn Miura
   - Ava Robillard
+  
 categories:
   - MEDS
   - Streamlit
@@ -15,15 +20,20 @@ categories:
   - CEQA
   - Python
   - Biodiversity
-description: "**A Streamlit-based biodiversity reporting tool developed for Rincon Consultants that automates species-occurrence analysis and supports CEQA environmental review workflows.**"
+  
+description: > 
+  A Streamlit-based biodiversity reporting tool developed for Rincon Consultants that automates species-occurrence analysis and supports CEQA environmental review workflows.
+  
 links: 
   - icon: github
     name: GitHub Project
     url: https://github.com/bioweavers
-subtitle: ""
+
 title-block-banner: title-banner-image-light-blue.png
 title-block-banner-overlay: true
+
 page-layout: full
+
 format:
   closeread-html:
     theme: ../../styles.scss
@@ -33,6 +43,7 @@ format:
       narrative-text-color-sidebar: "#333333"
       narrative-font-family: "Montserrat, sans-serif"
       narrative-font-size: 1em
+      
 editor_options: 
   chunk_output_type: console
 ---

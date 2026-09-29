@@ -1,11 +1,9 @@
 # any options specified here will apply to all posts 
 
 author:
-  - given: Melannie
-  - family: Moreno Rolón
-  - url: https://mmorenorolon.github.io/
-  - affiliation: The Bren School of Environmental Science & Managment @ UCSB
-  - affiliation-url: https://bren.ucsb.edu/
+  given: Melannie
+  family: Moreno Rolón
+  url: https://mmorenorolon.github.io/
   
 title-block-banner: true
 
