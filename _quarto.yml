@@ -19,7 +19,7 @@ website:
         href: index.qmd
       - text: ABOUT
         href: about.qmd
-      - text: MY PROJECTS
+      - text: PROJECTS
         href: posts.qmd
       - text: RESUME
         href: Resume_MelannieMoreno_2026.pdf
