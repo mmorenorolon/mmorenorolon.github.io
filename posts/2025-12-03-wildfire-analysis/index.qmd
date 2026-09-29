@@ -17,7 +17,7 @@ categories:
 description: >
   Integration of remote Sensing and demographic data to examinine wildfire impacts and community vulnerability.
   
-title-block-banner: title-banner.png
+title-block-banner: title-banner-blue.png
 
 title-block-banner-overlay: true
 
