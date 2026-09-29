@@ -26,6 +26,7 @@ title-block-banner-overlay: true
 page-layout: full
 format:
   closeread-html:
+    theme: ../../styles.scss
     cr-style:
       section-background-color: "#FAF7F2"
       narrative-background-color-sidebar: "#FAF7F2"
