@@ -27,6 +27,10 @@ $link-hover-decoration: underline;
 $code-bg: #F3E8E9;        // inline code background color
 $code-color: $vividred;   // inline code text color
 
+// Code block-size
+$codeblock-bg: #F8F6F3;
+$codeblock-border: #DDD6CF;
+
 // Fonts
 
 /*-- scss:rules --*/
@@ -57,24 +61,17 @@ $code-color: $vividred;   // inline code text color
   color: $vividred;
   overflow: hidden;
   white-space: nowrap;
-  border-right: 0.15em solid $vividred;
   width: 0;
   opacity: 0;
   animation:
-    fadein 1.5s ease-in forwards,
     typing 2.5s steps(30, end) 1.5s forwards,
-    blink 0.75s step-end infinite 4s;
+    fadein 1.5s ease-in forwards,;
 }
 
 /* Keyframes */
 @keyframes typing {
   from { width: 0 }
   to   { width: 100% }
-}
-
-@keyframes blink {
-  from, to { border-color: transparent }
-  50%      { border-color: $vividred }
 }
 
 @keyframes fadein {
@@ -234,7 +231,7 @@ a:hover {
 /* Tag-style element used for individual skills. */
 .pill {
   display: inline-block; // allows pill-like inline stacking
-  background-color: $body-bg; // match .box background
+  background-color: transparent; // match .box background
   border: 1px solid #e0d9cf; // subtle border
   padding: 0.25em 0.6em; // pill padding
   border-radius: 12px; // rounded shape
@@ -284,4 +281,26 @@ a:hover {
   text-align: center;
   padding: 0.5em 0 0.5em 0;
   margin-bottom: 0.5em;
+}
+
+/* Code box (database page)*/
+.code-box {
+  padding: 1.5rem;
+  border: 1px solid $codeblock-border;
+  border-radius: 12px;
+  background-color: $codeblock-bg;
+  overflow-x: auto;
+  max-width: 600px;
+  margin: 2rem auto;
+  pre {
+    margin: 0;
+    text-align: left;
+  }
+  
+  code {
+    font-family: "Fira Code", monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
 }
