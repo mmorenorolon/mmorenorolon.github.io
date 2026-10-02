@@ -1,5 +1,0 @@
----
-title: "quarto-lab"
-format: closeread-html
----
-
