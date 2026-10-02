@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.melanniemoreno.com/quarto-lab.html</loc>
-    <lastmod>2026-02-12T22:11:28.902Z</lastmod>
+    <loc>https://www.melanniemoreno.com/posts.html</loc>
+    <lastmod>2026-09-10T19:21:31.258Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.melanniemoreno.com/posts/2026-09-04-waterquality-db/index.html</loc>
+    <lastmod>2026-10-02T07:55:30.904Z</lastmod>
   </url>
   <url>
     <loc>https://www.melanniemoreno.com/posts/2025-12-06-aquaculture-suitability/index.html</loc>
@@ -35,13 +39,5 @@
   <url>
     <loc>https://www.melanniemoreno.com/posts/2026-09-05-bioweaver-tool/index.html</loc>
     <lastmod>2026-09-29T16:14:15.339Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.melanniemoreno.com/posts.html</loc>
-    <lastmod>2026-09-10T19:21:31.258Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.melanniemoreno.com/posts/2026-09-04-waterquality-db/index.html</loc>
-    <lastmod>2026-10-02T07:55:30.904Z</lastmod>
   </url>
 </urlset>
