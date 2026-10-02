@@ -53,7 +53,7 @@ Recent graduate with a <strong>Master in Environmental Data Science</strong> fro
 
 The Bio Weaver tool is a spatial data application that helps explore biodiversity data in California.
 
-*Python • GIS • Data Engineering • Reproducible Workflows*
+*<span class="pill">Python</span> • <span class="pill">GIS</span> • <span class="pill">Data Engineering</span> • <span class="pill">Reproducible Workflows</span>*
 
 [View Project →](posts/2026-09-05-bioweaver-tool/index.qmd){.btn .btn-secondary role="button"}
 :::
@@ -85,23 +85,23 @@ Here is some of my other work!
 :::: {.home-grid-container}
 ::: {.home-grid}
 ::: {.home-grid-item}
-![](img/thumb-storm.png){.home-thumb}<br>
+![](img/thumb-fire.png){.home-thumb}<br>
 
-### Puerto Rico Storm Profile Infographic
-Designed a storm‑risk infographic used to communicate hazard exposure to non‑technical audiences.
+### Geospatial Analysis of the 2025 LA Wildfires
+Combined remote sensing, GIS, and environmental justice data to evaluate wildfire burn severity and community vulnerability following the Eaton and Palisades fires.
 
-<br><br>
-[View Project →](posts/2026-03-09-pr-storms-infographic/index.qmd){.btn .btn-secondary role="button"}
+<br>
+[View Project →](posts/2025-12-03-wildfire-analysis/index.qmd){.btn .btn-secondary role="button"}
 :::
 ::: {.home-grid-item}
 
 ![Photo by <a href="https://unsplash.com/@hansonluu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hanson Lu</a> on <a href="https://unsplash.com/photos/aerial-photography-of-white-frames-on-top-of-water-eUfnha6ev9g?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](img/thumb-water.png){.home-thumb}
 
-### SF Bay Water Quality Database
+### San Francisco Bay Water Quality Database
 Built a relational water‑quality database enabling fast queries for environmental monitoring.
 
-<br><br>
-[View Project →](posts.qmd){.btn .btn-secondary role="button"}
+<br>
+[View Project →](posts/2026-09-04-waterquality-db/index.qmd){.btn .btn-secondary role="button"}
 :::
 ::: {.home-grid-item}
 
@@ -110,7 +110,7 @@ Built a relational water‑quality database enabling fast queries for environmen
 ### Aquaculture Suitability Analysis
 Modeled coastal suitability for aquaculture using spatial data and environmental constraints.
 
-<br><br>
+<br>
 
 [View Project →](posts/2025-12-06-aquaculture-suitability/index.qmd){.btn .btn-secondary role="button"}
 :::
